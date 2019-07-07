@@ -1,25 +1,19 @@
 var createError = require('http-errors');
+var cors = require('cors');
 var express = require('express');
 var path = require('path');
+const session = require('express-session');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const knex = require('knex');
-
-const db = knex({
-  client: 'pg',
-  connection: {
-    host : '127.0.0.1',
-    user : 'shuttlego',
-    password : '1234',
-    database : 'shuttlego'
-  },
-});
 
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
