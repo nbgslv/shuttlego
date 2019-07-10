@@ -1,7 +1,7 @@
 const getTableData = (req, res, db) => {
-  const { fields, tableName } = req.body;
-  const selectFields = Object.keys(fields).length === 0 ? '*' : fields;
-  db.select(selectFields).from(tableName)
+  const { tableName } = req.params;
+  console.log(req.params);
+  db.select('*').from(tableName)
     .then((items) => {
       if (items.length) {
         res.json(items);
@@ -9,7 +9,22 @@ const getTableData = (req, res, db) => {
         res.json({ dataExists: 'false' });
       }
     })
-    .catch(err => res.status(400).json({ dbError: 'db error' }));
+    .catch(err => res.status(400).json({ dbError: err }));
+};
+
+const getTableDataFields = (req, res, db) => {
+  const { fields, tableName } = req.headers;
+  console.log(fields);
+  console.log(tableName);
+  db.select(fields).from(tableName)
+    .then((items) => {
+      if (items.length) {
+        res.json(items);
+      } else {
+        res.json({ dataExists: 'false' });
+      }
+    })
+    .catch(err => res.status(400).json({ dbError: err }));
 };
 
 const postTableData = (req, res, db) => {
@@ -19,7 +34,7 @@ const postTableData = (req, res, db) => {
     .then((item) => {
       res.json(item);
     })
-    .catch(err => res.status(400).json({ dbError: 'db error' }));
+    .catch(err => res.status(400).json({ dbError: err }));
 };
 
 const putTableData = (req, res, db) => {
@@ -29,7 +44,7 @@ const putTableData = (req, res, db) => {
     .then((item) => {
       res.json(item);
     })
-    .catch(err => res.status(400).json({ dbError: 'db error' }));
+    .catch(err => res.status(400).json({ dbError: err }));
 };
 
 const deleteTableData = (req, res, db) => {
@@ -38,11 +53,12 @@ const deleteTableData = (req, res, db) => {
     .then(() => {
       res.json({ delete: 'true' });
     })
-    .catch(err => res.status(400).json({ dbError: 'db error' }));
+    .catch(err => res.status(400).json({ dbError: err }));
 };
 
 module.exports = {
   getTableData,
+  getTableDataFields,
   postTableData,
   putTableData,
   deleteTableData,
