@@ -1,23 +1,54 @@
-var createError = require('http-errors');
-var cors = require('cors');
-var express = require('express');
-var path = require('path');
+
+
+const express = require('express');
+
+const cors = require('cors');
+const path = require('path');
+const createError = require('http-errors');
 const session = require('express-session');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const helmet = require('helmet');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const knex = require('knex');
 
-var indexRouter = require('./routes/index');
-var adminRouter = require('./routes/admin');
-var usersRouter = require('./routes/users');
+const db = knex({
+  client: 'pg',
+  connection: {
+    host : '127.0.0.1',
+    user : 'shuttlego',
+    password : '1234',
+    database : 'shuttlego',
+  },
+});
 
-var app = express();
+const main = require('./controllers/main');
 
-app.use(cors());
+const indexRouter = require('./routes/index');
+const adminRouter = require('./routes/admin');
+const usersRouter = require('./routes/users');
+
+const app = express();
+
+const whitelist = ['http://localhost:3001'];
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+app.use(helmet());
+app.use(cors(corsOptions));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+app.get('/addGuest', (req, res, next) => {
+  res.render('index', { title: 'Express' });
+});
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -35,7 +66,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
