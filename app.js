@@ -22,7 +22,7 @@ const db = knex({
 });
 
 const mainController = require('./controllers/main');
-const crudRouter = require('././routes/crud');
+// const crudRouter = require('././routes/crud');
 const indexRouter = require('./routes/index');
 const adminRouter = require('./routes/admin');
 const usersRouter = require('./routes/users');
@@ -55,7 +55,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 app.use('/users', usersRouter);
-app.use('/crud', crudRouter);
+// app.use('/crud', crudRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

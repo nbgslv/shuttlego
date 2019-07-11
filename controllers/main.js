@@ -1,7 +1,6 @@
 const getTableData = (req, res, db) => {
-  const { tableName } = req.params;
-  console.log(req.params);
-  db.select('*').from(tableName)
+  const { table } = req.params;
+  db.select('*').from(table)
     .then((items) => {
       if (items.length) {
         res.json(items);
@@ -13,10 +12,9 @@ const getTableData = (req, res, db) => {
 };
 
 const getTableDataFields = (req, res, db) => {
-  const { fields, tableName } = req.headers;
-  console.log(fields);
-  console.log(tableName);
-  db.select(fields).from(tableName)
+  const { fields, table } = req.params;
+  console.log(table);
+  db.select(JSON.stringify(fields).replace(/"/g, '').split(',')).from(table)
     .then((items) => {
       if (items.length) {
         res.json(items);
