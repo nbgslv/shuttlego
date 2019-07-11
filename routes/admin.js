@@ -12,7 +12,7 @@ router.post('/admin/register', (req, res) => {
     room, first_name, last_name, check_in_date, check_out_date,
   } = req.body;
   const verif_code = Math.floor(1000 + Math.random() * 9000);
-  db('users').insert({
+  dbconnect('users').insert({
     room,
     first_name,
     last_name,

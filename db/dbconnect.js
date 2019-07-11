@@ -1,6 +1,6 @@
 const knex = require('knex');
 
-const db = knex({
+const dbconnect = knex({
   client: 'pg',
   connection: {
     host: '127.0.0.1',
@@ -10,4 +10,4 @@ const db = knex({
   },
 });
 
-module.exports = db;
+module.exports = dbconnect;

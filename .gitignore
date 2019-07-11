@@ -71,8 +71,8 @@ jspm_packages/
 .dynamodb/
 
 # Windows
-Thumbs.db
-ehthumbs.db
+Thumbs.dbconnect
+ehthumbs.dbconnect
 Desktop.ini
 
 # Linux
