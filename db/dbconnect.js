@@ -4,7 +4,7 @@ const dbconnect = knex({
   client: 'pg',
   connection: {
     host: '127.0.0.1',
-    user: 'shuttlego',
+    user: 'postgres',
     password: '1234',
     database: 'shuttlego',
   },
