@@ -13,7 +13,6 @@ const getTableData = (req, res, db) => {
 
 const getTableDataFields = (req, res, db) => {
   const { fields, table } = req.params;
-  console.log(table);
   db.select(JSON.stringify(fields).replace(/"/g, '').split(',')).from(table)
     .then((items) => {
       if (items.length) {
@@ -37,6 +36,10 @@ const postTableData = (req, res, db) => {
 
 const putTableData = (req, res, db) => {
   const { fields, tableName, id } = req.body;
+  console.log(req.body);
+  console.log(tableName);
+  console.log(fields);
+  console.log(id);
   db(tableName).where({ id }).update(fields)
     .returning('*')
     .then((item) => {
