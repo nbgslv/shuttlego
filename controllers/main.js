@@ -36,10 +36,6 @@ const postTableData = (req, res, db) => {
 
 const putTableData = (req, res, db) => {
   const { fields, tableName, id } = req.body;
-  console.log(req.body);
-  console.log(tableName);
-  console.log(fields);
-  console.log(id);
   db(tableName).where({ id }).update(fields)
     .returning('*')
     .then((item) => {
