@@ -46,8 +46,8 @@ const putTableData = (req, res, db) => {
 };
 
 const deleteTableData = (req, res, db) => {
-  const { tableName, id } = req.body;
-  db(tableName).where({ id }).del()
+  const { table, id } = req.params;
+  db(table).where({ id }).del()
     .then(() => {
       res.json({ delete: 'true' });
     })
