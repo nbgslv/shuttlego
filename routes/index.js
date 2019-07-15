@@ -1,6 +1,6 @@
 const express = require('express');
 const { parseFromTimeZone } = require('date-fns-timezone');
-const { sanitize, check, body, validationResult } = require('express-validator');
+const { sanitize, body, validationResult } = require('express-validator');
 const dbCont = require('../controllers/main');
 const db = require('../db/dbconnect');
 
@@ -15,8 +15,15 @@ router.get('/crud/:table/:fields', (req, res) => dbCont.getTableDataFields(req, 
 router.post('/crud', (req, res) => dbCont.postTableData(req, res, db));
 router.post('/crud/guests', [
   body('room', 'Room number is not defined').isInt({ min: 201, max: 338 }),
-  body(['first_name', 'last_name'], 'First Name or Last Name are not defined').isAlpha(),
-  body(['check_in_date', 'check_out_date'], 'Error in parsing check-n or check-out dates').isISO8601(),
+  body(['first_name', 'last_name'], 'First Name or Last Name are not defined')
+    .if(body('first_name').exists({ checkFalsy: false }))
+    .isAlpha(),
+  body('check_in_date', 'Check-in date is a required field')
+    .exists()
+    .isISO8601(),
+  body('check_out_date', 'Error in parsing check-n or check-out dates')
+    .if(body('check_out_date').exists())
+    .isISO8601(),
   sanitize(['first_name', 'last_name']).trim(),
 ],
 (req, res) => {
