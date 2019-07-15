@@ -26,12 +26,30 @@ const getTableDataFields = (req, res, db) => {
 
 const postTableData = (req, res, db) => {
   const { fields, tableName } = req.body;
+  // if (tableName === 'guests') this.postGuest(req, res, db);
   db(tableName).insert(fields)
     .returning('*')
     .then((item) => {
       res.json(item);
     })
     .catch(err => res.status(400).json({ dbError: err }));
+};
+
+const postGuest = (req, res, db) => {
+  console.log('postGuest');
+  const { fields, tableName } = req.body;
+  console.log(req);
+  console.log(res);
+  db(tableName).insert(fields)
+    .returning('*')
+    .then((item) => {
+      console.log(item);
+      res.json(item);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(400).json({ dbError: err });
+    });
 };
 
 const putTableData = (req, res, db) => {
@@ -57,6 +75,7 @@ module.exports = {
   getTableData,
   getTableDataFields,
   postTableData,
+  postGuest,
   putTableData,
   deleteTableData,
 };
