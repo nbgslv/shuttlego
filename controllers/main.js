@@ -1,3 +1,5 @@
+const addGuest = require('./addGuest');
+
 const getTableData = (req, res, db) => {
   const { table } = req.params;
   db.select('*').from(table)
@@ -36,15 +38,30 @@ const postTableData = (req, res, db) => {
 };
 
 const postGuest = (req, res, db) => {
-  console.log('postGuest');
-  const { fields, tableName } = req.body;
-  console.log(req);
-  console.log(res);
-  db(tableName).insert(fields)
+  const {
+    room,
+    first_name,
+    last_name,
+    check_in_date,
+    check_out_date,
+    session_time,
+    tableName,
+  } = req.body;
+  console.log(req.body);
+  const verf_code = Math.floor(1000 + Math.random() * 9000);
+  db(tableName).insert({
+    room,
+    first_name,
+    last_name,
+    check_in_date,
+    check_out_date,
+    session_time,
+    verf_code,
+  })
     .returning('*')
-    .then((item) => {
-      console.log(item);
-      res.json(item);
+    .then((guest) => {
+      addGuest(guest[0]);
+      res.json(guest);
     })
     .catch(err => {
       console.log(err);
@@ -57,6 +74,7 @@ const putTableData = (req, res, db) => {
   db(tableName).where({ id }).update(fields)
     .returning('*')
     .then((item) => {
+
       res.json(item);
     })
     .catch(err => res.status(400).json({ dbError: err }));

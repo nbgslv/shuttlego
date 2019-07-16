@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/addGuest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities/printer.js" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/printer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="276" column="71" lean-forward="true" selection-start-line="276" selection-start-column="71" selection-end-line="276" selection-end-column="71" />
+            <state relative-caret-position="180">
+              <caret line="199" column="6" selection-start-line="199" selection-start-column="6" selection-end-line="199" selection-end-column="6" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -28,13 +32,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/SecondStep.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/addGuest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1343">
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="237">
+              <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utilities/printer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1656">
+              <caret line="69" selection-start-line="69" selection-start-column="3" selection-end-line="69" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -42,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-114">
-              <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+            <state relative-caret-position="120">
+              <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -51,8 +62,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="17" column="78" selection-start-line="17" selection-start-column="78" selection-end-line="17" selection-end-column="78" />
+            <state relative-caret-position="151">
+              <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utilities/validator.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="5" selection-start-column="5" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/admin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="14" column="29" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -69,9 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>flightRecords</find>
-      <find>getFlightsData</find>
-      <find>flightData</find>
       <find>setTableRows</find>
       <find>flightTableRows</find>
       <find>TableComp</find>
@@ -99,6 +134,9 @@
       <find>console.</find>
       <find>date</find>
       <find>DateFnsUtils</find>
+      <find>utcToZonedTime</find>
+      <find>append</find>
+      <find>format</find>
     </findStrings>
     <replaceStrings>
       <replace>active</replace>
@@ -106,6 +144,7 @@
       <replace>router</replace>
       <replace>dbCont</replace>
       <replace>const</replace>
+      <replace>print</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Owner\WebstormProjects\shuttlego\frontend\node_modules\react-phone-input-mui</dir>
@@ -113,7 +152,7 @@
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/frontend" value="detached-HEAD-fix" />
@@ -124,7 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/admin/src/components/Sidebar/components/SidebarLink/SidebarLinkContainer.js" />
         <option value="$PROJECT_DIR$/frontend/admin/src/components/Sidebar/components/SidebarLink/SidebarLinkView.js" />
         <option value="$PROJECT_DIR$/frontend/admin/src/components/Widget/WidgetContainer.js" />
         <option value="$PROJECT_DIR$/frontend/admin/src/components/Notification/Notification.js" />
@@ -168,13 +206,14 @@
         <option value="$PROJECT_DIR$/frontend/src/components/Forms/Register/FirstStep.js" />
         <option value="$PROJECT_DIR$/frontend/src/containers/Admin/AdminContainer.js" />
         <option value="$PROJECT_DIR$/frontend/src/containers/Admin/AdminRoutes.js" />
-        <option value="$PROJECT_DIR$/utilities/printer.js" />
         <option value="$PROJECT_DIR$/utilities/validator.js" />
         <option value="$PROJECT_DIR$/routes/admin.js" />
-        <option value="$PROJECT_DIR$/controllers/main.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/utilities/printer.js" />
+        <option value="$PROJECT_DIR$/controllers/main.js" />
+        <option value="$PROJECT_DIR$/controllers/addGuest.js" />
       </list>
     </option>
   </component>
@@ -189,10 +228,11 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="570" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="382" />
+    <option name="y" value="276" />
+    <option name="width" value="655" />
+    <option name="height" value="775" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
@@ -223,35 +263,72 @@
           <expand>
             <path>
               <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\nbgsl\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
             <path>
               <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\nbgsl\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\nbgsl\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\nbgsl\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\nbgsl\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="assets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\nbgsl\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="containers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="containers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Admin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="containers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Admin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Guests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="containers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="App" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Utilities" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="utilities" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -328,16 +405,17 @@
       <workItem from="1562972241461" duration="486000" />
       <workItem from="1562974436861" duration="2949000" />
       <workItem from="1563081409657" duration="6138000" />
+      <workItem from="1563225018222" duration="13186000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="399963000" />
+    <option name="totallyTimeSpent" value="413089000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1296" height="744" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18572372" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1836248" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -349,7 +427,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.31587562" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -409,7 +487,6 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/admin/src/store/reducers.js" />
     <entry file="file://$PROJECT_DIR$/frontend/admin/src/index.js" />
     <entry file="file://$PROJECT_DIR$/frontend/admin/src/components/AppContainer.js" />
     <entry file="file://$PROJECT_DIR$/frontend/admin/src/components/Layout/LayoutContainer.js" />
@@ -583,13 +660,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utilities/printer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/crud.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
@@ -599,7 +669,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/admin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="336">
           <caret line="14" column="29" selection-end-column="35" />
         </state>
       </provider>
@@ -607,38 +677,52 @@
     <entry file="file://$PROJECT_DIR$/utilities/validator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="120">
           <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="17" column="78" selection-start-line="17" selection-start-column="78" selection-end-line="17" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-114">
-          <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="276" column="71" lean-forward="true" selection-start-line="276" selection-start-column="71" selection-end-line="276" selection-end-column="71" />
+        <state relative-caret-position="180">
+          <caret line="199" column="6" selection-start-line="199" selection-start-column="6" selection-end-line="199" selection-end-column="6" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/printer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1656">
+          <caret line="69" selection-start-line="69" selection-start-column="3" selection-end-line="69" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="62" column="22" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/addGuest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
         </state>
       </provider>
     </entry>

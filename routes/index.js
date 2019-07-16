@@ -1,5 +1,5 @@
 const express = require('express');
-const { parseFromTimeZone } = require('date-fns-timezone');
+const { parse, format } = require('date-fns');
 const { sanitize, body, validationResult } = require('express-validator');
 const dbCont = require('../controllers/main');
 const db = require('../db/dbconnect');
@@ -28,18 +28,15 @@ router.post('/crud/guests', [
 ],
 (req, res) => {
   const validationErros = validationResult(req);
-  console.log(req.body);
-  console.log(validationErros);
-  console.log(!validationErros.isEmpty());
+  // console.log(req.body);
+  // console.log(validationErros);
+  // console.log(!validationErros.isEmpty());
   if (!validationErros.isEmpty()) {
-    let { check_in_date: checkInDate, check_out_date: checkoutDate } = req.body;
-    console.log(checkInDate);
-    console.log(checkoutDate);
-    if (checkInDate === undefined || validationErros.findIndex(err => err.param === 'check_in_date')) checkInDate = new Date();
-    checkInDate = parseFromTimeZone(checkInDate);
-    if (checkoutDate === undefined || validationErros.findIndex(err => err.param === 'check_out_date')) checkoutDate = new Date();
-    checkoutDate = parseFromTimeZone(checkoutDate);
+    // console.log(res);
+    return res.status(422).json({ errors: validationErros.array() });
   }
+  let { check_out_date: checkoutDate } = req.body;
+  if (checkoutDate === undefined || validationErros.findIndex(err => err.param === 'check_out_date')) checkoutDate = new Date();
   dbCont.postGuest(req, res, db);
 });
 router.put('/crud', (req, res) => dbCont.putTableData(req, res, db));

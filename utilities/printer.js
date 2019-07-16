@@ -1,36 +1,70 @@
 const ThermalPrinter = require('node-thermal-printer').printer;
 const PrinterTypes = require('node-thermal-printer').types;
 
-// let printer = new ThermalPrinter({
-//                                    type: PrinterTypes.STAR,                                  // Printer type: 'star' or 'epson'
-//                                    interface: 'tcp://10.0.11.238',                       // Printer interface
-//                                    characterSet: 'SLOVENIA',                                 // Printer character set - default: SLOVENIA
-//                                    removeSpecialCharacters: false,                           // Removes special characters - default: false
-//                                    lineCharacter: "=",                                       // Set character for lines - default: "-"
-//                                    options:{                                                 // Additional options
-//                                      timeout: 5000                                           // Connection timeout (ms) [applicable only for network printers] - default: 3000
-//                                    }
-//                                  });
-//
-// let isConnected = await printer.isPrinterConnected()
-//   .then(res => console.log(res));
-
-async function testConnection() {
-  let printer = new ThermalPrinter({
-    type: PrinterTypes.EPSON,                                 // Printer type: 'star' or 'epson'
-    interface: 'tcp://10.0.11.238',                            // Printer interface
-    characterSet: 'SLOVENIA',                                 // Printer character set - default: SLOVENIA
-    removeSpecialCharacters: false,                           // Removes special characters - default: false
-    lineCharacter: '=',                                       // Set character for lines - default: "-"
-    options: {                                                 // Additional options
-      timeout: 5000,                                           // Connection timeout (ms) [applicable only for network printers] - default: 3000
+async function printSlip(guestID, verfCode, sessionEnd) {
+  const printer = new ThermalPrinter({
+    type: PrinterTypes.EPSON,
+    interface: 'tcp://10.0.11.238',
+    characterSet: 'SLOVENIA',
+    removeSpecialCharacters: false,
+    lineCharacter: '=',
+    options: {
+      timeout: 5000,
     },
   });
 
-  // await printer.printImage('./pig.png');
-  // printer.cut();
-  // printer.execute();
+  printer.alignCenter();
+  printer.setTextSize(2, 2);
+  printer.print('Welcome');
+  printer.newLine();
+  printer.print('To Sadot');
+  printer.newLine();
+  printer.print('Hotel!');
+  printer.newLine();
+  printer.newLine();
+  printer.newLine();
+  printer.setTextSize(1, 1);
+  printer.print('To register to your');
+  printer.newLine();
+  printer.print(' shuttle, you may');
+  printer.newLine();
+  printer.print('scan the following QR');
+  printer.newLine();
+  printer.newLine();
+  printer.setTextSize(2, 2);
+  printer.printQR(`http://localhost:3000/${guestID}`, {
+    cellSize: 6,
+    correction: 'Q',
+    model: 2,
+  });
+  printer.setTextSize(1, 1);
+  printer.newLine();
+  printer.setTextNormal();
+  printer.print('or enter to following url:');
+  printer.newLine();
+  printer.print('http://localhost:3000');
+  printer.newLine();
+  printer.newLine();
+  printer.setTextSize(1, 1);
+  printer.print('Your verification');
+  printer.newLine();
+  printer.print('code is:');
+  printer.setTextSize(2, 2);
+  printer.newLine();
+  printer.newLine();
+  printer.print(`${verfCode}`);
+  printer.newLine();
+  printer.newLine();
+  printer.setTextNormal();
+  printer.print('Your session is valid until:');
+  printer.newLine();
+  printer.print(`${sessionEnd}`);
+  printer.newLine();
+  printer.print('For any assistance, please contact the');
+  printer.newLine();
+  printer.print('reception by dialing 0 from your room.');
+  printer.cut();
+  printer.execute();
 }
 
-
-testConnection();
+module.exports = printSlip;
