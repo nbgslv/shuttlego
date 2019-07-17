@@ -1,4 +1,4 @@
-const addGuest = require('./addGuest');
+// const addGuest = require('./addGuest');
 
 const getTableData = (req, res, db) => {
   const { table } = req.params;
@@ -28,6 +28,7 @@ const getTableDataFields = (req, res, db) => {
 
 const postTableData = (req, res, db) => {
   const { fields, tableName } = req.body;
+  console.log(req.body.check_in_date, 'date received in router');
   // if (tableName === 'guests') this.postGuest(req, res, db);
   db(tableName).insert(fields)
     .returning('*')
@@ -60,7 +61,7 @@ const postGuest = (req, res, db) => {
   })
     .returning('*')
     .then((guest) => {
-      addGuest(guest[0]);
+      // addGuest(guest[0]);
       res.json(guest);
     })
     .catch(err => {

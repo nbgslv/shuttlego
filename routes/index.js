@@ -27,6 +27,7 @@ router.post('/crud/guests', [
     .optional(),
 ],
 (req, res) => {
+  console.log(req.body.check_in_date, 'date received in router');
   const validationErros = validationResult(req);
   // console.log(req.body);
   // console.log(validationErros);
@@ -35,8 +36,21 @@ router.post('/crud/guests', [
     // console.log(res);
     return res.status(422).json({ errors: validationErros.array() });
   }
-  let { check_out_date: checkoutDate } = req.body;
-  if (checkoutDate === undefined || validationErros.findIndex(err => err.param === 'check_out_date')) checkoutDate = new Date();
+  // let { check_out_date: checkoutDate } = req.body;
+  // console.log(validationErros);
+  // console.log(validationErros.findIndex((err) => {
+  //   if (Object.prototype.hasOwnProperty.call(err, 'param')) {
+  //     return err.param === 'check_out_date';
+  //   }
+  //   return false;
+  // }));
+  // if (checkoutDate === undefined || validationErros.findIndex((err) => {
+  //   if (Object.prototype.hasOwnProperty.call(err, 'param')) {
+  //     return err.param === 'check_out_date';
+  //   }
+  //   return false;
+  // })) checkoutDate = new Date();
+
   dbCont.postGuest(req, res, db);
 });
 router.put('/crud', (req, res) => dbCont.putTableData(req, res, db));
