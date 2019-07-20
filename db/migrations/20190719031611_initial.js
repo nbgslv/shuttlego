@@ -11,10 +11,6 @@ exports.up = (knex) => {
         table.dateTime('check_out_date');
         table.string('email');
         table.string('phone_number', 30);
-        table.integer('session_id');
-        // table.foreign('session_id')
-        //   .references('session_id')
-        //   .inTable('sessions');
 
         table.timestamps(true, true);
       }),
@@ -22,28 +18,25 @@ exports.up = (knex) => {
       .createTable('sessions', (table) => {
         table.increments('session_id').primary();
         table.dateTime('session_time').notNullable();
-        table.dateTime('shuttle_date_time').notNullable();
-        table.integer('terminal').notNullable();
+        table.dateTime('shuttle_date_time');
+        table.integer('terminal');
         table.integer('large_bags');
         table.integer('medium_bags');
         table.integer('small_bags');
-        table.boolean('special_bag').notNullable();
+        table.boolean('special_bag');
         table.string('special_bag_desc');
-        table.boolean('wakeup_call').notNullable();
+        table.boolean('wakeup_call');
         table.timestamp('wakeup_time');
-        table.boolean('bbox').notNullable();
+        table.boolean('bbox');
         table.integer('bbox_number');
-        table.integer('guest_id');
-        // table.foreign('guest_id')
-        //   .references('guest_id')
-        //   .inTable('guests');
+        table.integer('guest_id').notNullable();
 
         table.timestamps(true, true);
       }),
   ]);
 };
 
-exports.down = (knex) => Promise.all([
+exports.down = knex => Promise.all([
   knex.schema.dropTable('guests'),
   knex.schema.dropTable('sessions'),
 ]);
