@@ -1,8 +1,4 @@
 const express = require('express');
-const { parse, format } = require('date-fns');
-const { sanitize, body, validationResult } = require('express-validator');
-const dbCont = require('../controllers/main');
-const db = require('../db/dbconnect');
 
 const router = express.Router();
 
@@ -10,50 +6,5 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   res.render('index', { title: 'Express' });
 });
-router.get('/crud/:table', (req, res) => dbCont.getTableData(req, res, db));
-router.get('/crud/:table/:fields', (req, res) => dbCont.getTableDataFields(req, res, db));
-router.post('/crud', (req, res) => dbCont.postTableData(req, res, db));
-router.post('/crud/guests', [
-  body('room', 'Room number is not defined').isInt({ min: 201, max: 338 }),
-  body(['first_name', 'last_name'], 'First Name or Last Name are not defined')
-    .isAlpha()
-    .optional(),
-  sanitize(['first_name', 'last_name']).trim(),
-  body('check_in_date', 'Check-in date is a required field')
-    .exists()
-    .isISO8601(),
-  body('check_out_date', 'Error in parsing check-n or check-out dates')
-    .isISO8601()
-    .optional(),
-],
-(req, res) => {
-  console.log(req.body.check_in_date, 'date received in router');
-  const validationErros = validationResult(req);
-  // console.log(req.body);
-  // console.log(validationErros);
-  // console.log(!validationErros.isEmpty());
-  if (!validationErros.isEmpty()) {
-    // console.log(res);
-    return res.status(422).json({ errors: validationErros.array() });
-  }
-  // let { check_out_date: checkoutDate } = req.body;
-  // console.log(validationErros);
-  // console.log(validationErros.findIndex((err) => {
-  //   if (Object.prototype.hasOwnProperty.call(err, 'param')) {
-  //     return err.param === 'check_out_date';
-  //   }
-  //   return false;
-  // }));
-  // if (checkoutDate === undefined || validationErros.findIndex((err) => {
-  //   if (Object.prototype.hasOwnProperty.call(err, 'param')) {
-  //     return err.param === 'check_out_date';
-  //   }
-  //   return false;
-  // })) checkoutDate = new Date();
-
-  dbCont.postGuest(req, res, db);
-});
-router.put('/crud', (req, res) => dbCont.putTableData(req, res, db));
-router.delete('/crud/:table/:id', (req, res) => dbCont.deleteTableData(req, res, db));
 
 module.exports = router;

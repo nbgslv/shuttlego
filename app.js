@@ -1,5 +1,3 @@
-
-
 const express = require('express');
 
 const cors = require('cors');
@@ -9,21 +7,9 @@ const session = require('express-session');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const knex = require('knex');
 
-const db = knex({
-  client: 'pg',
-  connection: {
-    host: '127.0.0.1',
-    user: 'shuttlego',
-    password: '1234',
-    database: 'shuttlego',
-  },
-});
-
-const mainController = require('./controllers/main');
-// const crudRouter = require('././routes/crud');
 const indexRouter = require('./routes/index');
+const apiRouter = require('././routes/api');
 const adminRouter = require('./routes/admin');
 const usersRouter = require('./routes/users');
 
@@ -55,7 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 app.use('/users', usersRouter);
-// app.use('/crud', crudRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

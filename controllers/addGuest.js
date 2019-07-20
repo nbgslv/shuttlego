@@ -4,7 +4,7 @@ const setMinutes = require('date-fns/set_minutes');
 const addHours = require('date-fns/add_hours');
 const getHours = require('date-fns/get_hours');
 const format = require('date-fns/format');
-const printSlip = require('../utilities/printer');
+const printSlip = require('../helpers/printer');
 
 const addGuest = (guest) => {
   const {
