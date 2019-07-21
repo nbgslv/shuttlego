@@ -40,18 +40,25 @@ module.exports = {
       .catch(err => res.status(400).json({ dbError: err }));
   },
   update: (req, res) => {
-    const { id } = req.params;
+    const { guest_id } = req.params;
     const { data } = req.body;
-    db('guests').where({ id }).update(data)
+    console.log(data);
+    db('guests').where({ guest_id }).update(data)
       .returning('*')
       .then(item => res.status(200).json(item))
-      .catch(err => res.status(400).json({ dbError: err }));
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json({ dbError: err });
+      });
   },
   delete: (req, res) => {
     const { id } = req.params;
     db('guests').where({ id }).del()
       .then(() => res.status(200).json({ delete: 'true' }))
-      .catch(err => res.status(400).json({ dbError: err }));
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json({ dbError: err });
+      });
   },
 };
 

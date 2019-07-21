@@ -27,8 +27,8 @@ router.post('/guests', [
   }
   guestsController.insert(req, res);
 });
-router.put('/guests/:id', (req, res) => guestsController.update(req, res));
-router.delete('/guests/:id', (req, res) => guestsController.delete(req, res));
+router.put('/guests/:guest_id', (req, res) => guestsController.update(req, res));
+router.delete('/guests/:guest_id', (req, res) => guestsController.delete(req, res));
 
 // API Session Routes
 
