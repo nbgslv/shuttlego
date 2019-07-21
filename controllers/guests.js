@@ -4,7 +4,7 @@ const postInsert = require('./postInsertGuest');
 
 module.exports = {
   getAll: (req, res) => {
-    db.select('*').from('guests')
+    db.select('*').from('guests').join('sessions', 'sessions.guest_id', 'guests.guest_id')
       .then((items) => {
         if (items.length) {
           res.status(200)

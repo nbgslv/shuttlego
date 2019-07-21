@@ -9,6 +9,7 @@ exports.up = (knex) => {
         table.integer('room_number').notNullable();
         table.dateTime('check_in_date').notNullable();
         table.dateTime('check_out_date');
+        table.dateTime('session_time');
         table.string('email');
         table.string('phone_number', 30);
 
