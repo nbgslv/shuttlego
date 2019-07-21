@@ -18,7 +18,7 @@ exports.up = (knex) => {
     knex.schema
       .createTable('sessions', (table) => {
         table.increments('session_id').primary();
-        table.dateTime('session_time').notNullable();
+        table.string('session_time').notNullable();
         table.dateTime('shuttle_date_time');
         table.integer('terminal');
         table.integer('large_bags');
@@ -27,7 +27,7 @@ exports.up = (knex) => {
         table.boolean('special_bag');
         table.string('special_bag_desc');
         table.boolean('wakeup_call');
-        table.timestamp('wakeup_time');
+        table.string('wakeup_time');
         table.boolean('bbox');
         table.integer('bbox_number');
         table.integer('guest_id').notNullable();
@@ -38,6 +38,6 @@ exports.up = (knex) => {
 };
 
 exports.down = knex => Promise.all([
-  knex.schema.dropTable('guests'),
   knex.schema.dropTable('sessions'),
+  knex.schema.dropTable('guests'),
 ]);
