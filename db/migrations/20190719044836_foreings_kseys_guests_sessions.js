@@ -10,9 +10,9 @@ exports.up = function (knex) {
 };
 
 exports.down = function (knex) {
-  Promise.all([
-    knex.schema.alterTable('sessions', (table) => {
-      table.dropColumn('guest_id');
+  return Promise.all([
+    knex.schema.table('sessions', (table) => {
+      table.dropForeign(['guest_id'], 'sessions_guest_id_foreign');
     }),
   ]);
 };

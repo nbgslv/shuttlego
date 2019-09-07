@@ -2,6 +2,8 @@ module.exports = {
 
   development: {
     client: 'pg',
+    debug: true,
+    asyncStackTrace: true,
     version: '7.11.0',
     connection: {
       host: '127.0.0.1',

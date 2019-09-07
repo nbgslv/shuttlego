@@ -3,80 +3,25 @@
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/guests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20190719031611_initial.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20190719031611_initial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20190719044836_foreings_kseys_guests_sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20190719044836_foreings_kseys_guests_sessions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/seeds/data/guests.json" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds/data/guests.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/seeds/data/sessions.json" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds/data/sessions.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/verifCode.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/verifCode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/knexfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/knexfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.js" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/.tmp/" />
-    <ignored path="$PROJECT_DIR$/temp/" />
-    <ignored path="$PROJECT_DIR$/tmp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="449" column="47" selection-start-line="449" selection-start-column="47" selection-end-line="449" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/guests.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/seeds/data/guests.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="20" column="155" lean-forward="true" selection-start-line="20" selection-start-column="155" selection-end-line="20" selection-end-column="155" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/seeds/data/sessions.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="999" column="325" lean-forward="true" selection-start-line="999" selection-start-column="325" selection-end-line="999" selection-end-column="325" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/api.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -86,118 +31,15 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>tableHide</find>
-      <find>tablecomp</find>
-      <find>value</find>
-      <find>value=</find>
-      <find>icon</find>
-      <find>padding</find>
-      <find>372</find>
-      <find>classes.co</find>
-      <find>flag</find>
-      <find>shuttlego:server</find>
-      <find>shuttlego</find>
-      <find>3000</find>
-      <find>var</find>
-      <find>logo</find>
-      <find>app</find>
-      <find>main</find>
-      <find>widget</find>
-      <find>TableCo</find>
-      <find>console.</find>
-      <find>date</find>
-      <find>DateFnsUtils</find>
-      <find>utcToZonedTime</find>
-      <find>append</find>
-      <find>format</find>
-      <find>2019-04-23T12:41:50Z</find>
-      <find>crud</find>
-      <find>console</find>
-      <find>21:37</find>
-      <find>16:16</find>
-      <find>2018-12-07T08:58:20.000Z</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>active</replace>
-      <replace>callname</replace>
-      <replace>router</replace>
-      <replace>dbCont</replace>
-      <replace>const</replace>
-      <replace>print</replace>
-      <replace>api</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>C:\Users\Owner\WebstormProjects\shuttlego\frontend\node_modules\react-phone-input-mui</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/frontend" value="detached-HEAD-fix" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="SOFT" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/frontend/admin/src/store/index.js" />
-        <option value="$PROJECT_DIR$/frontend/admin/src/store/reducers.js" />
-        <option value="$PROJECT_DIR$/frontend/admin/src/pages/login/LoginContainer.js" />
-        <option value="$PROJECT_DIR$/frontend/admin/src/pages/login/LoginView.js" />
-        <option value="$PROJECT_DIR$/frontend/admin/src/pages/tables/Tables.js" />
-        <option value="$PROJECT_DIR$/frontend/admin/container/DBTablesView.js" />
-        <option value="$PROJECT_DIR$/frontend/admin/container/DBTablesConatiner.js" />
-        <option value="$PROJECT_DIR$/frontend/admin/components/Table.js" />
-        <option value="$PROJECT_DIR$/frontend/src/admin/container/DBTablesConatiner.js" />
-        <option value="$PROJECT_DIR$/frontend/src/containers/Admin/DBTables/DBTablesConatiner.js" />
-        <option value="$PROJECT_DIR$/frontend/src/index.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/Table/FlightsTable.js" />
-        <option value="$PROJECT_DIR$/frontend/src/containers/Routes.js" />
-        <option value="$PROJECT_DIR$/db.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/Table/DBTable.js" />
-        <option value="$PROJECT_DIR$/frontend/public/index.html" />
-        <option value="$PROJECT_DIR$/frontend/src/containers/App/App.js" />
-        <option value="$PROJECT_DIR$/routes/crud.js" />
-        <option value="$PROJECT_DIR$/db/dbconnect.js" />
-        <option value="$PROJECT_DIR$/frontend/src/containers/Admin/DBTables/DBTablesList.js" />
-        <option value="$PROJECT_DIR$/frontend/.eslintrc" />
-        <option value="$PROJECT_DIR$/frontend/src/containers/Admin/DBTables/tables.json" />
-        <option value="$PROJECT_DIR$/frontend/src/containers/Admin/DBTables/DBTablesContainer.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/Forms/Register/FirstStep.js" />
-        <option value="$PROJECT_DIR$/frontend/src/containers/Admin/AdminRoutes.js" />
-        <option value="$PROJECT_DIR$/utilities/validator.js" />
-        <option value="$PROJECT_DIR$/routes/admin.js" />
-        <option value="$PROJECT_DIR$/utilities/printer.js" />
-        <option value="$PROJECT_DIR$/controllers/main.js" />
-        <option value="$PROJECT_DIR$/frontend/src/containers/Admin/AdminContainer.js" />
-        <option value="$PROJECT_DIR$/frontend/src/index.css" />
-        <option value="$PROJECT_DIR$/knexfile.js" />
-        <option value="$PROJECT_DIR$/db/seeds/guests.js" />
-        <option value="$PROJECT_DIR$/models/dbconnect.js" />
-        <option value="$PROJECT_DIR$/models/sessions.js" />
-        <option value="$PROJECT_DIR$/models/guests.js" />
-        <option value="$PROJECT_DIR$/controllers/users.js" />
-        <option value="$PROJECT_DIR$/db/db.js" />
-        <option value="$PROJECT_DIR$/controllers/addGuest.js" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/routes/api/guests.js" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/helpers/verif_code.js" />
-        <option value="$PROJECT_DIR$/controllers/sessions.js" />
-        <option value="$PROJECT_DIR$/controllers/postInsertGuest.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/db/migrations/20190719044836_foreings_kseys_guests_sessions.js" />
-        <option value="$PROJECT_DIR$/db/migrations/20190719031611_initial.js" />
-        <option value="$PROJECT_DIR$/routes/api.js" />
-        <option value="$PROJECT_DIR$/controllers/guests.js" />
-        <option value="$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js" />
-      </list>
-    </option>
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="JsBowerSettings">
     <node-interpreter value="project" />
@@ -210,117 +52,9 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="382" />
-    <option name="y" value="276" />
-    <option name="width" value="655" />
-    <option name="height" value="775" />
-  </component>
+  <component name="ProjectId" id="1PxmCh8F68fTv5jIkcxHNes2be1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="shuttlego" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shuttlego" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shuttlego" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shuttlego" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="db" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="db" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="migrations" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="db" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="seeds" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="db" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="seeds" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="data" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="containers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="containers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Admin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="frontend" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="containers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Admin" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Guests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="shuttlego" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\Owner\WebstormProjects\shuttlego" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -395,33 +129,10 @@
       <workItem from="1563256108212" duration="16262000" />
       <workItem from="1563491923006" duration="43935000" />
       <workItem from="1563794536096" duration="10390000" />
+      <workItem from="1566824005962" duration="18144000" />
+      <workItem from="1566990426838" duration="90766000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="516399000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="744" extended-state="7" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1836248" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32405892" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.2871795" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24966443" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -432,20 +143,7 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -474,314 +172,6 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Table/DBTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Table/FlightsTable.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/containers/App/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/containers/Admin/DBTables/DBTablesRoutes.js" />
-    <entry file="file://$PROJECT_DIR$/frontend/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.editorconfig" />
-    <entry file="file://$PROJECT_DIR$/frontend/src/containers/Admin/DBTables/DBTablesList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="14" column="16" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/containers/Admin/DBTables/DBTablesContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="118" selection-start-line="118" selection-end-line="118" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/containers/Register.js" />
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Forms/Register/FirstStep.js" />
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Forms/Register/SecondStep.js" />
-    <entry file="file://$PROJECT_DIR$/frontend/src/containers/Admin/AdminRoutes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/Utilities/Date.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/crud.js" />
-    <entry file="file://$PROJECT_DIR$/routes/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="14" column="29" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/helpers/validator.js" />
-    <entry file="file://$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/SecondStep.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/helpers/printer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/FifthStep.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/FirstStep.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3264">
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/containers/Admin/DBTables/tables.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/containers/Admin/AdminContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="160" column="20" selection-start-line="160" selection-start-column="20" selection-end-line="160" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/knexfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/knex/src/seed/Seeder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="140" column="24" selection-start-line="140" selection-start-column="24" selection-end-line="140" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/guests.json" />
-    <entry file="file://$PROJECT_DIR$/models/dbconnect.js" />
-    <entry file="file://$PROJECT_DIR$/models/sessions.js" />
-    <entry file="file://$PROJECT_DIR$/models/guests.js" />
-    <entry file="file://$PROJECT_DIR$/db/db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api/guests.js" />
-    <entry file="file://$PROJECT_DIR$/routes/users.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="35" selection-start-column="35" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/sessions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/helpers/verifCode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/postInsertGuest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-152">
-          <caret line="1" column="51" selection-start-line="1" selection-start-column="51" selection-end-line="1" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-88">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/node_modules/date-fns/esm/format/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-596">
-          <caret line="371" selection-start-line="371" selection-end-line="371" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrations/20190719044836_foreings_kseys_guests_sessions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrations/20190719031611_initial.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds/guests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/pg/lib/connection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-372">
-          <caret line="601" column="10" selection-start-line="601" selection-start-column="10" selection-end-line="601" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/guests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds/data/sessions.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="999" column="325" lean-forward="true" selection-start-line="999" selection-start-column="325" selection-end-line="999" selection-end-column="325" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds/data/guests.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="20" column="155" lean-forward="true" selection-start-line="20" selection-start-column="155" selection-end-line="20" selection-end-column="155" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="449" column="47" selection-start-line="449" selection-start-column="47" selection-end-line="449" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>

@@ -1,6 +1,9 @@
 const db = require('../db/db');
 const verifCodeHelper = require('../helpers/verifCode');
-const postInsert = require('./postInsertGuest');
+const bcrypt = require('bcrypt');
+
+const salt = bcrypt.genSaltSync(10);
+// const postInsert = require('./postInsertGuest');
 
 module.exports = {
   getAll: (req, res) => {
@@ -28,32 +31,112 @@ module.exports = {
       .catch(err => res.status(400).json({ dbError: err }));
   },
   insert: (req, res) => {
-    const { data } = req.body;
+    const data = req.body;
     const verifCode = verifCodeHelper.getVerifCode();
-    data.verf_code = verifCodeHelper.hashVerifCode(verifCode);
-    db('guests').insert(data)
-      .returning('*')
-      .then(item => {
-        postInsert(item);
-        res.status(200).json(item);
+    data.verf_code = bcrypt.hashSync(verifCode.toString(), salt);
+    console.log(data.verf_code);
+    const { session_time_hour, session_time_minute } = data;
+    delete data.session_time_hour;
+    delete data.session_time_minute;
+    console.log(data, 'received in server');
+    db.transaction(
+      (trx => db('guests')
+        .transacting(trx)
+        .insert(data)
+        .returning('*')
+        .then(item => db('sessions')
+          .transacting(trx)
+          .insert({
+            session_time_hour,
+            session_time_minute,
+            guest_id: item[0].guest_id,
+          })
+          .returning('*'))
+        .then(trx.commit)
+        .catch((err) => {
+          trx.rollback();
+          res.status(400).json({ dbError: err });
+        })),
+    )
+      .then(session => {
+        console.log(session[0].guest_id);
+        return db.select('*')
+          .from('guests')
+          .join('sessions', (queryBuilder) => {
+            queryBuilder.on('guests.guest_id', '=', 'sessions.guest_id')
+              .onIn('guests.guest_id', [session[0].guest_id]);
+          });
       })
-      .catch(err => res.status(400).json({ dbError: err }));
+      .then((items) => {
+        console.log(items, 'after insertion');
+        res.status(200).json(items);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json({ dbError: err });
+      });
   },
   update: (req, res) => {
     const { guest_id } = req.params;
     const { data } = req.body;
-    console.log(data);
-    db('guests').where({ guest_id }).update(data)
-      .returning('*')
-      .then(item => res.status(200).json(item))
+    console.log(data, 'received in server');
+    const session_time_hour = data.session_time_hour;
+    const session_time_minute = data.session_time_minute;
+    delete data.session_time_hour;
+    delete data.session_time_minute;
+    db.transaction(
+      (trx => db('guests')
+        .transacting(trx)
+        .where({ guest_id })
+        .update(data)
+        .then(() => db('sessions')
+          .transacting(trx)
+          .where({ guest_id })
+          .update({
+            session_time_hour,
+            session_time_minute,
+          }))
+        .then(trx.commit)
+        .catch((err) => {
+          trx.rollback();
+          console.log(err);
+          res.status(400).json({ dbError: err });
+        })
+      ),
+    )
+      .then(() => db.select('*')
+        .from('guests')
+        .join('sessions', (queryBuilder) => {
+          queryBuilder.on('guests.guest_id', '=', 'sessions.guest_id')
+            .onIn('guests.guest_id', guest_id);
+        }))
+      .then(item => {
+        console.log(item, 'after update');
+        res.status(200).json(item);
+      })
       .catch((err) => {
         console.log(err);
         res.status(400).json({ dbError: err });
       });
   },
   delete: (req, res) => {
-    const { id } = req.params;
-    db('guests').where({ id }).del()
+    const { guest_id } = req.params;
+    db.transaction((trx => {
+      db('sessions')
+        .transacting(trx)
+        .where({ guest_id })
+        .del()
+        .then(() => db('guests')
+          .transacting(trx)
+          .where({ guest_id })
+          .del())
+        .then(trx.commit)
+        .catch((err) => {
+          trx.rollback();
+          console.log(err);
+          res.status(400).json({ dbError: err });
+        });
+    }))
       .then(() => res.status(200).json({ delete: 'true' }))
       .catch((err) => {
         console.log(err);
