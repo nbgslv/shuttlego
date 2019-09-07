@@ -5,7 +5,10 @@ const guestsController = require('../controllers/guests');
 const router = express.Router();
 
 // API Guests routes
-router.get('/guests', (req, res) => guestsController.getAll(req, res));
+router.get('/guests', (req, res) => {
+  console.log(req.session, 'router');
+  return guestsController.getAll(req, res);
+});
 router.post('/guests', [
   body('room_number', 'Room number is not defined').isInt({ min: 201, max: 338 }),
   body(['first_name', 'last_name'], 'First Name or Last Name are not defined')

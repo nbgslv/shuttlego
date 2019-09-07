@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const createError = require('http-errors');
+const uuid = require('uuid/v4');
 const session = require('express-session');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
@@ -31,6 +32,19 @@ app.use(cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+app.use(session({
+  genid: (req) => {
+    return uuid();
+  },
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 100000000,
+    sameSite: true,
+  },
+}));
 
 app.use(logger('dev'));
 app.use(express.json());
