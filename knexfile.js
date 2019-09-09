@@ -1,15 +1,16 @@
-module.exports = {
+const env = require('./config');
 
+module.exports = {
   development: {
     client: 'pg',
-    debug: true,
+    debug: env.dev.dbDebug,
     asyncStackTrace: true,
     version: '7.11.0',
     connection: {
-      host: '127.0.0.1',
-      user: 'postgres',
-      password: '1234',
-      database: 'shuttlego',
+      host: env.dev.dbHost,
+      user: env.dev.dbUser,
+      password: env.dev.dbPass,
+      database: env.dev.dbName,
     },
     useNullAsDefault: true,
     migrations: {

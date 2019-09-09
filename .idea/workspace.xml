@@ -2,10 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/constants/action-types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/actions/sessions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/reducers/sessions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/util/sessions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/guests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20190719031611_initial.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20190719031611_initial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/seeds/data/guests.json" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds/data/guests.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/seeds/data/sessions.json" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds/data/sessions.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Signin/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Signin/Signin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +134,8 @@
       <workItem from="1563491923006" duration="43935000" />
       <workItem from="1563794536096" duration="10390000" />
       <workItem from="1566824005962" duration="18144000" />
-      <workItem from="1566990426838" duration="93432000" />
+      <workItem from="1566990426838" duration="115377000" />
+      <workItem from="1567976607964" duration="2037000" />
     </task>
     <servers />
   </component>

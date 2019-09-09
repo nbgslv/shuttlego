@@ -33,8 +33,8 @@ module.exports = {
   insert: (req, res) => {
     const data = req.body;
     const verifCode = verifCodeHelper.getVerifCode();
+    console.log(verifCode, 'code');
     data.verf_code = bcrypt.hashSync(verifCode.toString(), salt);
-    console.log(data.verf_code);
     const { session_time_hour, session_time_minute } = data;
     delete data.session_time_hour;
     delete data.session_time_minute;
@@ -142,6 +142,38 @@ module.exports = {
         console.log(err);
         res.status(400).json({ dbError: err });
       });
+  },
+  verify: (req, res) => {
+    const { roomNumber,
+      confCode,
+      email,
+      phoneNumber,
+    } = req.body;
+    db
+      .select('guest_id', 'room_number', 'verf_code')
+      .from('guests')
+      .where('room_number', roomNumber)
+      .then((items) => {
+        let userIndex = undefined;
+        items.map((row, i) => {
+          if (bcrypt.compareSync(confCode, row.verf_code)) {
+            console.log(row.guest_id);
+            userIndex = i;
+          }
+        });
+        if (userIndex) {
+          console.log(items[userIndex]);
+          req.session.user = {
+            guestId: items[userIndex].guest_id,
+            roomNumber: items[userIndex].room_number,
+          };
+          console.log(req.session);
+          res.status(200).json(req.session);
+        } else {
+          res.status(400).json({ error: 'could not login' });
+        }
+      })
+      .catch((err) => res.status(400).json({ error: err }));
   },
 };
 

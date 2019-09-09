@@ -1,10 +1,13 @@
 const express = require('express');
+const env = require('./config');
 
 const cors = require('cors');
 const path = require('path');
 const createError = require('http-errors');
 const uuid = require('uuid/v4');
 const session = require('express-session');
+const pg = require('pg');
+const pgSession = require('connect-pg-simple');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -16,7 +19,19 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 
-const whitelist = ['http://localhost:3000'];
+const pgPool = new pg.Pool({
+  host: env.dev.dbHost,
+  user: env.dev.dbUser,
+  password: env.dev.dbPass,
+  database: env.dev.dbName,
+  max: 20,
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 2000,
+});
+
+// pgPool.connect();
+
+const whitelist = [env.dev.frontEndHost];
 const corsOptions = {
   origin: (origin, callback) => {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
@@ -34,14 +49,19 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(session({
-  genid: (req) => {
-    return uuid();
-  },
-  secret: 'keyboard cat',
+  genid: () => uuid(),
+  name: env.dev.sessionName,
+  secret: env.dev.sessionSecret,
   resave: false,
   saveUninitialized: false,
+  // eslint-disable-next-line global-require
+  store: new (require('connect-pg-simple')(session))({
+    pool: pgPool,
+  }),
   cookie: {
+    path: '/',
     maxAge: 100000000,
+    secure: env.dev.env === 'development',
     sameSite: true,
   },
 }));

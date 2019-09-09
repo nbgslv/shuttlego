@@ -12,7 +12,6 @@ exports.up = (knex) => {
         table.string('verf_code');
         table.string('email');
         table.string('phone_number', 30);
-        table.integer('session_id');
         table.timestamps(true, true);
       }),
     knex.schema
@@ -32,6 +31,7 @@ exports.up = (knex) => {
         table.boolean('bbox');
         table.integer('bbox_number');
         table.integer('guest_id').notNullable();
+        table.string('status').notNullable().defaultTo('pending');
         table.timestamps(true, true);
       }),
   ]);
