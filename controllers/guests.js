@@ -58,7 +58,7 @@ module.exports = {
           res.status(400).json({ dbError: err });
         })),
     )
-      .then(session => {
+      .then((session) => {
         console.log(session[0].guest_id);
         return db.select('*')
           .from('guests')
@@ -144,7 +144,8 @@ module.exports = {
       });
   },
   verify: (req, res) => {
-    const { roomNumber,
+    const {
+      roomNumber,
       confCode,
       email,
       phoneNumber,
@@ -155,6 +156,7 @@ module.exports = {
       .where('room_number', roomNumber)
       .then((items) => {
         let userIndex = undefined;
+        console.log(items);
         items.map((row, i) => {
           if (bcrypt.compareSync(confCode, row.verf_code)) {
             console.log(row.guest_id);
@@ -167,7 +169,7 @@ module.exports = {
             guestId: items[userIndex].guest_id,
             roomNumber: items[userIndex].room_number,
           };
-          console.log(req.session);
+          console.log(req.sessionID);
           res.status(200).json(req.session);
         } else {
           res.status(400).json({ error: 'could not login' });

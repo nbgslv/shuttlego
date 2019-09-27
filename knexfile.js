@@ -4,7 +4,7 @@ module.exports = {
   development: {
     client: 'pg',
     debug: env.dev.dbDebug,
-    asyncStackTrace: true,
+    asyncStackTrace: env.dev.dbDebug,
     version: '7.11.0',
     connection: {
       host: env.dev.dbHost,

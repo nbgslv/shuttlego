@@ -6,11 +6,11 @@ const path = require('path');
 const createError = require('http-errors');
 const uuid = require('uuid/v4');
 const session = require('express-session');
-const pg = require('pg');
-const pgSession = require('connect-pg-simple');
+const KnexSessionStore = require('connect-session-knex')(session);
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const db = require('./db/db');
 
 const indexRouter = require('./routes/index');
 const apiRouter = require('././routes/api');
@@ -18,16 +18,6 @@ const adminRouter = require('./routes/admin');
 const usersRouter = require('./routes/users');
 
 const app = express();
-
-const pgPool = new pg.Pool({
-  host: env.dev.dbHost,
-  user: env.dev.dbUser,
-  password: env.dev.dbPass,
-  database: env.dev.dbName,
-  max: 20,
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000,
-});
 
 // pgPool.connect();
 
@@ -48,6 +38,11 @@ app.use(cors());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+const store = new KnexSessionStore({
+  knex: db,
+  tablename: 'session',
+});
+
 app.use(session({
   genid: () => uuid(),
   name: env.dev.sessionName,
@@ -55,22 +50,28 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   // eslint-disable-next-line global-require
-  store: new (require('connect-pg-simple')(session))({
-    pool: pgPool,
-  }),
+  store,
   cookie: {
     path: '/',
     maxAge: 100000000,
-    secure: env.dev.env === 'development',
+    secure: env.dev.env !== 'development',
     sameSite: true,
   },
 }));
 
+// app.use((req, res, next) => {
+//   if (req.cookies.user_sid && !req.session.user) {
+//     res.redirect('/');
+//   } else {
+//     next();
+//   }
+// });
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
