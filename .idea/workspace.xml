@@ -2,31 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/constants/action-types.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/actions/FirstStep.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/actions/FourthStep.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/actions/SecondStep.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/actions/ThirdStep.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/reducers/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/reducers/register.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/util/sessions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/guests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/App/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/App/Logo/Logo.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Logo/Logo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/App/Logo/field-logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Logo/field-logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/App/Logo/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Logo/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/App/Navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/FirstStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/FirstStep.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Signin/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Signin/Signin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/knexfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/knexfile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
