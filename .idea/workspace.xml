@@ -4,7 +4,11 @@
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/FirstStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/FirstStep.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/FourthStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/FourthStep.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/SecondStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/SecondStep.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/ThirdStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/ThirdStep.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -125,6 +129,8 @@
       <workItem from="1568411365057" duration="34000" />
       <workItem from="1568411452943" duration="3466000" />
       <workItem from="1568541680236" duration="3449000" />
+      <workItem from="1569739310916" duration="2948000" />
+      <workItem from="1569846118293" duration="7414000" />
     </task>
     <servers />
   </component>
@@ -162,6 +168,18 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/frontend/src/components/Forms/components/PhoneNumberInput/phone-number-input" />
     </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/FirstStep.js</url>
+          <line>115</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
