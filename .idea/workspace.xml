@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/actions/FlightData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/FirstStep.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/FourthStep.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/SecondStep.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/ThirdStep.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Table/FlightsTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Table/FlightsTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/FirstStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/FirstStep.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/register.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -129,9 +135,8 @@
       <workItem from="1568411365057" duration="34000" />
       <workItem from="1568411452943" duration="3466000" />
       <workItem from="1568541680236" duration="3449000" />
-      <workItem from="1569739310916" duration="2948000" />
-      <workItem from="1569846118293" duration="8050000" />
-      <workItem from="1569946049901" duration="6090000" />
+      <workItem from="1569619367418" duration="536000" />
+      <workItem from="1569967489084" duration="844000" />
     </task>
     <servers />
   </component>
