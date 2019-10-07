@@ -8,6 +8,7 @@ module.exports = {
     frontEndHost: process.env.FRONT_HOST,
     sessionName: process.env.SESS_NAME,
     sessionSecret: process.env.SESS_SECRET,
+    jwtSecret: process.env.JWT_SECRET,
     dbHost: process.env.DBHOST,
     dbUser: process.env.DBUSER,
     dbPass: process.env.DBPASS,

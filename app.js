@@ -32,32 +32,35 @@ const corsOptions = {
   },
 };
 app.use(helmet());
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true,
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-const store = new KnexSessionStore({
-  knex: db,
-  tablename: 'session',
-});
+// const store = new KnexSessionStore({
+//   knex: db,
+//   tablename: 'session',
+// });
 
-app.use(session({
-  genid: () => uuid(),
-  name: env.dev.sessionName,
-  secret: env.dev.sessionSecret,
-  resave: false,
-  saveUninitialized: false,
-  // eslint-disable-next-line global-require
-  store,
-  cookie: {
-    path: '/',
-    maxAge: 100000000,
-    secure: env.dev.env !== 'development',
-    sameSite: true,
-  },
-}));
+// app.use(session({
+//   genid: () => uuid(),
+//   name: env.dev.sessionName,
+//   secret: env.dev.sessionSecret,
+//   resave: false,
+//   saveUninitialized: false,
+//   // eslint-disable-next-line global-require
+//   store,
+//   cookie: {
+//     path: '/',
+//     maxAge: 100000000,
+//     secure: env.dev.env !== 'development',
+//     sameSite: true,
+//   },
+// }));
 
 // app.use((req, res, next) => {
 //   if (req.cookies.user_sid && !req.session.user) {

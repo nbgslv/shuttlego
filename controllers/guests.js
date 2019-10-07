@@ -1,6 +1,8 @@
+const env = require('../config');
 const db = require('../db/db');
 const verifCodeHelper = require('../helpers/verifCode');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const salt = bcrypt.genSaltSync(10);
 // const postInsert = require('./postInsertGuest');
@@ -151,31 +153,74 @@ module.exports = {
       phoneNumber,
     } = req.body;
     db
-      .select('guest_id', 'room_number', 'verf_code')
+      .select('guest_id', 'room_number', 'verf_code', 'first_name', 'last_name', 'check_in_date', 'check_out_date', 'phone_number', 'email')
       .from('guests')
       .where('room_number', roomNumber)
       .then((items) => {
-        let userIndex = undefined;
+        let userIndex;
         console.log(items);
         items.map((row, i) => {
           if (bcrypt.compareSync(confCode, row.verf_code)) {
-            console.log(row.guest_id);
             userIndex = i;
           }
         });
         if (userIndex) {
-          console.log(items[userIndex]);
-          req.session.user = {
+          const user = {
             guestId: items[userIndex].guest_id,
-            roomNumber: items[userIndex].room_number,
+            authorized: true,
+            // roomNumber: items[userIndex].room_number,
+            // firstName: items[userIndex].first_name,
+            // lastName: items[userIndex].last_name,
+            // checkinDate: items[userIndex].check_in_date,
+            // checkoutDate: items[userIndex].check_out_date,
+            // phoneNumber: items[userIndex].phone_number,
+            // email: items[userIndex].email,
           };
-          console.log(req.sessionID);
-          res.status(200).json(req.session);
+          const token = jwt.sign(
+            user,
+            env.dev.jwtSecret,
+            {
+              expiresIn: '2h',
+            },
+          );
+          res
+            .cookie('token', token, { httpOnly: true })
+            .status(200)
+            .json(user)
+            .send();
         } else {
           res.status(400).json({ error: 'could not login' });
         }
       })
       .catch((err) => res.status(400).json({ error: err }));
+  },
+  checkAuth: (req, res, next) => {
+    const token = req.body.token
+      || req.query.token
+      || req.headers['x-access-token']
+      || req.cookies.token;
+    if (!token) {
+      res
+        .status(401)
+        .json({ authorized: false })
+        .send();
+    } else {
+      jwt.verify(token, env.dev.jwtSecret, (err, decoded) => {
+        if (err) {
+          res
+            .status(401)
+            .json({ authorized: false })
+            .send();
+        } else {
+          console.log(decoded);
+          res
+            .status(200)
+            .json(decoded)
+            .send();
+          // next();
+        }
+      });
+    }
   },
 };
 
