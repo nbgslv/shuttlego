@@ -152,29 +152,35 @@ module.exports = {
       email,
       phoneNumber,
     } = req.body;
+    console.log(phoneNumber);
     db
       .select('guest_id', 'room_number', 'verf_code', 'first_name', 'last_name', 'check_in_date', 'check_out_date', 'phone_number', 'email')
       .from('guests')
       .where('room_number', roomNumber)
       .then((items) => {
         let userIndex;
-        console.log(items);
         items.map((row, i) => {
           if (bcrypt.compareSync(confCode, row.verf_code)) {
             userIndex = i;
           }
         });
         if (userIndex) {
+          console.log(items[userIndex].phone_number, 'phonedata');
+          if ((items[userIndex].phone_number === null || items[userIndex].phone_number === '') && phoneNumber !== '') {
+            db('guests')
+              .where({ guest_id: items[userIndex].guest_id })
+              .update({ phone_number: phoneNumber })
+              .then(up => console.log(up));
+          }
+          if ((items[userIndex].email === null || items[userIndex].email === '') && email !== '') {
+            db('guests')
+              .where({ guest_id: items[userIndex].guest_id })
+              .update({ email })
+              .then(up => console.log(up));
+          }
           const user = {
             guestId: items[userIndex].guest_id,
             authorized: true,
-            // roomNumber: items[userIndex].room_number,
-            // firstName: items[userIndex].first_name,
-            // lastName: items[userIndex].last_name,
-            // checkinDate: items[userIndex].check_in_date,
-            // checkoutDate: items[userIndex].check_out_date,
-            // phoneNumber: items[userIndex].phone_number,
-            // email: items[userIndex].email,
           };
           const token = jwt.sign(
             user,
@@ -192,7 +198,7 @@ module.exports = {
           res.status(400).json({ error: 'could not login' });
         }
       })
-      .catch((err) => res.status(400).json({ error: err }));
+      .catch(err => res.status(400).json({ error: err }));
   },
   checkAuth: (req, res, next) => {
     const token = req.body.token
@@ -217,7 +223,6 @@ module.exports = {
             .status(200)
             .json(decoded)
             .send();
-          // next();
         }
       });
     }
