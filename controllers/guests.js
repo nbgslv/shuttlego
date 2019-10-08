@@ -180,28 +180,37 @@ module.exports = {
               .then(up => console.log(up));
           }
           db
-            .select('session_time_hour', 'session_time_minute', 'created_at')
-            .from('sessions')
-            .where('guest_id', items[userIndex].guest_id)
+            .select('*')
+            .from('guests')
+            .join('sessions', (queryBuilder) => {
+              queryBuilder.on('guests.guest_id', '=', 'sessions.guest_id')
+                .onIn('guests.guest_id', [items[userIndex].guest_id]);
+            })
             .then((session) => {
-              const user = {
-                guestId: items[userIndex].guest_id,
-                authorized: true,
-              };
               const iat = session[0].created_at;
               const expWithHours = datefns.addHours(iat, session[0].session_time_hour);
               const expWithMinutes = datefns.addMinutes(
                 expWithHours,
                 session[0].session_time_minute,
               );
-              const expInSeconds = datefns.differenceInSeconds(expWithMinutes, iat);
-              const token = jwt.sign(
-                user,
-                env.dev.jwtSecret,
-                {
-                  expiresIn: expInSeconds,
-                },
-              );
+              const expUnixTime = datefns.getUnixTime(expWithMinutes);
+              const user = {
+                guestId: items[userIndex].guest_id,
+                sessionEnd: expWithMinutes,
+                firstName: session[0].first_name,
+                lastName: session[0].last_name,
+                roomNumber: session[0].room_number,
+                checkinDate: session[0].check_in_date,
+                checkoutDate: session[0].check_out_date,
+                phoneNumber: session[0].phone_number,
+                email: session[0].email,
+                authorized: true,
+              };
+              const token = jwt.sign({
+                data: user,
+                exp: expUnixTime,
+              },
+              env.dev.jwtSecret);
               res
                 .cookie('token', token, { httpOnly: true })
                 .status(200)
@@ -227,9 +236,10 @@ module.exports = {
     } else {
       jwt.verify(token, env.dev.jwtSecret, (err, decoded) => {
         if (err) {
+          console.log(err);
           res
             .status(401)
-            .json({ authorized: false })
+            .json({ authorized: err })
             .send();
         } else {
           console.log(decoded);

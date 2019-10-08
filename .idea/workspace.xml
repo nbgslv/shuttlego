@@ -5,8 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/guests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Signin/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Signin/Signin.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +26,7 @@
         <entry key="$PROJECT_DIR$/frontend" value="detached-HEAD-fix" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend" />
     <option name="RESET_MODE" value="SOFT" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -71,17 +69,17 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend" />
-      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego" />
-      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend\src\components\Forms\Register" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend\src\components" />
       <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\db" />
       <recent name="C:\Users\Owner\WebstormProjects\shuttlego\frontend\src\components\Table" />
       <recent name="C:\Users\Owner\WebstormProjects\shuttlego\frontend\src\containers\Admin\DBTables" />
       <recent name="C:\Users\Owner\WebstormProjects\shuttlego\frontend\src\containers\Admin" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend" />
+      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego" />
+      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend\src\components\Forms\Register" />
     </key>
   </component>
   <component name="RunDashboard">
