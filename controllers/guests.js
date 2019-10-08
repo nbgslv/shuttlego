@@ -199,6 +199,7 @@ module.exports = {
                 sessionEnd: expWithMinutes,
                 firstName: session[0].first_name,
                 lastName: session[0].last_name,
+                pax: session[0].pax,
                 roomNumber: session[0].room_number,
                 checkinDate: session[0].check_in_date,
                 checkoutDate: session[0].check_out_date,
