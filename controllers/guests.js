@@ -1,8 +1,9 @@
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const datefns = require('date-fns');
 const env = require('../config');
 const db = require('../db/db');
 const verifCodeHelper = require('../helpers/verifCode');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
 const salt = bcrypt.genSaltSync(10);
 // const postInsert = require('./postInsertGuest');
@@ -154,7 +155,7 @@ module.exports = {
     } = req.body;
     console.log(phoneNumber);
     db
-      .select('guest_id', 'room_number', 'verf_code', 'first_name', 'last_name', 'check_in_date', 'check_out_date', 'phone_number', 'email')
+      .select('guest_id', 'room_number', 'verf_code')
       .from('guests')
       .where('room_number', roomNumber)
       .then((items) => {
@@ -178,22 +179,35 @@ module.exports = {
               .update({ email })
               .then(up => console.log(up));
           }
-          const user = {
-            guestId: items[userIndex].guest_id,
-            authorized: true,
-          };
-          const token = jwt.sign(
-            user,
-            env.dev.jwtSecret,
-            {
-              expiresIn: '2h',
-            },
-          );
-          res
-            .cookie('token', token, { httpOnly: true })
-            .status(200)
-            .json(user)
-            .send();
+          db
+            .select('session_time_hour', 'session_time_minute', 'created_at')
+            .from('sessions')
+            .where('guest_id', items[userIndex].guest_id)
+            .then((session) => {
+              const user = {
+                guestId: items[userIndex].guest_id,
+                authorized: true,
+              };
+              const iat = session[0].created_at;
+              const expWithHours = datefns.addHours(iat, session[0].session_time_hour);
+              const expWithMinutes = datefns.addMinutes(
+                expWithHours,
+                session[0].session_time_minute,
+              );
+              const expInSeconds = datefns.differenceInSeconds(expWithMinutes, iat);
+              const token = jwt.sign(
+                user,
+                env.dev.jwtSecret,
+                {
+                  expiresIn: expInSeconds,
+                },
+              );
+              res
+                .cookie('token', token, { httpOnly: true })
+                .status(200)
+                .json(user)
+                .send();
+            });
         } else {
           res.status(400).json({ error: 'could not login' });
         }
