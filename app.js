@@ -10,12 +10,12 @@ const KnexSessionStore = require('connect-session-knex')(session);
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const db = require('./db/db');
+const db = require('./src/db/db');
 
-const indexRouter = require('./routes/index');
-const apiRouter = require('././routes/api');
-const adminRouter = require('./routes/admin');
-const usersRouter = require('./routes/users');
+const indexRouter = require('./src/routes/index');
+const apiRouter = require('./src/routes/api');
+const adminRouter = require('./src/routes/admin');
+const usersRouter = require('./src/routes/users');
 
 const app = express();
 
@@ -78,7 +78,7 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
-app.use('/users', usersRouter);
+// app.use('/users', usersRouter);
 app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler

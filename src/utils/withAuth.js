@@ -1,4 +1,4 @@
-const env = require('../config');
+const env = require('../../config');
 const jwt = require('jsonwebtoken');
 
 const secret = env.dev.jwtSecret;

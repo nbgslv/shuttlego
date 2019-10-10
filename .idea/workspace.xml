@@ -2,10 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/db/guestsDB.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/guests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/guests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/guests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/postInsertGuest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/postInsertGuest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/sessions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20190719031611_initial.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/migrations/20190719031611_initial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20190719044836_foreings_kseys_guests_sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/migrations/20190719044836_foreings_kseys_guests_sessions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20191008134537_add_pax.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/migrations/20191008134537_add_pax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/seeds/data/guests.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/seeds/data/guests.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/seeds/data/sessions.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/seeds/data/sessions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/seeds/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/seeds/guests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/util/sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/util/sessions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/printer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/printer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/verifCode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/verifCode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/withAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/withAuth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/users.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +48,7 @@
         <entry key="$PROJECT_DIR$/frontend" value="detached-HEAD-fix" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend" />
     <option name="RESET_MODE" value="SOFT" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -72,17 +93,17 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend\src\components" />
-      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\db" />
-      <recent name="C:\Users\Owner\WebstormProjects\shuttlego\frontend\src\components\Table" />
-      <recent name="C:\Users\Owner\WebstormProjects\shuttlego\frontend\src\containers\Admin\DBTables" />
-      <recent name="C:\Users\Owner\WebstormProjects\shuttlego\frontend\src\containers\Admin" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend" />
       <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego" />
       <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend\src\components\Forms\Register" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\src\db\config" />
+      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\src" />
+      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend\src\components" />
+      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\db" />
+      <recent name="C:\Users\Owner\WebstormProjects\shuttlego\frontend\src\components\Table" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -131,7 +152,10 @@
       <workItem from="1569619367418" duration="536000" />
       <workItem from="1569967489084" duration="844000" />
       <workItem from="1570354529348" duration="23000" />
-      <workItem from="1570354592273" duration="58389000" />
+      <workItem from="1570354592273" duration="59225000" />
+      <workItem from="1570543602338" duration="30565000" />
+      <workItem from="1570718867119" duration="619000" />
+      <workItem from="1570726001362" duration="5260000" />
     </task>
     <servers />
   </component>

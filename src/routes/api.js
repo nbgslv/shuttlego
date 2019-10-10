@@ -1,14 +1,21 @@
 const express = require('express');
 const { sanitize, body, validationResult } = require('express-validator');
 const guestsController = require('../controllers/guests');
+const {
+  allGuests,
+  guest,
+  registerGuest,
+  updateGuest,
+  removeGuest,
+  verify,
+  checkAuth,
+} = require('../controllers/guests');
 
 const router = express.Router();
 
 // API Guests routes
-router.get('/guests', (req, res) => {
-  console.log(req.session, 'router');
-  return guestsController.getAll(req, res);
-});
+router.get('/guests', allGuests);
+
 router.post('/guests', [
   body('room_number', 'Room number is not defined').isInt({ min: 201, max: 338 }),
   body(['first_name', 'last_name'], 'First Name or Last Name are not defined')
@@ -18,17 +25,21 @@ router.post('/guests', [
   body('check_in_date', 'Check-in date is a required field')
     .exists(),
 ],
-(req, res) => {
+(req, res, next) => {
   const validationErros = validationResult(req);
   if (!validationErros.isEmpty()) {
     console.log(validationErros.array());
     return res.status(422).json({ errors: validationErros.array() });
   }
-  guestsController.insert(req, res);
+  registerGuest(req, res, next);
 });
-router.put('/guests/:guest_id', (req, res) => guestsController.update(req, res));
-router.delete('/guests/:guest_id', (req, res) => guestsController.delete(req, res));
 
-// API Session Routes
+router.post('/guests/login', verify);
+
+router.post('/guests/checkAuth', checkAuth);
+
+router.put('/guests', updateGuest);
+
+router.delete('/guests', removeGuest);
 
 module.exports = router;

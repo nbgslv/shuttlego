@@ -3,8 +3,7 @@ const getMinutes = require('date-fns/get_minutes');
 const addHours = require('date-fns/add_hours');
 const getHours = require('date-fns/get_hours');
 const format = require('date-fns/format');
-const sessions = require('./sessions');
-// const printSlip = require('../helpers/printer');
+// const printSlip = require('../utils/printer');
 
 const postInsertGuest = (guest, verfCode) => {
   const {
