@@ -9,6 +9,7 @@ const {
   deleteGuestDB,
   selectGuestsDB,
   getGuestsJoinSessionDB,
+  getGuestJoinSessionDB,
 } = require('../db/guestsDB');
 const {
   getVerifCode,
@@ -70,6 +71,9 @@ const deleteGuest = async (guestId, callback) => {
 };
 
 const updateEmailPhone = async (data, field, guest) => {
+  console.log(data);
+  console.log(field);
+  console.log(guest);
   if (data !== '' && (guest[field] === '' || guest[field] === null)) {
     try {
       const newData = {
@@ -83,65 +87,68 @@ const updateEmailPhone = async (data, field, guest) => {
   }
 };
 
-const verifyGuest = async (pass, phoneNumber, email, params, columns) => {
+const verifyGuest = async (pass, phoneNumber, email, params, columns, callback) => {
   let appropGuests;
+  let userIndex;
   try {
-    appropGuests = await selectGuestsDB(params, columns);
+    await selectGuestsDB(params, columns, (guests) => {
+      appropGuests = guests;
+      appropGuests.map((row, i) => {
+        if (verifCode(pass, row.verf_code)) {
+          userIndex = i;
+        }
+        if (userIndex) {
+          updateEmailPhone(phoneNumber, 'phone_number', appropGuests[userIndex]);
+          updateEmailPhone(email, 'email', appropGuests[userIndex]);
+          getGuestJoinSessionDB(appropGuests[userIndex].guest_id, (guest) => {
+            const guestData = guest[0];
+            const iat = guestData.created_at;
+            const expWithHours = datefns.addHours(iat, guestData.session_time_hour);
+            const expWithMinutes = datefns.addMinutes(
+              expWithHours,
+              guestData.session_time_minute,
+            );
+            const expUnixTime = datefns.getUnixTime(expWithMinutes);
+            const user = {
+              guestId: guestData.guest_id,
+              sessionEnd: expWithMinutes,
+              firstName: guestData.first_name,
+              lastName: guestData.last_name,
+              pax: guestData.pax,
+              roomNumber: guestData.room_number,
+              checkinDate: guestData.check_in_date,
+              checkoutDate: guestData.check_out_date,
+              phoneNumber: guestData.phone_number,
+              email: guestData.email,
+              authorized: true,
+            };
+            const token = jwt.sign({
+              data: user,
+              exp: expUnixTime,
+            },
+            env.dev.jwtSecret);
+
+            callback({
+              user,
+              token,
+            });
+          });
+        }
+      });
+    });
   } catch (e) {
     console.log(e);
     throw new Error(e.messages);
   }
-  let userIndex;
-  appropGuests.map((row, i) => {
-    if (verifCode(pass, row.verf_code)) {
-      userIndex = i;
-    }
-  });
-  if (userIndex) {
-    await updateEmailPhone(phoneNumber, 'phone_number', appropGuests[userIndex]);
-    await updateEmailPhone(email, 'email', appropGuests[userIndex]);
-    const guest = getGuestJoinSessionDB(appropGuests[userIndex].guest_id);
-    const iat = guest.created_at;
-    const expWithHours = datefns.addHours(iat, guest.session_time_hour);
-    const expWithMinutes = datefns.addMinutes(
-      expWithHours,
-      guest.session_time_minute,
-    );
-    const expUnixTime = datefns.getUnixTime(expWithMinutes);
-    const user = {
-      guestId: guest.guest_id,
-      sessionEnd: expWithMinutes,
-      firstName: guest.first_name,
-      lastName: guest.last_name,
-      pax: guest.pax,
-      roomNumber: guest.room_number,
-      checkinDate: guest.check_in_date,
-      checkoutDate: guest.check_out_date,
-      phoneNumber: guest.phone_number,
-      email: guest.email,
-      authorized: true,
-    };
-    const token = jwt.sign({
-      data: user,
-      exp: expUnixTime,
-    },
-    env.dev.jwtSecret);
-
-    return {
-      user,
-      token,
-    };
-  }
-  return false;
 };
 
-const authorizeGuest = async (token) => {
+const authorizeGuest = async (token, callback) => {
   jwt.verify(token, env.dev.jwtSecret, (err, decoded) => {
     if (err) {
       console.log(err);
-      return false;
+      callback(false);
     }
-    return decoded;
+    callback(decoded);
   });
 };
 

@@ -45,7 +45,7 @@ const getGuestJoinSessionDB = (guestId, callback) => {
     .catch((err) => {
       console.log(err.messages);
       throw new Error(err);
-    })
+    });
 };
 
 const postGuestDB = (guestData, sessionHour, sessionMinute, callback) => {
@@ -86,7 +86,7 @@ const postGuestDB = (guestData, sessionHour, sessionMinute, callback) => {
     });
 };
 
-const patchGuestDB = (newData, guestId, sessionHour = null, sessionMinute = null, callback) => {
+const patchGuestDB = (newData, guestId, sessionHour = null, sessionMinute = null, callback = null) => {
   db.transaction(
     (trx => db('guests')
       .transacting(trx)
@@ -118,7 +118,7 @@ const patchGuestDB = (newData, guestId, sessionHour = null, sessionMinute = null
   )
     .then(() => getGuestJoinSessionDB(guestId, (guest) => {
       console.log(guest, 'after update');
-      callback(guest);
+      if (callback !== null) callback(guest);
     }))
     .catch((err) => {
       console.log(err);
@@ -150,17 +150,21 @@ const deleteGuestDB = (guestId, callback) => {
     });
 };
 
-const selectGuestsDB = (params, columns) => {
+const selectGuestsDB = (params, columns, callback) => {
   db
     .select(columns)
     .from('guests')
     .where(params)
-    .then(items => items);
+    .returning('*')
+    .then((items) => {
+      callback(items);
+    });
 };
 
 module.exports = {
   getAllGuestsDB,
   getGuestsJoinSessionDB,
+  getGuestJoinSessionDB,
   getGuestDB,
   postGuestDB,
   patchGuestDB,

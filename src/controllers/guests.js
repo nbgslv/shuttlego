@@ -132,21 +132,22 @@ const verify = async (req, res, next) => {
     'room_number',
     'verf_code',
     'guest_id',
+    'email',
+    'phone_number',
   ];
   try {
-    const loggedInGuest = await verifyGuest(confCode, phoneNumber, email, params, columns);
-    const { guest: guestData, token } = loggedInGuest;
-    res
-      .cookie(token)
-      .status(200)
-      .json(guestData)
-      .send();
+    await verifyGuest(confCode, phoneNumber, email, params, columns, (loggedInGuest) => {
+      const { user: guestData, token } = loggedInGuest;
+      res
+        .cookie('token', token)
+        .status(200)
+        .json(guestData);
+    });
   } catch (e) {
     console.log(e);
     res
       .status(400)
-      .json({ error: e })
-      .send();
+      .json({ error: e });
   }
 };
 
@@ -162,22 +163,22 @@ const checkAuth = async (req, res, next) => {
       .send();
   } else {
     try {
-      const authorized = await authorizeGuest(token);
-      if (authorized) {
-        res
-          .status(200)
-          .json(authorized)
-          .send();
-      } else {
-        res
-          .sendStatus(401);
-      }
+      await authorizeGuest(token, (guestData) => {
+        if (guestData) {
+          res
+            .status(200)
+            .json(guestData)
+            .send();
+        } else {
+          res
+            .sendStatus(401);
+        }
+      });
     } catch (e) {
       console.log(e);
       res
         .status(400)
-        .json({ error: e })
-        .send();
+        .json({ error: e });
     }
   }
 };
