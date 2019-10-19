@@ -11,6 +11,7 @@ const {
 } = require('../controllers/guests');
 const {
   allSessions,
+  sessionByGuest,
   registerSession,
   registerSessionByGuest,
   updateSession,
@@ -50,6 +51,8 @@ router.delete('/guests', removeGuest);
 
 // API Sessions routes
 router.get('/sessions', allSessions);
+
+router.get('/sessions/:guestId', sessionByGuest);
 
 router.post('/sessions',
 //   [

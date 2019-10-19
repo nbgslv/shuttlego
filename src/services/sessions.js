@@ -1,6 +1,7 @@
 const {
   getAllSessionsDB,
   getSessionDB,
+  getSessionByGuestDB,
   postPatchSessionByGuestDB,
   postSessionDB,
   patchSessionDB,
@@ -20,6 +21,16 @@ const getAllSessions = async (callback) => {
 const getSession = async (sessionId) => {
   try {
     return await getSessionDB(sessionId);
+  } catch (e) {
+    throw new Error(e.messages);
+  }
+};
+
+const getSessionByGuest = async (guestId, callback) => {
+  try {
+    return await getSessionByGuestDB(guestId, (session) => {
+      callback(session);
+    });
   } catch (e) {
     throw new Error(e.messages);
   }
@@ -72,6 +83,7 @@ const deleteSession = async (sessionId, callback) => {
 module.exports = {
   getAllSessions,
   getSession,
+  getSessionByGuest,
   postSessionByGuest,
   postSession,
   patchSession,

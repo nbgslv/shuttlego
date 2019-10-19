@@ -20,6 +20,16 @@ const getSessionDB = (sessionId, callback) => {
     });
 };
 
+const getSessionByGuestDB = (guestId, callback) => {
+  db
+    .select('*')
+    .from('sessions')
+    .where({ guest_id: guestId })
+    .then((session) => {
+      callback(session);
+    });
+};
+
 const postSessionDB = (sessionData, callback) => {
   db('sessions')
     .insert(sessionData)
@@ -114,6 +124,7 @@ const selectSessionsDB = (params, columns, callback) => {
 module.exports = {
   getAllSessionsDB,
   getSessionDB,
+  getSessionByGuestDB,
   postSessionDB,
   postPatchSessionByGuestDB,
   patchSessionDB,

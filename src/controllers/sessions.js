@@ -1,10 +1,7 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const datefns = require('date-fns');
-const env = require('../../config');
 const {
   getAllSessions,
   getSession,
+  getSessionByGuest,
   postSession,
   postSessionByGuest,
   patchSession,
@@ -40,6 +37,22 @@ const session = async (req, res, next) => {
       .status(400)
       .json({ error: e })
       .send();
+  }
+};
+
+const sessionByGuest = async (req, res, next) => {
+  const { guestId } = req.params;
+  try {
+    await getSessionByGuest(guestId, (session) => {
+      res
+        .status(200)
+        .json(session);
+    });
+  } catch (e) {
+    console.log(e);
+    res
+      .status(400)
+      .json({ error: e });
   }
 };
 
@@ -126,6 +139,7 @@ const removeSession = async (req, res, next) => {
 module.exports = {
   allSessions,
   session,
+  sessionByGuest,
   registerSession,
   registerSessionByGuest,
   updateSession,
