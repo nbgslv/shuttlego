@@ -1,8 +1,7 @@
-const datefns = require('date-fns');
-const env = require('../../config');
 const {
   getAllSessionsDB,
   getSessionDB,
+  postPatchSessionByGuestDB,
   postSessionDB,
   patchSessionDB,
   deleteSessionDB,
@@ -38,6 +37,18 @@ const postSession = async (data, callback) => {
   }
 };
 
+const postSessionByGuest = async (data, guestId, callback) => {
+  try {
+    const guestData = data;
+    console.log(data);
+    postPatchSessionByGuestDB(guestData, guestId, (session) => {
+      callback(session);
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 const patchSession = async (data, sessionId, callback) => {
   try {
     return await patchSessionDB(data, sessionId, (session) => {
@@ -61,6 +72,7 @@ const deleteSession = async (sessionId, callback) => {
 module.exports = {
   getAllSessions,
   getSession,
+  postSessionByGuest,
   postSession,
   patchSession,
   deleteSession,

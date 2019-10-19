@@ -1,3 +1,4 @@
+const dateFns = require('date-fns');
 const db = require('./db');
 
 const getAllSessionsDB = (callback) => {
@@ -31,7 +32,50 @@ const postSessionDB = (sessionData, callback) => {
     });
 };
 
+const postPatchSessionByGuestDB = (sessionData, guestId, callback) => {
+  const {
+    terminal,
+    shuttleHour,
+    shuttleDate,
+    smallBags,
+    mediumBags,
+    largeBags,
+    specialBags,
+    specialBagsDesc,
+    wakeupCall,
+    wakeupTime,
+    bbox,
+    bboxNumber,
+  } = sessionData;
+  const data = {
+    terminal,
+    shuttle_date_time: dateFns.parse(`${dateFns.format(dateFns.parseISO(shuttleDate), 'dd/MM/yy')} 0${shuttleHour}:00`, 'dd/MM/yy HH:mm', new Date()),
+    small_bags: smallBags,
+    medium_bags: mediumBags,
+    large_bags: largeBags,
+    special_bag: specialBags,
+    special_bag_desc: specialBagsDesc,
+    wakeup_call: wakeupCall,
+    wakeup_time: wakeupTime,
+    bbox,
+    bbox_number: bboxNumber,
+    status: 'registered',
+    updated_at: new Date(),
+  };
+  db('sessions')
+    .where({ guest_id: guestId })
+    .update(data)
+    .returning('*')
+    .then((session) => {
+      callback(session);
+    })
+    .catch((err) => {
+      throw new Error(err.message);
+    });
+};
+
 const patchSessionDB = (newData, sessionId, callback = null) => {
+  newData.updated_at = new Date();
   db('sessions')
     .where({ session_id: sessionId })
     .update(newData)
@@ -40,7 +84,6 @@ const patchSessionDB = (newData, sessionId, callback = null) => {
       callback(session);
     })
     .catch((err) => {
-      trx.rollback();
       console.log(err);
       return err;
     });
@@ -72,6 +115,7 @@ module.exports = {
   getAllSessionsDB,
   getSessionDB,
   postSessionDB,
+  postPatchSessionByGuestDB,
   patchSessionDB,
   deleteSessionDB,
   selectSessionsDB,

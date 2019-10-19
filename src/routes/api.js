@@ -12,6 +12,7 @@ const {
 const {
   allSessions,
   registerSession,
+  registerSessionByGuest,
   updateSession,
   removeSession,
 } = require('../controllers/sessions');
@@ -67,6 +68,25 @@ router.post('/sessions',
     //   return res.status(422).json({ errors: validationErros.array() });
     // }
     registerSession(req, res, next);
+  });
+
+router.put('/sessions/guest',
+//   [
+//   body('room_number', 'Room number is not defined').isInt({ min: 201, max: 338 }),
+//   body(['first_name', 'last_name'], 'First Name or Last Name are not defined')
+//     .isAlpha()
+//     .optional(),
+//   sanitize(['first_name', 'last_name']).trim(),
+//   body('check_in_date', 'Check-in date is a required field')
+//     .exists(),
+// ],
+  (req, res, next) => {
+    // const validationErros = validationResult(req);
+    // if (!validationErros.isEmpty()) {
+    //   console.log(validationErros.array());
+    //   return res.status(422).json({ errors: validationErros.array() });
+    // }
+    registerSessionByGuest(req, res, next);
   });
 
 router.put('/sessions', updateSession);

@@ -4,12 +4,11 @@ const datefns = require('date-fns');
 const env = require('../../config');
 const {
   getAllSessions,
-  getGuest,
-  postGuest,
-  patchGuest,
-  deleteGuest,
-  verifyGuest,
-  authorizeGuest,
+  getSession,
+  postSession,
+  postSessionByGuest,
+  patchSession,
+  deleteSession,
 } = require('../services/Sessions');
 // const postInsert = require('./postInsertGuest');
 
@@ -50,6 +49,26 @@ const registerSession = async (req, res, next) => {
 
   try {
     await postSession(data, (sessionData) => {
+      res
+        .status(200)
+        .json(sessionData);
+    });
+  } catch (e) {
+    console.log(e);
+    res
+      .status(400)
+      .json({ error: e })
+      .send();
+  }
+};
+
+const registerSessionByGuest = async (req, res, next) => {
+  const data = req.body;
+  console.log(data, 'received in server');
+  const { guestId } = req.body;
+  delete data.guestId;
+  try {
+    await postSessionByGuest(data, guestId, (sessionData) => {
       res
         .status(200)
         .json(sessionData);
@@ -108,6 +127,7 @@ module.exports = {
   allSessions,
   session,
   registerSession,
+  registerSessionByGuest,
   updateSession,
   removeSession,
 };
