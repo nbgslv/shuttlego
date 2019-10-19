@@ -4,8 +4,10 @@
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Table/FlightsTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Table/FlightsTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/FirstStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/FirstStep.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/guests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/guests.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,6 +99,16 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="FlightsTable.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/frontend/src/components/Table/FlightsTable.js" working-dir="$PROJECT_DIR$/frontend/src/components/Table">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.FlightsTable.js" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -135,6 +147,9 @@
       <workItem from="1570543602338" duration="30565000" />
       <workItem from="1570718867119" duration="619000" />
       <workItem from="1570726001362" duration="5260000" />
+      <workItem from="1571149882505" duration="38582000" />
+      <workItem from="1571347901937" duration="6622000" />
+      <workItem from="1571488370425" duration="4280000" />
     </task>
     <servers />
   </component>

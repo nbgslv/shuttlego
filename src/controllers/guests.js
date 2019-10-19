@@ -73,7 +73,7 @@ const registerGuest = async (req, res, next) => {
 const updateGuest = async (req, res, next) => {
   const { data } = req.body;
   const { guest_id: guestId } = data;
-  console.log(data, 'received in server');
+  console.log(req.body, 'received in server');
 
   const {
     session_time_hour: sessionHour,

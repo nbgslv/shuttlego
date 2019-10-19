@@ -148,7 +148,10 @@ const authorizeGuest = async (token, callback) => {
       console.log(err);
       callback(false);
     }
-    callback(decoded);
+    getGuestJoinSessionDB(decoded.data.guestId, (guest) => {
+      guest[0].sessionEnd = decoded.data.sessionEnd;
+      callback(guest);
+    });
   });
 };
 
