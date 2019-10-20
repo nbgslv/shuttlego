@@ -21,9 +21,9 @@ exports.up = (knex) => {
         table.integer('session_time_minute').notNullable();
         table.dateTime('shuttle_date_time');
         table.integer('terminal');
-        table.integer('large_bags');
-        table.integer('medium_bags');
-        table.integer('small_bags');
+        table.integer('large_bags').defaultTo(0);
+        table.integer('medium_bags').defaultTo(0);
+        table.integer('small_bags').defaultTo(0);
         table.boolean('special_bag');
         table.string('special_bag_desc');
         table.boolean('wakeup_call');
