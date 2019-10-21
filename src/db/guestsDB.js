@@ -86,7 +86,13 @@ const postGuestDB = (guestData, sessionHour, sessionMinute, callback) => {
     });
 };
 
-const patchGuestDB = (newData, guestId, sessionHour = null, sessionMinute = null, callback = null) => {
+const patchGuestDB = (
+  newData,
+  guestId,
+  sessionHour = null,
+  sessionMinute = null,
+  callback = null,
+) => {
   newData.updated_at = new Date();
   db.transaction(
     (trx => db('guests')

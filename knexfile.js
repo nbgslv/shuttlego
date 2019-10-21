@@ -14,10 +14,10 @@ module.exports = {
     },
     useNullAsDefault: true,
     migrations: {
-      directory: './db/migrations',
+      directory: './src/db/config/migrations',
     },
     seeds: {
-      directory: './db/seeds',
+      directory: './src/db/config/seeds',
     },
   },
 

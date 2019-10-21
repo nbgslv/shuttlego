@@ -6,10 +6,6 @@ exports.up = (knex) => {
         table.increments('guest_id').primary();
         table.string('first_name');
         table.string('last_name');
-        table.integer('room_number').notNullable();
-        table.string('check_in_date').notNullable();
-        table.string('check_out_date');
-        table.string('verf_code');
         table.string('email');
         table.string('phone_number', 30);
         table.timestamps(true, true);
@@ -17,6 +13,10 @@ exports.up = (knex) => {
     knex.schema
       .createTable('sessions', (table) => {
         table.increments('session_id').primary();
+        table.integer('room_number').notNullable();
+        table.string('check_in_date').notNullable();
+        table.string('check_out_date');
+        table.string('verf_code');
         table.integer('session_time_hour').notNullable();
         table.integer('session_time_minute').notNullable();
         table.dateTime('shuttle_date_time');

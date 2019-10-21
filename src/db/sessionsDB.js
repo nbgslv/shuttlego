@@ -3,7 +3,28 @@ const db = require('./db');
 
 const getAllSessionsDB = (callback) => {
   db
-    .select('*')
+    .select(
+      'session_id',
+      'room_number',
+      'check_in_date',
+      'check_out_date',
+      'session_time_hour',
+      'session_time_minute',
+      'shuttle_date_time',
+      'terminal',
+      'large_bags',
+      'medium_bags',
+      'small_bags',
+      'special_bag',
+      'special_bag_desc',
+      'wakeup_call',
+      'wakeup_time',
+      'bbox',
+      'bbox_number',
+      'guest_id',
+      'status',
+      'pax',
+    )
     .from('sessions')
     .then((sessions) => {
       callback(sessions);
@@ -12,7 +33,28 @@ const getAllSessionsDB = (callback) => {
 
 const getSessionDB = (sessionId, callback) => {
   db
-    .select('*')
+    .select(
+      'session_id',
+      'room_number',
+      'check_in_date',
+      'check_out_date',
+      'session_time_hour',
+      'session_time_minute',
+      'shuttle_date_time',
+      'terminal',
+      'large_bags',
+      'medium_bags',
+      'small_bags',
+      'special_bag',
+      'special_bag_desc',
+      'wakeup_call',
+      'wakeup_time',
+      'bbox',
+      'bbox_number',
+      'guest_id',
+      'status',
+      'pax',
+    )
     .from('sessions')
     .where({ session_id: sessionId })
     .then((session) => {
@@ -22,7 +64,28 @@ const getSessionDB = (sessionId, callback) => {
 
 const getSessionByGuestDB = (guestId, callback) => {
   db
-    .select('*')
+    .select(
+      'session_id',
+      'room_number',
+      'check_in_date',
+      'check_out_date',
+      'session_time_hour',
+      'session_time_minute',
+      'shuttle_date_time',
+      'terminal',
+      'large_bags',
+      'medium_bags',
+      'small_bags',
+      'special_bag',
+      'special_bag_desc',
+      'wakeup_call',
+      'wakeup_time',
+      'bbox',
+      'bbox_number',
+      'guest_id',
+      'status',
+      'pax',
+    )
     .from('sessions')
     .where({ guest_id: guestId })
     .then((session) => {
@@ -33,7 +96,28 @@ const getSessionByGuestDB = (guestId, callback) => {
 const postSessionDB = (sessionData, callback) => {
   db('sessions')
     .insert(sessionData)
-    .returning('*')
+    .returning([
+      'session_id',
+      'room_number',
+      'check_in_date',
+      'check_out_date',
+      'session_time_hour',
+      'session_time_minute',
+      'shuttle_date_time',
+      'terminal',
+      'large_bags',
+      'medium_bags',
+      'small_bags',
+      'special_bag',
+      'special_bag_desc',
+      'wakeup_call',
+      'wakeup_time',
+      'bbox',
+      'bbox_number',
+      'guest_id',
+      'status',
+      'pax',
+    ])
     .then((session) => {
       callback(session);
     })
@@ -75,7 +159,28 @@ const postPatchSessionByGuestDB = (sessionData, guestId, callback) => {
   db('sessions')
     .where({ guest_id: guestId })
     .update(data)
-    .returning('*')
+    .returning([
+      'session_id',
+      'room_number',
+      'check_in_date',
+      'check_out_date',
+      'session_time_hour',
+      'session_time_minute',
+      'shuttle_date_time',
+      'terminal',
+      'large_bags',
+      'medium_bags',
+      'small_bags',
+      'special_bag',
+      'special_bag_desc',
+      'wakeup_call',
+      'wakeup_time',
+      'bbox',
+      'bbox_number',
+      'guest_id',
+      'status',
+      'pax',
+    ])
     .then((session) => {
       callback(session);
     })
@@ -89,7 +194,28 @@ const patchSessionDB = (newData, sessionId, callback = null) => {
   db('sessions')
     .where({ session_id: sessionId })
     .update(newData)
-    .returning('*')
+    .returning([
+      'session_id',
+      'room_number',
+      'check_in_date',
+      'check_out_date',
+      'session_time_hour',
+      'session_time_minute',
+      'shuttle_date_time',
+      'terminal',
+      'large_bags',
+      'medium_bags',
+      'small_bags',
+      'special_bag',
+      'special_bag_desc',
+      'wakeup_call',
+      'wakeup_time',
+      'bbox',
+      'bbox_number',
+      'guest_id',
+      'status',
+      'pax',
+    ])
     .then((session) => {
       callback(session);
     })
@@ -115,7 +241,28 @@ const selectSessionsDB = (params, columns, callback) => {
     .select(columns)
     .from('sessions')
     .where(params)
-    .returning('*')
+    .returning([
+      'session_id',
+      'room_number',
+      'check_in_date',
+      'check_out_date',
+      'session_time_hour',
+      'session_time_minute',
+      'shuttle_date_time',
+      'terminal',
+      'large_bags',
+      'medium_bags',
+      'small_bags',
+      'special_bag',
+      'special_bag_desc',
+      'wakeup_call',
+      'wakeup_time',
+      'bbox',
+      'bbox_number',
+      'guest_id',
+      'status',
+      'pax',
+    ])
     .then((items) => {
       callback(items);
     });

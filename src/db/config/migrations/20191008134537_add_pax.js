@@ -2,7 +2,7 @@
 exports.up = function(knex) {
   return Promise.all([
     knex.schema
-      .alterTable('guests', (table) => {
+      .alterTable('sessions', (table) => {
         table.integer('pax').notNullable().defaultTo(1);
       }),
   ]);
@@ -11,7 +11,7 @@ exports.up = function(knex) {
 exports.down = function(knex) {
   return Promise.all([
     knex.schema
-      .table('guests', (table) => {
+      .table('sessions', (table) => {
         table.dropColumn('pax');
       }),
   ]);
