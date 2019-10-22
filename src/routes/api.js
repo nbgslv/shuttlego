@@ -24,15 +24,16 @@ const router = express.Router();
 router.get('/guests', allGuests);
 
 router.post('/guests', [
-  body('room_number', 'Room number is not defined').isInt({ min: 201, max: 338 }),
-  body(['first_name', 'last_name'], 'First Name or Last Name are not defined')
+  body('roomNumber', 'Room number is not defined').isInt({ min: 201, max: 338 }),
+  body(['firstName', 'lastName'], 'First Name or Last Name are not defined')
     .isAlpha()
     .optional(),
-  sanitize(['first_name', 'last_name']).trim(),
-  body('check_in_date', 'Check-in date is a required field')
+  sanitize(['firstName', 'lastName']).trim(),
+  body('checkinDate', 'Check-in date is a required field')
     .exists(),
 ],
 (req, res, next) => {
+  console.log(req.body, 'received in server');
   const validationErros = validationResult(req);
   if (!validationErros.isEmpty()) {
     console.log(validationErros.array());

@@ -12,10 +12,10 @@ const hashVerifCode = (verifCode) => {
   return bcrypt.hashSync(verifCode, salt);
 };
 
-const verifCode = (plainPass, hash) => bcrypt.compareSync(plainPass, hash);
+const verifyCode = (plainPass, hash) => bcrypt.compareSync(plainPass, hash);
 
 module.exports = {
   getVerifCode,
   hashVerifCode,
-  verifCode,
+  verifyCode,
 };

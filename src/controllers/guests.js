@@ -42,20 +42,39 @@ const guest = async (req, res, next) => {
 
 const registerGuest = async (req, res, next) => {
   const data = req.body;
-  console.log(data, 'received in server');
-
+  console.log(req.body, 'received in server');
   const {
-    session_time_hour: sessionHour,
-    session_time_minute: sessionMinute,
+    firstName,
+    lastName,
+    roomNumber,
+    checkinDate,
+    checkoutDate,
+    pax,
+    email,
+    phoneNumber,
+    sessionHour,
+    sessionMinute,
   } = data;
-  delete data.session_time_hour;
-  delete data.session_time_minute;
-
+  const guestData = {
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+  };
+  const sessionData = {
+    roomNumber,
+    checkinDate,
+    checkoutDate,
+    pax,
+    sessionHour,
+    sessionMinute,
+  };
   try {
-    await postGuest(data, sessionHour, sessionMinute, (guestData) => {
+    await postGuest(guestData, sessionData, (guestPost) => {
+      console.log(guestPost, 'controllers');
       res
         .status(200)
-        .json(guestData);
+        .json(guestPost);
     });
   } catch (e) {
     console.log(e);
@@ -68,18 +87,36 @@ const registerGuest = async (req, res, next) => {
 
 const updateGuest = async (req, res, next) => {
   const { data } = req.body;
-  const { guest_id: guestId } = data;
+  const { guestId } = data;
   console.log(req.body, 'received in server');
-
   const {
-    session_time_hour: sessionHour,
-    session_time_minute: sessionMinute,
+    firstName,
+    lastName,
+    roomNumber,
+    checkinDate,
+    checkoutDate,
+    pax,
+    email,
+    phoneNumber,
+    sessionHour,
+    sessionMinute,
   } = data;
-  delete data.session_time_hour;
-  delete data.session_time_minute;
-
+  const guestData = {
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+  };
+  const sessionData = {
+    roomNumber,
+    checkinDate,
+    checkoutDate,
+    pax,
+    sessionHour,
+    sessionMinute,
+  };
   try {
-    await patchGuest(data, guestId, sessionHour, sessionMinute, (updated) => {
+    await patchGuest(guestData, sessionData, guestId, (updated) => {
       res
         .status(200)
         .json(updated);

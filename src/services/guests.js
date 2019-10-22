@@ -14,7 +14,7 @@ const {
 const {
   getVerifCode,
   hashVerifCode,
-  verifCode,
+  verifyCode,
 } = require('../utils/verifCode');
 
 const getAllGuests = async (callback) => {
@@ -35,24 +35,23 @@ const getGuest = async (guestId) => {
   }
 };
 
-const postGuest = async (data, sessionHour, sessionMinute, callback) => {
+const postGuest = async (guestData, sessionData, callback) => {
   try {
-    const guestData = data;
-    console.log(data);
     const verifCode = getVerifCode();
-    console.log(verifCode, 'code'); // DELETE BEFORE PRODUCTION
-    guestData.verf_code = hashVerifCode(verifCode);
-    postGuestDB(guestData, sessionHour, sessionMinute, (guest) => {
-      callback(guest);
+    console.log(verifCode, 'loginCode'); // DELETE BEFORE PRODUCTION
+    sessionData.verf_code = hashVerifCode(verifCode);
+    postGuestDB(guestData, sessionData, (guestPost) => {
+      console.log(guestPost, 'services');
+      callback(guestPost);
     });
   } catch (e) {
     throw new Error(e.messages);
   }
 };
 
-const patchGuest = async (data, guestId, sessionHour, sessionMinute, callback) => {
+const patchGuest = async (guestData, sessionData, guestId, callback) => {
   try {
-    return await patchGuestDB(data, guestId, sessionHour, sessionMinute, (guest) => {
+    return await patchGuestDB(guestData, sessionData, guestId, (guest) => {
       callback(guest);
     });
   } catch (e) {

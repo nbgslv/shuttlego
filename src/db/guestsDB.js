@@ -1,8 +1,39 @@
 const db = require('./db');
 
+const guestsCol = [
+  { guestId: 'guests.guest_id' },
+  { firstName: 'guests.first_name' },
+  { lastName: 'guests.last_name' },
+  'guests.email',
+  { phoneNumber: 'guests.phone_number' },
+  { createdAt: 'guests.created_at' },
+  { updatedAt: 'guests.updated_at' },
+];
+const sessionsCol = [
+  { sessionId: 'sessions.session_id' },
+  { roomNumber: 'sessions.room_number' },
+  { checkinDate: 'sessions.check_in_date' },
+  { checkoutDate: 'sessions.check_out_date' },
+  { sessionHour: 'sessions.session_time_hour' },
+  { sessionMinute: 'sessions.session_time_minute' },
+  { shuttleDateTime: 'sessions.shuttle_date_time' },
+  'sessions.terminal',
+  { largeBags: 'sessions.large_bags' },
+  { mediumBags: 'sessions.medium_bags' },
+  { smallBags: 'sessions.small_bags' },
+  { specialBag: 'sessions.special_bag' },
+  { specialBagDesc: 'sessions.special_bag_desc' },
+  { wakeupCall: 'sessions.wakeup_call' },
+  { wakeupTime: 'sessions.wakeup_time' },
+  'sessions.bbox',
+  { bboxNumber: 'sessions.bbox_number' },
+  'sessions.status',
+  'sessions.pax',
+];
+
 const getAllGuestsDB = (callback) => {
   db
-    .select('*')
+    .select(guestsCol)
     .from('guests')
     .then((guests) => {
       callback(guests);
@@ -11,7 +42,7 @@ const getAllGuestsDB = (callback) => {
 
 const getGuestDB = (guestId, callback) => {
   db
-    .select('*')
+    .select(guestsCol)
     .from('guests')
     .where({ guest_id: guestId })
     .then((guest) => {
@@ -21,7 +52,7 @@ const getGuestDB = (guestId, callback) => {
 
 const getGuestsJoinSessionDB = (callback) => {
   db
-    .select('*')
+    .select([...guestsCol, ...sessionsCol])
     .from('guests')
     .join('sessions', (queryBuilder) => {
       queryBuilder.on('guests.guest_id', '=', 'sessions.guest_id');
@@ -33,13 +64,14 @@ const getGuestsJoinSessionDB = (callback) => {
 
 const getGuestJoinSessionDB = (guestId, callback) => {
   db
-    .select('*')
+    .select([...guestsCol, ...sessionsCol])
     .from('guests')
     .join('sessions', (queryBuilder) => {
       queryBuilder.on('guests.guest_id', '=', 'sessions.guest_id')
         .onIn('guests.guest_id', [guestId]);
     })
     .then((guest) => {
+      console.log(guest, 'getGuestJoinSessionDB');
       callback(guest);
     })
     .catch((err) => {
@@ -48,80 +80,121 @@ const getGuestJoinSessionDB = (guestId, callback) => {
     });
 };
 
-const postGuestDB = (guestData, sessionHour, sessionMinute, callback) => {
+const postGuestDB = (guestData, sessionData, callback) => {
+  const {
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+  } = guestData;
+  const guestDataDb = {
+    first_name: firstName,
+    last_name: lastName,
+    email,
+    phone_number: phoneNumber,
+  };
+  const {
+    roomNumber,
+    checkinDate,
+    checkoutDate,
+    pax,
+    sessionHour,
+    sessionMinute,
+  } = sessionData;
+  const sessionDataDb = {
+    room_number: roomNumber,
+    check_in_date: checkinDate,
+    check_out_date: checkoutDate,
+    pax,
+    session_time_hour: sessionHour,
+    session_time_minute: sessionMinute,
+  };
   db
     .transaction(
       (trx => db('guests')
         .transacting(trx)
-        .insert(guestData)
-        .returning('*')
+        .insert(guestDataDb)
+        .returning(guestsCol)
         .then((item) => {
-          console.log(item);
+          console.log(item, 'item');
+          sessionDataDb.guest_id = item[0].guest_id;
           return db('sessions')
             .transacting(trx)
-            .insert({
-              session_time_hour: sessionHour,
-              session_time_minute: sessionMinute,
-              guest_id: item[0].guest_id,
-            })
-            .returning('*')
+            .insert(sessionDataDb)
+            .returning(sessionsCol)
             .catch((err) => {
               console.log(err);
-              throw new Error(err);
             });
         })
         .then(trx.commit)
         .catch((err) => {
           trx.rollback();
-          throw new Error(err.message);
+          console.log(err);
         })),
     )
-    .then(session => getGuestJoinSessionDB(session[0].guest_id, (guest) => {
-      console.log(guest, 'after insertion');
-      callback(guest);
+    .then(session => getGuestJoinSessionDB(session[0].guest_id, (guestPost) => {
+      console.log(guestPost, 'after insertion');
+      callback(guestPost);
     }))
     .catch((err) => {
       console.log(err);
-      throw new Error(err.message);
     });
 };
 
 const patchGuestDB = (
-  newData,
+  guestData,
+  sessionData,
   guestId,
-  sessionHour = null,
-  sessionMinute = null,
   callback = null,
 ) => {
-  newData.updated_at = new Date();
+  const {
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+  } = guestData;
+  const guestDataDb = {
+    first_name: firstName,
+    last_name: lastName,
+    email,
+    phone_number: phoneNumber,
+  };
+  const {
+    roomNumber,
+    checkinDate,
+    checkoutDate,
+    pax,
+    sessionHour,
+    sessionMinute,
+  } = sessionData;
+  const sessionDataDb = {
+    room_number: roomNumber,
+    check_in_date: checkinDate,
+    check_out_date: checkoutDate,
+    pax,
+    session_time_hour: sessionHour,
+    session_time_minute: sessionMinute,
+  };
+  guestData.updated_at = new Date();
+  sessionData.updated_at = new Date();
   db.transaction(
-    (trx => db('guests')
+    trx => db('guests')
       .transacting(trx)
       .where({ guest_id: guestId })
-      .update(newData)
-      .then(() => {
-        if (sessionHour !== null && sessionMinute !== null) {
-          console.log(sessionHour, 'hour');
-          console.log(sessionMinute, 'minute');
-          return db('sessions')
-            .transacting(trx)
-            .where({ guest_id: guestId })
-            .update({
-              session_time_hour: sessionHour,
-              session_time_minute: sessionMinute,
-            })
-            .catch((err) => {
-              console.log(err.message);
-            });
-        }
-      })
+      .update(guestDataDb)
+      .then(() => db('sessions')
+        .transacting(trx)
+        .where({ guest_id: guestId })
+        .update(sessionDataDb)
+        .catch((err) => {
+          console.log(err.message);
+        }))
       .then(trx.commit)
       .catch((err) => {
         trx.rollback();
         console.log(err);
         return err;
-      })
-    ),
+      }),
   )
     .then(() => getGuestJoinSessionDB(guestId, (guest) => {
       console.log(guest, 'after update');
@@ -162,7 +235,7 @@ const selectGuestsDB = (params, columns, callback) => {
     .select(columns)
     .from('guests')
     .where(params)
-    .returning('*')
+    .returning(guestsCol)
     .then((items) => {
       callback(items);
     });
