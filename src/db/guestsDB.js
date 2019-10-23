@@ -11,6 +11,7 @@ const guestsCol = [
 ];
 const sessionsCol = [
   { sessionId: 'sessions.session_id' },
+  { guestId: 'sessions.guest_id' },
   { roomNumber: 'sessions.room_number' },
   { checkinDate: 'sessions.check_in_date' },
   { checkoutDate: 'sessions.check_out_date' },
@@ -134,8 +135,8 @@ const postGuestDB = (guestData, sessionData, callback) => {
           console.log(err);
         })),
     )
-    .then(session => getGuestJoinSessionDB(session[0].guest_id, (guestPost) => {
-      console.log(guestPost, 'after insertion');
+    .then(session => getGuestJoinSessionDB(session[0].guestId, (guestPost) => {
+      console.log(session, 'after insertion');
       callback(guestPost);
     }))
     .catch((err) => {
