@@ -1,6 +1,8 @@
 const {
   getAllSessionsDB,
   getSessionDB,
+  getSessionsJoinGuestDB,
+  getSessionJoinGuestDB,
   getSessionByGuestDB,
   postPatchSessionByGuestDB,
   postSessionDB,
@@ -10,7 +12,7 @@ const {
 
 const getAllSessions = async (callback) => {
   try {
-    return await getAllSessionsDB((sessions) => {
+    return await getSessionsJoinGuestDB((sessions) => {
       callback(sessions);
     });
   } catch (e) {
@@ -61,8 +63,10 @@ const postSessionByGuest = async (data, guestId, callback) => {
 };
 
 const patchSession = async (data, sessionId, callback) => {
+  delete data.sessionId;
+  console.log(newData);
   try {
-    return await patchSessionDB(data, sessionId, (session) => {
+    return await patchSessionDB(newData, sessionId, (session) => {
       callback(session);
     });
   } catch (e) {

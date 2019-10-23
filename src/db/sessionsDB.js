@@ -61,6 +61,18 @@ const getSessionByGuestDB = (guestId, callback) => {
     });
 };
 
+const getSessionsJoinGuestDB = (callback) => {
+  db
+    .select([...guestsCol, ...sessionCol])
+    .from('sessions')
+    .join('guests', (queryBuilder) => {
+      queryBuilder.on('guests.guest_id', '=', 'sessions.guest_id');
+    })
+    .then((guests) => {
+      callback(guests);
+    });
+};
+
 const getSessionJoinGuestDB = (sessionId, callback) => {
   db
     .select([...guestsCol, ...sessionCol])
@@ -134,6 +146,7 @@ const postPatchSessionByGuestDB = (sessionData, guestId, callback) => {
 };
 
 const patchSessionDB = (newData, sessionId, callback = null) => {
+  console.log(newData, 'newData');
   newData.updated_at = new Date();
   db('sessions')
     .where({ session_id: sessionId })
@@ -174,6 +187,7 @@ module.exports = {
   getAllSessionsDB,
   getSessionDB,
   getSessionByGuestDB,
+  getSessionsJoinGuestDB,
   getSessionJoinGuestDB,
   postSessionDB,
   postPatchSessionByGuestDB,

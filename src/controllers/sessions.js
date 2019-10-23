@@ -96,8 +96,8 @@ const registerSessionByGuest = async (req, res, next) => {
 };
 
 const updateSession = async (req, res, next) => {
-  const { data } = req.body;
-  const { session_id: sessionId } = data;
+  const data = req.body;
+  const { sessionId } = data;
   console.log(req.body, 'received in server');
 
   try {
