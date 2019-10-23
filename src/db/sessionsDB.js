@@ -1,30 +1,40 @@
 const dateFns = require('date-fns');
 const db = require('./db');
 
+const sessionCol = [
+  { sessionId: 'sessions.session_id' },
+  { roomNumber: 'sessions.room_number' },
+  { checkinDate: 'sessions.check_in_date' },
+  { checkoutDate: 'sessions.check_out_date' },
+  { sessionHour: 'sessions.session_time_hour' },
+  { sessionMinute: 'sessions.session_time_minute' },
+  { shuttleDateTime: 'sessions.shuttle_date_time' },
+  'sessions.terminal',
+  { largeBags: 'sessions.large_bags' },
+  { mediumBags: 'sessions.medium_bags' },
+  { smallBags: 'sessions.small_bags' },
+  { specialBag: 'sessions.special_bag' },
+  { specialBagDesc: 'sessions.special_bag_desc' },
+  { wakeupCall: 'sessions.wakeup_call' },
+  { wakeupTime: 'sessions.wakeup_time' },
+  'sessions.bbox',
+  { bboxNumber: 'sessions.bbox_number' },
+  'sessions.status',
+  'sessions.pax',
+];
+const guestsCol = [
+  { guestId: 'guests.guest_id' },
+  { firstName: 'guests.first_name' },
+  { lastName: 'guests.last_name' },
+  'guests.email',
+  { phoneNumber: 'guests.phone_number' },
+  { createdAt: 'guests.created_at' },
+  { updatedAt: 'guests.updated_at' },
+];
+
 const getAllSessionsDB = (callback) => {
   db
-    .select(
-      'session_id',
-      'room_number',
-      'check_in_date',
-      'check_out_date',
-      'session_time_hour',
-      'session_time_minute',
-      'shuttle_date_time',
-      'terminal',
-      'large_bags',
-      'medium_bags',
-      'small_bags',
-      'special_bag',
-      'special_bag_desc',
-      'wakeup_call',
-      'wakeup_time',
-      'bbox',
-      'bbox_number',
-      'guest_id',
-      'status',
-      'pax',
-    )
+    .select(sessionCol)
     .from('sessions')
     .then((sessions) => {
       callback(sessions);
@@ -33,28 +43,7 @@ const getAllSessionsDB = (callback) => {
 
 const getSessionDB = (sessionId, callback) => {
   db
-    .select(
-      'session_id',
-      'room_number',
-      'check_in_date',
-      'check_out_date',
-      'session_time_hour',
-      'session_time_minute',
-      'shuttle_date_time',
-      'terminal',
-      'large_bags',
-      'medium_bags',
-      'small_bags',
-      'special_bag',
-      'special_bag_desc',
-      'wakeup_call',
-      'wakeup_time',
-      'bbox',
-      'bbox_number',
-      'guest_id',
-      'status',
-      'pax',
-    )
+    .select(sessionCol)
     .from('sessions')
     .where({ session_id: sessionId })
     .then((session) => {
@@ -64,28 +53,7 @@ const getSessionDB = (sessionId, callback) => {
 
 const getSessionByGuestDB = (guestId, callback) => {
   db
-    .select(
-      'session_id',
-      'room_number',
-      'check_in_date',
-      'check_out_date',
-      'session_time_hour',
-      'session_time_minute',
-      'shuttle_date_time',
-      'terminal',
-      'large_bags',
-      'medium_bags',
-      'small_bags',
-      'special_bag',
-      'special_bag_desc',
-      'wakeup_call',
-      'wakeup_time',
-      'bbox',
-      'bbox_number',
-      'guest_id',
-      'status',
-      'pax',
-    )
+    .select(sessionCol)
     .from('sessions')
     .where({ guest_id: guestId })
     .then((session) => {
@@ -93,31 +61,28 @@ const getSessionByGuestDB = (guestId, callback) => {
     });
 };
 
+const getSessionJoinGuestDB = (sessionId, callback) => {
+  db
+    .select([...guestsCol, ...sessionCol])
+    .from('sessions')
+    .join('guests', (queryBuilder) => {
+      queryBuilder.on('guests.guest_id', '=', 'sessions.guest_id')
+        .onIn('sessions.session_id', [sessionId]);
+    })
+    .then((session) => {
+      console.log(session, 'getGuestJoinSessionDB');
+      callback(session);
+    })
+    .catch((err) => {
+      console.log(err.messages);
+      throw new Error(err);
+    });
+};
+
 const postSessionDB = (sessionData, callback) => {
   db('sessions')
     .insert(sessionData)
-    .returning([
-      'session_id',
-      'room_number',
-      'check_in_date',
-      'check_out_date',
-      'session_time_hour',
-      'session_time_minute',
-      'shuttle_date_time',
-      'terminal',
-      'large_bags',
-      'medium_bags',
-      'small_bags',
-      'special_bag',
-      'special_bag_desc',
-      'wakeup_call',
-      'wakeup_time',
-      'bbox',
-      'bbox_number',
-      'guest_id',
-      'status',
-      'pax',
-    ])
+    .returning(sessionCol)
     .then((session) => {
       callback(session);
     })
@@ -159,28 +124,7 @@ const postPatchSessionByGuestDB = (sessionData, guestId, callback) => {
   db('sessions')
     .where({ guest_id: guestId })
     .update(data)
-    .returning([
-      'session_id',
-      'room_number',
-      'check_in_date',
-      'check_out_date',
-      'session_time_hour',
-      'session_time_minute',
-      'shuttle_date_time',
-      'terminal',
-      'large_bags',
-      'medium_bags',
-      'small_bags',
-      'special_bag',
-      'special_bag_desc',
-      'wakeup_call',
-      'wakeup_time',
-      'bbox',
-      'bbox_number',
-      'guest_id',
-      'status',
-      'pax',
-    ])
+    .returning(sessionCol)
     .then((session) => {
       callback(session);
     })
@@ -194,28 +138,7 @@ const patchSessionDB = (newData, sessionId, callback = null) => {
   db('sessions')
     .where({ session_id: sessionId })
     .update(newData)
-    .returning([
-      'session_id',
-      'room_number',
-      'check_in_date',
-      'check_out_date',
-      'session_time_hour',
-      'session_time_minute',
-      'shuttle_date_time',
-      'terminal',
-      'large_bags',
-      'medium_bags',
-      'small_bags',
-      'special_bag',
-      'special_bag_desc',
-      'wakeup_call',
-      'wakeup_time',
-      'bbox',
-      'bbox_number',
-      'guest_id',
-      'status',
-      'pax',
-    ])
+    .returning(sessionCol)
     .then((session) => {
       callback(session);
     })
@@ -241,28 +164,7 @@ const selectSessionsDB = (params, columns, callback) => {
     .select(columns)
     .from('sessions')
     .where(params)
-    .returning([
-      'session_id',
-      'room_number',
-      'check_in_date',
-      'check_out_date',
-      'session_time_hour',
-      'session_time_minute',
-      'shuttle_date_time',
-      'terminal',
-      'large_bags',
-      'medium_bags',
-      'small_bags',
-      'special_bag',
-      'special_bag_desc',
-      'wakeup_call',
-      'wakeup_time',
-      'bbox',
-      'bbox_number',
-      'guest_id',
-      'status',
-      'pax',
-    ])
+    .returning(sessionCol)
     .then((items) => {
       callback(items);
     });
@@ -272,6 +174,7 @@ module.exports = {
   getAllSessionsDB,
   getSessionDB,
   getSessionByGuestDB,
+  getSessionJoinGuestDB,
   postSessionDB,
   postPatchSessionByGuestDB,
   patchSessionDB,

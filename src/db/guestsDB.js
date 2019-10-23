@@ -100,6 +100,7 @@ const postGuestDB = (guestData, sessionData, callback) => {
     pax,
     sessionHour,
     sessionMinute,
+    verfCode,
   } = sessionData;
   const sessionDataDb = {
     room_number: roomNumber,
@@ -108,6 +109,7 @@ const postGuestDB = (guestData, sessionData, callback) => {
     pax,
     session_time_hour: sessionHour,
     session_time_minute: sessionMinute,
+    verf_code: verfCode,
   };
   db
     .transaction(
@@ -117,7 +119,7 @@ const postGuestDB = (guestData, sessionData, callback) => {
         .returning(guestsCol)
         .then((item) => {
           console.log(item, 'item');
-          sessionDataDb.guest_id = item[0].guest_id;
+          sessionDataDb.guest_id = item[0].guestId;
           return db('sessions')
             .transacting(trx)
             .insert(sessionDataDb)
@@ -231,6 +233,17 @@ const deleteGuestDB = (guestId, callback) => {
 };
 
 const selectGuestsDB = (params, columns, callback) => {
+  db
+    .select(columns)
+    .from('guests')
+    .where(params)
+    .returning(guestsCol)
+    .then((items) => {
+      callback(items);
+    });
+};
+
+const selectGuestsVerifyDB = (params, columns, callback) => {
   db
     .select(columns)
     .from('guests')

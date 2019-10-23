@@ -12,6 +12,10 @@ const {
   getGuestJoinSessionDB,
 } = require('../db/guestsDB');
 const {
+  selectSessionsDB,
+  getSessionJoinGuestDB,
+} = require('../db/sessionsDB');
+const {
   getVerifCode,
   hashVerifCode,
   verifyCode,
@@ -39,7 +43,7 @@ const postGuest = async (guestData, sessionData, callback) => {
   try {
     const verifCode = getVerifCode();
     console.log(verifCode, 'loginCode'); // DELETE BEFORE PRODUCTION
-    sessionData.verf_code = hashVerifCode(verifCode);
+    sessionData.verfCode = hashVerifCode(verifCode);
     postGuestDB(guestData, sessionData, (guestPost) => {
       console.log(guestPost, 'services');
       callback(guestPost);
@@ -86,47 +90,48 @@ const updateEmailPhone = async (data, field, guest) => {
   }
 };
 
-const verifyGuest = async (pass, phoneNumber, email, params, columns, callback) => {
+const verifyGuest = async (pass, params, columns, callback) => {
+  console.log('login')
   let appropGuests;
   let userIndex;
   try {
-    await selectGuestsDB(params, columns, (guests) => {
+    await selectSessionsDB(params, columns, (guests) => {
       appropGuests = guests;
+      console.log(guests);
       appropGuests.map((row, i) => {
-        if (verifCode(pass, row.verf_code)) {
+        if (verifyCode(pass, row.verf_code)) {
           userIndex = i;
         }
         if (userIndex) {
-          updateEmailPhone(phoneNumber, 'phone_number', appropGuests[userIndex]);
-          updateEmailPhone(email, 'email', appropGuests[userIndex]);
-          getGuestJoinSessionDB(appropGuests[userIndex].guest_id, (guest) => {
-            const guestData = guest[0];
-            const iat = guestData.created_at;
-            const expWithHours = datefns.addHours(iat, guestData.session_time_hour);
+          // updateEmailPhone(phoneNumber, 'phone_number', appropGuests[userIndex]);
+          // updateEmailPhone(email, 'email', appropGuests[userIndex]);
+          getSessionJoinGuestDB(appropGuests[userIndex].session_id, (session) => {
+            const sessionData = session[0];
+            const iat = sessionData.createdAt;
+            const expWithHours = datefns.addHours(iat, sessionData.sessionHour);
             const expWithMinutes = datefns.addMinutes(
               expWithHours,
-              guestData.session_time_minute,
+              sessionData.sessionMinute,
             );
             const expUnixTime = datefns.getUnixTime(expWithMinutes);
             const user = {
-              guestId: guestData.guest_id,
+              sessionId: sessionData.sessionId,
+              guestId: sessionData.guestId,
               sessionEnd: expWithMinutes,
-              firstName: guestData.first_name,
-              lastName: guestData.last_name,
-              pax: guestData.pax,
-              roomNumber: guestData.room_number,
-              checkinDate: guestData.check_in_date,
-              checkoutDate: guestData.check_out_date,
-              phoneNumber: guestData.phone_number,
-              email: guestData.email,
-              authorized: true,
+              firstName: sessionData.firstName,
+              lastName: sessionData.lastName,
+              pax: sessionData.pax,
+              roomNumber: sessionData.roomNumber,
+              checkinDate: sessionData.checkinDate,
+              checkoutDate: sessionData.checkoutDate,
+              phoneNumber: sessionData.phoneNumber,
+              email: sessionData.email,
             };
             const token = jwt.sign({
               data: user,
               exp: expUnixTime,
             },
             env.dev.jwtSecret);
-
             callback({
               user,
               token,
@@ -142,14 +147,17 @@ const verifyGuest = async (pass, phoneNumber, email, params, columns, callback) 
 };
 
 const authorizeGuest = async (token, callback) => {
+  console.log('authorize');
   jwt.verify(token, env.dev.jwtSecret, (err, decoded) => {
     if (err) {
       console.log(err);
       callback(false);
     }
-    getGuestJoinSessionDB(decoded.data.guestId, (guest) => {
-      guest[0].sessionEnd = decoded.data.sessionEnd;
-      callback(guest);
+    console.log(decoded, 'decoded');
+    getSessionJoinGuestDB(decoded.data.sessionId, (session) => {
+      console.log(session);
+      session[0].sessionEnd = decoded.data.sessionEnd;
+      callback(session);
     });
   });
 };

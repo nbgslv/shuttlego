@@ -155,8 +155,6 @@ const verify = async (req, res, next) => {
   const {
     roomNumber,
     confCode,
-    email,
-    phoneNumber,
   } = req.body;
   const params = {
     room_number: roomNumber,
@@ -165,11 +163,10 @@ const verify = async (req, res, next) => {
     'room_number',
     'verf_code',
     'guest_id',
-    'email',
-    'phone_number',
+    'session_id',
   ];
   try {
-    await verifyGuest(confCode, phoneNumber, email, params, columns, (loggedInGuest) => {
+    await verifyGuest(confCode, params, columns, (loggedInGuest) => {
       const { user: guestData, token } = loggedInGuest;
       res
         .cookie('token', token)
