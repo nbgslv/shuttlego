@@ -6,6 +6,7 @@ const {
   deleteGuest,
   verifyGuest,
   authorizeGuest,
+  logoutGuest,
 } = require('../services/guests');
 // const postInsert = require('./postInsertGuest');
 
@@ -213,6 +214,40 @@ const checkAuth = async (req, res, next) => {
   }
 };
 
+const logOut = async (req, res, next) => {
+  const token = req.body.token
+    || req.query.token
+    || req.headers['x-access-token']
+    || req.cookies.token;
+  if (!token) {
+    res
+      .status(400)
+      .json({ error: 'no token' })
+      .send();
+  } else {
+    try {
+      await logoutGuest(token, (logout) => {
+        if (logout) {
+          res
+            .clearCookie('token')
+            .status(200)
+            .send();
+        } else {
+          res
+            .status(400)
+            .json({ error: 'couldnt logout' })
+            .send();
+        }
+      });
+    } catch (e) {
+      console.log(e);
+      res
+        .status(400)
+        .json({ error: e });
+    }
+  }
+};
+
 module.exports = {
   allGuests,
   guest,
@@ -221,4 +256,5 @@ module.exports = {
   removeGuest,
   verify,
   checkAuth,
+  logOut,
 };

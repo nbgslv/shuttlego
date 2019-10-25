@@ -91,7 +91,6 @@ const updateEmailPhone = async (data, field, guest) => {
 };
 
 const verifyGuest = async (pass, params, columns, callback) => {
-  console.log('login')
   let appropGuests;
   let userIndex;
   try {
@@ -162,6 +161,16 @@ const authorizeGuest = async (token, callback) => {
   });
 };
 
+const logoutGuest = async (token, callback) => {
+  jwt.verify(token, env.dev.jwtSecret, (err, decoded) => {
+    if (err) {
+      console.log(err);
+      callback(false);
+    }
+    callback(true);
+  });
+};
+
 module.exports = {
   getAllGuests,
   getGuest,
@@ -170,4 +179,5 @@ module.exports = {
   deleteGuest,
   verifyGuest,
   authorizeGuest,
+  logoutGuest,
 };
