@@ -2,7 +2,7 @@ exports.up = function(knex) {
   return Promise.all([
     knex.schema.createTable('jwt_blacklist', (table) => {
       table.increments('token_id').primary();
-      table.string('token').notNullable();
+      table.text('token').notNullable();
       table.timestamp('exp').notNullable();
       table.timestamps(true, true);
     })

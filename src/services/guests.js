@@ -16,6 +16,10 @@ const {
   getSessionJoinGuestDB,
 } = require('../db/sessionsDB');
 const {
+  logoutTokenDB,
+  selectTokenDB,
+} = require('../db/tokensDB');
+const {
   getVerifCode,
   hashVerifCode,
   verifyCode,
@@ -146,17 +150,22 @@ const verifyGuest = async (pass, params, columns, callback) => {
 };
 
 const authorizeGuest = async (token, callback) => {
-  console.log('authorize');
   jwt.verify(token, env.dev.jwtSecret, (err, decoded) => {
     if (err) {
       console.log(err);
       callback(false);
     }
-    console.log(decoded, 'decoded');
-    getSessionJoinGuestDB(decoded.data.sessionId, (session) => {
-      console.log(session);
-      session[0].sessionEnd = decoded.data.sessionEnd;
-      callback(session);
+    selectTokenDB(token, (tokenVerified) => {
+      console.log(tokenVerified, 'tokenVerified');
+      if (tokenVerified) {
+        getSessionJoinGuestDB(decoded.data.sessionId, (session) => {
+          console.log(session);
+          session[0].sessionEnd = decoded.data.sessionEnd;
+          callback(session);
+        });
+      } else {
+        callback(false);
+      }
     });
   });
 };
@@ -167,7 +176,9 @@ const logoutGuest = async (token, callback) => {
       console.log(err);
       callback(false);
     }
-    callback(true);
+    logoutTokenDB(token, decoded, (logout) => {
+      callback(logout);
+    });
   });
 };
 

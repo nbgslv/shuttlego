@@ -188,6 +188,7 @@ const checkAuth = async (req, res, next) => {
     || req.headers['x-access-token']
     || req.cookies.token;
   if (!token) {
+    console.log('no token');
     res
       .status(401)
       .json({ authorized: false })
@@ -195,12 +196,14 @@ const checkAuth = async (req, res, next) => {
   } else {
     try {
       await authorizeGuest(token, (guestData) => {
+        console.log(guestData, 'guestData');
         if (guestData) {
           res
             .status(200)
             .json(guestData)
             .send();
         } else {
+          console.log('checkauth');
           res
             .sendStatus(401);
         }
