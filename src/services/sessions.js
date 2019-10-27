@@ -63,10 +63,9 @@ const postSessionByGuest = async (data, guestId, callback) => {
 };
 
 const patchSession = async (data, sessionId, callback) => {
-  delete data.sessionId;
-  console.log(newData);
+  console.log(data, 'services');
   try {
-    return await patchSessionDB(newData, sessionId, (session) => {
+    return await patchSessionDB(data, sessionId, (session) => {
       callback(session);
     });
   } catch (e) {

@@ -19,7 +19,9 @@ exports.up = (knex) => {
         table.string('verf_code');
         table.integer('session_time_hour').notNullable();
         table.integer('session_time_minute').notNullable();
-        table.dateTime('shuttle_date_time');
+        table.string('shuttle_date');
+        table.integer('shuttle_time_hour');
+        table.integer('shuttle_time_minute');
         table.integer('terminal');
         table.integer('large_bags').defaultTo(0);
         table.integer('medium_bags').defaultTo(0);
@@ -27,7 +29,9 @@ exports.up = (knex) => {
         table.boolean('special_bag');
         table.string('special_bag_desc');
         table.boolean('wakeup_call');
-        table.dateTime('wakeup_time');
+        table.string('wakeup_time_date');
+        table.integer('wakeup_time_hour');
+        table.integer('wakeup_time_minute');
         table.boolean('bbox');
         table.integer('bbox_number');
         table.integer('guest_id').notNullable();

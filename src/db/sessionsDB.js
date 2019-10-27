@@ -8,7 +8,9 @@ const sessionCol = [
   { checkoutDate: 'sessions.check_out_date' },
   { sessionHour: 'sessions.session_time_hour' },
   { sessionMinute: 'sessions.session_time_minute' },
-  { shuttleDateTime: 'sessions.shuttle_date_time' },
+  { shuttleDate: 'sessions.shuttle_date' },
+  { shuttleTimeHour: 'sessions.shuttle_time_hour' },
+  { shuttleTimeMinute: 'sessions.shuttle_time_minute' },
   'sessions.terminal',
   { largeBags: 'sessions.large_bags' },
   { mediumBags: 'sessions.medium_bags' },
@@ -16,7 +18,9 @@ const sessionCol = [
   { specialBag: 'sessions.special_bag' },
   { specialBagDesc: 'sessions.special_bag_desc' },
   { wakeupCall: 'sessions.wakeup_call' },
-  { wakeupTime: 'sessions.wakeup_time' },
+  { wakeupTimeDate: 'sessions.wakeup_time_date' },
+  { wakeupTimeHour: 'sessions.wakeup_time_hour' },
+  { wakeupTimeMinute: 'sessions.wakeup_time_minute' },
   'sessions.bbox',
   { bboxNumber: 'sessions.bbox_number' },
   'sessions.status',
@@ -120,7 +124,7 @@ const postPatchSessionByGuestDB = (sessionData, guestId, callback) => {
   } = sessionData;
   const data = {
     terminal,
-    shuttle_date_time: dateFns.parse(`${dateFns.format(dateFns.parseISO(shuttleDate), 'dd/MM/yy')} 0${shuttleHour}:00`, 'dd/MM/yy HH:mm', new Date()),
+    shuttle_date_time: dateFns.parse(`${dateFns.format(dateFns.parseISO(shuttleDate), 'dd/MM/yy')} ${shuttleHour}:00`, 'dd/MM/yy H:mm', new Date()),
     small_bags: smallBags,
     medium_bags: mediumBags,
     large_bags: largeBags,
@@ -146,11 +150,55 @@ const postPatchSessionByGuestDB = (sessionData, guestId, callback) => {
 };
 
 const patchSessionDB = (newData, sessionId, callback = null) => {
-  console.log(newData, 'newData');
+  const {
+    bbox,
+    bboxNumber,
+    checkinDate,
+    checkoutDate,
+    largeBags,
+    mediumBags,
+    smallBags,
+    specialBag,
+    specialBagDesc,
+    pax,
+    roomNumber,
+    sessionHour,
+    sessionMinute,
+    shuttleHour,
+    shuttleMinute,
+    shuttleDate,
+    terminal,
+    wakeupHour,
+    wakeupMinute,
+    wakeupDate,
+  } = newData;
+  const data = {
+    bbox,
+    bbox_number: bboxNumber,
+    check_in_date: checkinDate,
+    check_out_date: checkoutDate,
+    large_bags: largeBags,
+    medium_bags: mediumBags,
+    small_bags: smallBags,
+    special_bag: specialBag,
+    special_bag_desc: specialBagDesc,
+    pax,
+    room_number: roomNumber,
+    session_time_hour: sessionHour,
+    session_time_minute: sessionMinute,
+    shuttle_time_hour: shuttleHour,
+    shuttle_time_minute: shuttleMinute,
+    shuttle_date: shuttleDate,
+    terminal,
+    wakeup_time_hour: wakeupHour,
+    wakeup_time_minute: wakeupMinute,
+    wakeup_time_date: wakeupDate,
+  };
+  console.log(newData, 'db');
   newData.updated_at = new Date();
   db('sessions')
     .where({ session_id: sessionId })
-    .update(newData)
+    .update(data)
     .returning(sessionCol)
     .then((session) => {
       callback(session);

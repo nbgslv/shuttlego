@@ -96,9 +96,11 @@ const registerSessionByGuest = async (req, res, next) => {
 };
 
 const updateSession = async (req, res, next) => {
-  const data = req.body;
-  const { sessionId } = data;
   console.log(req.body, 'received in server');
+  const newData = req.body;
+  const { data } = newData;
+  const { sessionId } = data;
+  delete data.sessionId;
 
   try {
     await patchSession(data, sessionId, (updated) => {
