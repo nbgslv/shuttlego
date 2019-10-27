@@ -111,6 +111,7 @@ const postPatchSessionByGuestDB = (sessionData, guestId, callback) => {
   const {
     terminal,
     shuttleHour,
+    shuttleMinute,
     shuttleDate,
     smallBags,
     mediumBags,
@@ -118,23 +119,30 @@ const postPatchSessionByGuestDB = (sessionData, guestId, callback) => {
     specialBags,
     specialBagsDesc,
     wakeupCall,
-    wakeupTime,
+    wakeupDate,
+    wakeupHour,
+    wakeupMinute,
     bbox,
     bboxNumber,
+    status,
   } = sessionData;
   const data = {
     terminal,
-    shuttle_date_time: dateFns.parse(`${dateFns.format(dateFns.parseISO(shuttleDate), 'dd/MM/yy')} ${shuttleHour}:00`, 'dd/MM/yy H:mm', new Date()),
+    shuttle_date: shuttleDate,
+    shuttle_time_hour: shuttleHour,
+    shuttle_time_minute: shuttleMinute,
     small_bags: smallBags,
     medium_bags: mediumBags,
     large_bags: largeBags,
     special_bag: specialBags,
     special_bag_desc: specialBagsDesc,
     wakeup_call: wakeupCall,
-    wakeup_time: wakeupTime,
+    wakeup_time_date: wakeupDate,
+    wakeup_time_hour: wakeupHour,
+    wakeup_time_minute: wakeupMinute,
     bbox,
     bbox_number: bboxNumber,
-    status: 'registered',
+    status: status || 'registered',
     updated_at: new Date(),
   };
   db('sessions')
@@ -171,6 +179,7 @@ const patchSessionDB = (newData, sessionId, callback = null) => {
     wakeupHour,
     wakeupMinute,
     wakeupDate,
+    status,
   } = newData;
   const data = {
     bbox,
@@ -193,6 +202,7 @@ const patchSessionDB = (newData, sessionId, callback = null) => {
     wakeup_time_hour: wakeupHour,
     wakeup_time_minute: wakeupMinute,
     wakeup_time_date: wakeupDate,
+    status,
   };
   console.log(newData, 'db');
   newData.updated_at = new Date();
