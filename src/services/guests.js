@@ -154,19 +154,21 @@ const authorizeGuest = async (token, callback) => {
     if (err) {
       console.log(err);
       callback(false);
+    } else {
+      selectTokenDB(token, (tokenVerified) => {
+        console.log(tokenVerified, 'tokenVerified');
+        if (tokenVerified) {
+          console.log(decoded, 'decoded');
+          getSessionJoinGuestDB(decoded.data.sessionId, (session) => {
+            console.log(session);
+            session[0].sessionEnd = decoded.data.sessionEnd;
+            callback(session);
+          });
+        } else {
+          callback(false);
+        }
+      });
     }
-    selectTokenDB(token, (tokenVerified) => {
-      console.log(tokenVerified, 'tokenVerified');
-      if (tokenVerified) {
-        getSessionJoinGuestDB(decoded.data.sessionId, (session) => {
-          console.log(session);
-          session[0].sessionEnd = decoded.data.sessionEnd;
-          callback(session);
-        });
-      } else {
-        callback(false);
-      }
-    });
   });
 };
 
