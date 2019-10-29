@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken');
+const env = require('../../config');
 const {
   getAllSessionsDB,
   getSessionDB,
@@ -30,7 +32,7 @@ const getSession = async (sessionId) => {
 
 const getSessionByGuest = async (guestId, callback) => {
   try {
-    return await getSessionByGuestDB(guestId, (session) => {
+    getSessionByGuestDB(guestId, (session) => {
       callback(session);
     });
   } catch (e) {

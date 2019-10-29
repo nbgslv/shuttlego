@@ -41,7 +41,7 @@ const session = async (req, res, next) => {
 };
 
 const sessionByGuest = async (req, res, next) => {
-  const { guestId } = req.params;
+  const { guestId } = req.body;
   try {
     await getSessionByGuest(guestId, (session) => {
       res

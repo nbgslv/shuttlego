@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ShuttleList/ShuttleList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/containers/Shuttles/Shuttles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/sessions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/guests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/sessions.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +35,7 @@
         <entry key="$PROJECT_DIR$/frontend" value="detached-HEAD-fix" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend" />
     <option name="RESET_MODE" value="SOFT" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -147,7 +157,7 @@
       <workItem from="1571347901937" duration="6622000" />
       <workItem from="1571488370425" duration="18237000" />
       <workItem from="1571594931158" duration="83531000" />
-      <workItem from="1572017523645" duration="54568000" />
+      <workItem from="1572017523645" duration="67426000" />
     </task>
     <servers />
   </component>

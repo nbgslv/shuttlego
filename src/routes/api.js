@@ -56,8 +56,6 @@ router.delete('/guests', removeGuest);
 // API Sessions routes
 router.get('/sessions', allSessions);
 
-router.get('/sessions/:guestId', sessionByGuest);
-
 router.post('/sessions',
 //   [
 //   body('room_number', 'Room number is not defined').isInt({ min: 201, max: 338 }),
@@ -76,6 +74,8 @@ router.post('/sessions',
     // }
     registerSession(req, res, next);
   });
+
+router.post('/sessions/guest', sessionByGuest);
 
 router.put('/sessions/guest',
 //   [

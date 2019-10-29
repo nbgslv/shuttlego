@@ -154,6 +154,7 @@ const authorizeGuest = async (token, callback) => {
     if (err) {
       console.log(err);
       callback(false);
+      // TODO add cookie deletion + redux store reseting in frontend
     } else {
       selectTokenDB(token, (tokenVerified) => {
         console.log(tokenVerified, 'tokenVerified');
