@@ -33,7 +33,7 @@
         <entry key="$PROJECT_DIR$/frontend" value="detached-HEAD-fix" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="SOFT" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -158,7 +158,7 @@
       <workItem from="1572017523645" duration="70221000" />
       <workItem from="1572361810462" duration="2816000" />
       <workItem from="1572377858959" duration="1523000" />
-      <workItem from="1572381761750" duration="6534000" />
+      <workItem from="1572381761750" duration="7023000" />
     </task>
     <servers />
   </component>
