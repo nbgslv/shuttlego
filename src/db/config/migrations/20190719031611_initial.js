@@ -36,6 +36,7 @@ exports.up = (knex) => {
         table.integer('bbox_number');
         table.integer('guest_id').notNullable();
         table.string('status').notNullable().defaultTo('pending');
+        table.string('request').notNullable().defaultTo('register');
         table.timestamps(true, true);
       }),
   ]);
