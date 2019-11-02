@@ -3,11 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/FourthStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/FourthStep.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/SecondStep.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Steps/SecondStep.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/guests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/config/migrations/20190719031611_initial.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/migrations/20190719031611_initial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/guestsDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/guestsDB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/guests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/sessions.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +32,7 @@
         <entry key="$PROJECT_DIR$/frontend" value="detached-HEAD-fix" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="SOFT" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -155,7 +158,8 @@
       <workItem from="1572361810462" duration="2816000" />
       <workItem from="1572377858959" duration="1523000" />
       <workItem from="1572381761750" duration="8165000" />
-      <workItem from="1572452901675" duration="11606000" />
+      <workItem from="1572452901675" duration="29334000" />
+      <workItem from="1572644606738" duration="3489000" />
     </task>
     <servers />
   </component>

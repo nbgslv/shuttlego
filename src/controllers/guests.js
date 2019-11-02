@@ -43,7 +43,6 @@ const guest = async (req, res, next) => {
 
 const registerGuest = async (req, res, next) => {
   const data = req.body;
-  console.log(req.body, 'received in server');
   const {
     firstName,
     lastName,
@@ -72,7 +71,6 @@ const registerGuest = async (req, res, next) => {
   };
   try {
     await postGuest(guestData, sessionData, (guestPost) => {
-      console.log(guestPost, 'controllers');
       res
         .status(200)
         .json(guestPost);
@@ -89,7 +87,6 @@ const registerGuest = async (req, res, next) => {
 const updateGuest = async (req, res, next) => {
   const { data } = req.body;
   const { guestId } = data;
-  console.log(req.body, 'received in server');
   const {
     firstName,
     lastName,
@@ -168,9 +165,10 @@ const verify = async (req, res, next) => {
   ];
   try {
     await verifyGuest(confCode, params, columns, (loggedInGuest) => {
-      const { user: guestData, token } = loggedInGuest;
+      const { user: guestData, tokenSession, tokenUser } = loggedInGuest;
       res
-        .cookie('token', token)
+        .cookie('tokenSession', tokenSession)
+        .cookie('tokenUser', tokenUser)
         .status(200)
         .json(guestData);
     });
@@ -183,11 +181,11 @@ const verify = async (req, res, next) => {
 };
 
 const checkAuth = async (req, res, next) => {
-  const token = req.body.token
-    || req.query.token
-    || req.headers['x-access-token']
-    || req.cookies.token;
-  if (!token) {
+  const tokenUser = req.body.token
+    || req.query.tokenUser
+    || req.headers['x-access-tokenUser']
+    || req.cookies.tokenUser;
+  if (!tokenUser) {
     console.log('no token');
     res
       .status(401)
@@ -195,15 +193,13 @@ const checkAuth = async (req, res, next) => {
       .send();
   } else {
     try {
-      await authorizeGuest(token, (guestData) => {
-        console.log(guestData, 'guestData');
+      await authorizeGuest(tokenUser, (guestData) => {
         if (guestData) {
           res
             .status(200)
             .json(guestData)
             .send();
         } else {
-          console.log('checkauth');
           res
             .sendStatus(401);
         }
@@ -218,21 +214,22 @@ const checkAuth = async (req, res, next) => {
 };
 
 const logOut = async (req, res, next) => {
-  const token = req.body.token
-    || req.query.token
-    || req.headers['x-access-token']
-    || req.cookies.token;
-  if (!token) {
+  const tokenUser = req.body.token
+    || req.query.tokenUser
+    || req.headers['x-access-tokenUser']
+    || req.cookies.tokenUser;
+  if (!tokenUser) {
     res
       .status(400)
       .json({ error: 'no token' })
       .send();
   } else {
     try {
-      await logoutGuest(token, (logout) => {
+      await logoutGuest(tokenUser, (logout) => {
         if (logout) {
           res
-            .clearCookie('token')
+            .clearCookie('tokenUser')
+            .clearCookie('tokenSession')
             .status(200)
             .send();
         } else {

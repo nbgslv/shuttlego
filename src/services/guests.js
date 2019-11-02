@@ -47,9 +47,8 @@ const postGuest = async (guestData, sessionData, callback) => {
   try {
     const verifCode = getVerifCode();
     console.log(verifCode, 'loginCode'); // DELETE BEFORE PRODUCTION
-    sessionData.verfCode = hashVerifCode(verifCode);
+    guestData.verfCode = hashVerifCode(verifCode);
     postGuestDB(guestData, sessionData, (guestPost) => {
-      console.log(guestPost, 'services');
       callback(guestPost);
     });
   } catch (e) {
@@ -100,7 +99,6 @@ const verifyGuest = async (pass, params, columns, callback) => {
   try {
     await selectSessionsDB(params, columns, (guests) => {
       appropGuests = guests;
-      console.log(guests);
       appropGuests.map((row, i) => {
         if (verifyCode(pass, row.verf_code)) {
           userIndex = i;
@@ -124,20 +122,28 @@ const verifyGuest = async (pass, params, columns, callback) => {
               firstName: sessionData.firstName,
               lastName: sessionData.lastName,
               pax: sessionData.pax,
-              roomNumber: sessionData.roomNumber,
-              checkinDate: sessionData.checkinDate,
-              checkoutDate: sessionData.checkoutDate,
+              // roomNumber: sessionData.roomNumber,
+              // checkinDate: sessionData.checkinDate,
+              // checkoutDate: sessionData.checkoutDate,
               phoneNumber: sessionData.phoneNumber,
               email: sessionData.email,
             };
-            const token = jwt.sign({
+            const tokenSession = jwt.sign({
               data: user,
               exp: expUnixTime,
             },
             env.dev.jwtSecret);
+            const tokenUser = jwt.sign({
+              data: user,
+            },
+            env.dev.jwtSecret,
+            {
+              expiresIn: '24h',
+            });
             callback({
               user,
-              token,
+              tokenSession,
+              tokenUser,
             });
           });
         }
@@ -157,11 +163,9 @@ const authorizeGuest = async (token, callback) => {
       // TODO add cookie deletion + redux store reseting in frontend
     } else {
       selectTokenDB(token, (tokenVerified) => {
-        console.log(tokenVerified, 'tokenVerified');
         if (tokenVerified) {
           console.log(decoded, 'decoded');
           getSessionJoinGuestDB(decoded.data.sessionId, (session) => {
-            console.log(session);
             session[0].sessionEnd = decoded.data.sessionEnd;
             callback(session);
           });

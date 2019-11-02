@@ -2,6 +2,7 @@ const db = require('./db');
 
 const guestsCol = [
   { guestId: 'guests.guest_id' },
+  { roomNumber: 'sessions.room_number' },
   { firstName: 'guests.first_name' },
   { lastName: 'guests.last_name' },
   'guests.email',
@@ -11,7 +12,6 @@ const guestsCol = [
 ];
 const sessionsCol = [
   { sessionId: 'sessions.session_id' },
-  { roomNumber: 'sessions.room_number' },
   { checkinDate: 'sessions.check_in_date' },
   { checkoutDate: 'sessions.check_out_date' },
   { sessionHour: 'sessions.session_time_hour' },
@@ -86,25 +86,26 @@ const getGuestJoinSessionDB = (guestId, callback) => {
 
 const postGuestDB = (guestData, sessionData, callback) => {
   const {
+    verfCode,
+    roomNumber,
     firstName,
     lastName,
     email,
     phoneNumber,
   } = guestData;
   const guestDataDb = {
+    verf_code: verfCode,
     first_name: firstName,
     last_name: lastName,
     email,
     phone_number: phoneNumber,
   };
   const {
-    roomNumber,
     checkinDate,
     checkoutDate,
     pax,
     sessionHour,
     sessionMinute,
-    verfCode,
   } = sessionData;
   const sessionDataDb = {
     room_number: roomNumber,
@@ -113,7 +114,6 @@ const postGuestDB = (guestData, sessionData, callback) => {
     pax,
     session_time_hour: sessionHour,
     session_time_minute: sessionMinute,
-    verf_code: verfCode,
   };
   db
     .transaction(
@@ -122,7 +122,6 @@ const postGuestDB = (guestData, sessionData, callback) => {
         .insert(guestDataDb)
         .returning(guestsCol)
         .then((item) => {
-          console.log(item, 'item');
           sessionDataDb.guest_id = item[0].guestId;
           return db('sessions')
             .transacting(trx)
@@ -139,7 +138,6 @@ const postGuestDB = (guestData, sessionData, callback) => {
         })),
     )
     .then(session => getGuestJoinSessionDB(session[0].guestId, (guestPost) => {
-      console.log(session, 'after insertion');
       callback(guestPost);
     }))
     .catch((err) => {
@@ -203,7 +201,6 @@ const patchGuestDB = (
       }),
   )
     .then(() => getGuestJoinSessionDB(guestId, (guest) => {
-      console.log(guest, 'after update');
       if (callback !== null) callback(guest);
     }))
     .catch((err) => {

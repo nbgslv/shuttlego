@@ -45,7 +45,7 @@ router.post('/guests', [
 
 router.post('/guests/login', verify);
 
-router.post('/guests/checkAuth', checkAuth);
+router.post('/guests/checkAuthUser', checkAuth);
 
 router.post('/guests/logout', logOut);
 
@@ -55,6 +55,8 @@ router.delete('/guests', removeGuest);
 
 // API Sessions routes
 router.get('/sessions', allSessions);
+
+router.post('/sessions/checkAuthSession', checkAuth);
 
 router.post('/sessions',
 //   [
