@@ -43,9 +43,7 @@ const getSessionByGuest = async (guestId, callback) => {
 
 const postSession = async (data, callback) => {
   try {
-    const guestData = data;
-    console.log(data);
-    postSessionDB(guestData, (session) => {
+    postSessionDB(data, (session) => {
       callback(session);
     });
   } catch (e) {

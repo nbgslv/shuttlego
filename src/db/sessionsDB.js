@@ -96,8 +96,26 @@ const getSessionJoinGuestDB = (sessionId, callback) => {
 };
 
 const postSessionDB = (sessionData, callback) => {
+  const {
+    guestId,
+    roomNumber,
+    pax,
+    checkinDate,
+    checkoutDate,
+    sessionHour,
+    sessionMinute,
+  } = sessionData;
+  const data = {
+    guest_id: guestId,
+    room_number: roomNumber,
+    pax,
+    check_in_date: checkinDate,
+    check_out_date: checkoutDate,
+    session_time_hour: sessionHour,
+    session_time_minute: sessionMinute,
+  };
   db('sessions')
-    .insert(sessionData)
+    .insert(data)
     .returning(sessionCol)
     .then((session) => {
       callback(session);

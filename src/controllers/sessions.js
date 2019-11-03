@@ -59,7 +59,6 @@ const sessionByGuest = async (req, res, next) => {
 const registerSession = async (req, res, next) => {
   const data = req.body;
   console.log(data, 'received in server');
-
   try {
     await postSession(data, (sessionData) => {
       res
