@@ -3,10 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Admin/Sessions/Sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/Sessions/Sessions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/util/sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/util/sessions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/guests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/sessions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/sessionsDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/sessionsDB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/tokensDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/tokensDB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/guests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/sessions.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -156,7 +162,7 @@
       <workItem from="1572377858959" duration="1523000" />
       <workItem from="1572381761750" duration="8165000" />
       <workItem from="1572452901675" duration="29334000" />
-      <workItem from="1572644606738" duration="7627000" />
+      <workItem from="1572644606738" duration="12694000" />
     </task>
     <servers />
   </component>

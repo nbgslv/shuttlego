@@ -6,6 +6,7 @@ const {
   postSessionByGuest,
   patchSession,
   deleteSession,
+  verifySessionService,
 } = require('../services/Sessions');
 // const postInsert = require('./postInsertGuest');
 
@@ -137,6 +138,24 @@ const removeSession = async (req, res, next) => {
   }
 };
 
+const verifySession = async (req, res, next) => {
+  const { guestId } = req.body;
+  try {
+    await verifySessionService(guestId, (loggedSession) => {
+      const { session: sessionData, tokenSession } = loggedSession;
+      res
+        .cookie('tokenSession', tokenSession)
+        .status(200)
+        .json(sessionData);
+    });
+  } catch (e) {
+    console.log(e);
+    res
+      .status(400)
+      .json({ error: e });
+  }
+};
+
 module.exports = {
   allSessions,
   session,
@@ -145,4 +164,5 @@ module.exports = {
   registerSessionByGuest,
   updateSession,
   removeSession,
+  verifySession,
 };

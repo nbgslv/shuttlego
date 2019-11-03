@@ -93,7 +93,7 @@ const updateEmailPhone = async (data, field, guest) => {
   }
 };
 
-const verifyGuest = async (pass, params, columns, callback) => {
+const verifyGuestService = async (pass, params, columns, callback) => {
   let appropGuests;
   let userIndex;
   try {
@@ -106,33 +106,18 @@ const verifyGuest = async (pass, params, columns, callback) => {
         if (userIndex) {
           // updateEmailPhone(phoneNumber, 'phone_number', appropGuests[userIndex]);
           // updateEmailPhone(email, 'email', appropGuests[userIndex]);
-          getSessionJoinGuestDB(appropGuests[userIndex].session_id, (session) => {
-            const sessionData = session[0];
-            const iat = sessionData.createdAt;
-            const expWithHours = datefns.addHours(iat, sessionData.sessionHour);
-            const expWithMinutes = datefns.addMinutes(
-              expWithHours,
-              sessionData.sessionMinute,
-            );
-            const expUnixTime = datefns.getUnixTime(expWithMinutes);
+          getGuestDB(appropGuests[userIndex].guest_id, (guest) => {
+            const guestData = guest[0];
             const user = {
-              sessionId: sessionData.sessionId,
-              guestId: sessionData.guestId,
-              sessionEnd: expWithMinutes,
-              firstName: sessionData.firstName,
-              lastName: sessionData.lastName,
-              pax: sessionData.pax,
+              guestId: guestData.guestId,
+              firstName: guestData.firstName,
+              lastName: guestData.lastName,
               // roomNumber: sessionData.roomNumber,
               // checkinDate: sessionData.checkinDate,
               // checkoutDate: sessionData.checkoutDate,
-              phoneNumber: sessionData.phoneNumber,
-              email: sessionData.email,
+              phoneNumber: guestData.phoneNumber,
+              email: guestData.email,
             };
-            const tokenSession = jwt.sign({
-              data: user,
-              exp: expUnixTime,
-            },
-            env.dev.jwtSecret);
             const tokenUser = jwt.sign({
               data: user,
             },
@@ -142,7 +127,6 @@ const verifyGuest = async (pass, params, columns, callback) => {
             });
             callback({
               user,
-              tokenSession,
               tokenUser,
             });
           });
@@ -165,9 +149,9 @@ const authorizeGuest = async (token, callback) => {
       selectTokenDB(token, (tokenVerified) => {
         if (tokenVerified) {
           console.log(decoded, 'decoded');
-          getSessionJoinGuestDB(decoded.data.sessionId, (session) => {
-            session[0].sessionEnd = decoded.data.sessionEnd;
-            callback(session);
+          getGuestDB(decoded.data.guestId, (guest) => {
+            // session[0].sessionEnd = decoded.data.sessionEnd;
+            callback(guest);
           });
         } else {
           callback(false);
@@ -195,7 +179,7 @@ module.exports = {
   postGuest,
   patchGuest,
   deleteGuest,
-  verifyGuest,
+  verifyGuestService,
   authorizeGuest,
   logoutGuest,
 };

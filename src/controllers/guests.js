@@ -4,7 +4,7 @@ const {
   postGuest,
   patchGuest,
   deleteGuest,
-  verifyGuest,
+  verifyGuestService,
   authorizeGuest,
   logoutGuest,
 } = require('../services/guests');
@@ -149,7 +149,7 @@ const removeGuest = async (req, res, next) => {
   }
 };
 
-const verify = async (req, res, next) => {
+const verifyGuest = async (req, res, next) => {
   const {
     roomNumber,
     confCode,
@@ -161,13 +161,11 @@ const verify = async (req, res, next) => {
     'room_number',
     'verf_code',
     'guest_id',
-    'session_id',
   ];
   try {
-    await verifyGuest(confCode, params, columns, (loggedInGuest) => {
-      const { user: guestData, tokenSession, tokenUser } = loggedInGuest;
+    await verifyGuestService(confCode, params, columns, (loggedInGuest) => {
+      const { user: guestData, tokenUser } = loggedInGuest;
       res
-        .cookie('tokenSession', tokenSession)
         .cookie('tokenUser', tokenUser)
         .status(200)
         .json(guestData);
@@ -214,7 +212,7 @@ const checkAuth = async (req, res, next) => {
 };
 
 const logOut = async (req, res, next) => {
-  const tokenUser = req.body.token
+  const tokenUser = req.body.tokenUser
     || req.query.tokenUser
     || req.headers['x-access-tokenUser']
     || req.cookies.tokenUser;
@@ -225,17 +223,21 @@ const logOut = async (req, res, next) => {
       .send();
   } else {
     try {
+      const tokenSession = req.body.tokenSession
+        || req.query.tokenSession
+        || req.headers['x-access-tokenSession']
+        || req.cookies.tokenSession;
+      if (tokenSession) logoutSession;
       await logoutGuest(tokenUser, (logout) => {
         if (logout) {
           res
             .clearCookie('tokenUser')
-            .clearCookie('tokenSession')
             .status(200)
             .send();
         } else {
           res
             .status(400)
-            .json({ error: 'couldnt logout' })
+            .json({ error: 'couldn\'t logout' })
             .send();
         }
       });
@@ -254,7 +256,7 @@ module.exports = {
   registerGuest,
   updateGuest,
   removeGuest,
-  verify,
+  verifyGuest,
   checkAuth,
   logOut,
 };

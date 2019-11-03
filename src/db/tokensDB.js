@@ -3,12 +3,11 @@ const db = require('./db');
 const logoutTokenDB = (token, decoded, callback) => db('jwt_blacklist')
   .insert({
     token,
-    exp: decoded.data.sessionEnd,
+    exp: decoded.data.exp,
   })
   .returning('token_id')
   .asCallback((err, tokenId) => {
     if (err) console.log(err);
-    console.log(tokenId);
     if (tokenId.length) callback(true);
     else callback(false);
   })

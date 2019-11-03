@@ -1,3 +1,4 @@
+const dateFns = require('date-fns');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const env = require('../../config');
@@ -130,6 +131,41 @@ const deleteSession = async (sessionId, callback) => {
   }
 };
 
+const verifySessionService = async (guestId, callback) => {
+  try {
+    await getSessionByGuest(guestId, (sessions) => {
+      const sortedSessions = sessions.sort((dateA, dateB) => (
+        dateFns.isAfter(dateFns.parseISO(dateA.shuttleDate), dateFns.parseISO(dateB.shuttleDate))
+      ));
+      const now = new Date();
+      const sessionData = sortedSessions.filter((session) => {
+        const iat = session.createdAt;
+        const expWithHours = dateFns.addHours(iat, session.sessionHour);
+        const expWithMinutes = dateFns.addMinutes(
+          expWithHours,
+          session.sessionMinute,
+        );
+        session.expWithMinutes = expWithMinutes;
+        return dateFns.isAfter(now, expWithMinutes);
+      });
+      const session = sessionData[0];
+      const expUnixTime = dateFns.getUnixTime(session.expWithMinutes);
+      const tokenSession = jwt.sign({
+        data: session,
+        exp: expUnixTime,
+      },
+      env.dev.jwtSecret);
+      callback({
+        session,
+        tokenSession,
+      });
+    });
+  } catch (e) {
+    console.log(e);
+    throw new Error(e.messages);
+  }
+};
+
 module.exports = {
   getAllSessions,
   getSession,
@@ -138,4 +174,5 @@ module.exports = {
   postSession,
   patchSession,
   deleteSession,
+  verifySessionService,
 };

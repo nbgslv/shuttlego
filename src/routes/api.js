@@ -6,7 +6,7 @@ const {
   registerGuest,
   updateGuest,
   removeGuest,
-  verify,
+  verifyGuest,
   checkAuth,
   logOut,
 } = require('../controllers/guests');
@@ -17,6 +17,7 @@ const {
   registerSessionByGuest,
   updateSession,
   removeSession,
+  verifySession,
 } = require('../controllers/sessions');
 
 const router = express.Router();
@@ -43,7 +44,7 @@ router.post('/guests', [
   registerGuest(req, res, next);
 });
 
-router.post('/guests/login', verify);
+router.post('/guests/login', verifyGuest);
 
 router.post('/guests/checkAuthUser', checkAuth);
 
@@ -55,6 +56,8 @@ router.delete('/guests', removeGuest);
 
 // API Sessions routes
 router.get('/sessions', allSessions);
+
+router.post('/sessions/login', verifySession);
 
 router.post('/sessions/checkAuthSession', checkAuth);
 
