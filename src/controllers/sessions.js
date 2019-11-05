@@ -143,8 +143,8 @@ const verifySession = async (req, res, next) => {
   const { guestId } = req.body;
   try {
     await verifySessionService(guestId, (loggedSession) => {
-      console.log(loggedSession, 'loggedSession');
-      const { session: sessionData, tokenSession } = loggedSession;
+      const { session: sessionData, tokenSession, sessionEnd } = loggedSession;
+      sessionData.sessionEnd = sessionEnd;
       res
         .cookie('tokenSession', tokenSession)
         .status(200)

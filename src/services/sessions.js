@@ -150,20 +150,22 @@ const verifySessionService = async (guestId, callback) => {
         );
         return dateFns.isBefore(now, expWithMinutes);
       });
+      const expUnixTime = dateFns.getUnixTime(expWithMinutes);
       const sessionDataforToken = {
         sessionId: sessionData[0].sessionId,
         createdAt: sessionData[0].createdAt,
+        sessionEnd: expUnixTime,
       };
-      const sessionDataforRes = sessionData[0];
-      const expUnixTime = dateFns.getUnixTime(expWithMinutes);
       const tokenSession = jwt.sign({
         data: sessionDataforToken,
         exp: expUnixTime,
       },
       env.dev.jwtSecret);
+      const sessionDataforRes = sessionData[0];
       callback({
         session: sessionDataforRes,
         tokenSession,
+        sessionEnd: expUnixTime,
       });
     });
   } catch (e) {
@@ -183,8 +185,8 @@ const authorizeSession = async (token, callback) => {
         if (tokenVerified) {
           console.log(decoded, 'decoded');
           getSessionDB(decoded.data.sessionId, (session) => {
-            // session[0].sessionEnd = decoded.data.sessionEnd;
-            callback(session);
+            session[0].sessionEnd = decoded.data.sessionEnd;
+            callback(session[0]);
           });
         } else {
           callback(false);
