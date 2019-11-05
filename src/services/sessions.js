@@ -14,6 +14,8 @@ const {
   deleteSessionDB,
 } = require('../db/sessionsDB');
 
+const { selectTokenDB } = require('../db/tokensDB');
+
 const getAllSessions = async (callback) => {
   try {
     return await getSessionsJoinGuestDB((sessions) => {
@@ -57,8 +59,8 @@ const postSessionByGuest = async (data, guestId, callback) => {
     const guestData = data;
     console.log(data);
     postPatchSessionByGuestDB(guestData, guestId, (session) => {
-      // const accountSid = 'AC9a739bb558667d650ce22662cc04a9ac';
-      // const authToken = 'b7bce36286ba6315b0d372e79ffc9d5f';
+      // const accountSid = '';
+      // const authToken = '';
       // const client = require('twilio')(accountSid, authToken);
       //
       // client.messages
@@ -133,6 +135,7 @@ const deleteSession = async (sessionId, callback) => {
 
 const verifySessionService = async (guestId, callback) => {
   try {
+    let expWithMinutes;
     await getSessionByGuest(guestId, (sessions) => {
       const sortedSessions = sessions.sort((dateA, dateB) => (
         dateFns.isAfter(dateFns.parseISO(dateA.shuttleDate), dateFns.parseISO(dateB.shuttleDate))
@@ -141,22 +144,25 @@ const verifySessionService = async (guestId, callback) => {
       const sessionData = sortedSessions.filter((session) => {
         const iat = session.createdAt;
         const expWithHours = dateFns.addHours(iat, session.sessionHour);
-        const expWithMinutes = dateFns.addMinutes(
+        expWithMinutes = dateFns.addMinutes(
           expWithHours,
           session.sessionMinute,
         );
-        session.expWithMinutes = expWithMinutes;
-        return dateFns.isAfter(now, expWithMinutes);
+        return dateFns.isBefore(now, expWithMinutes);
       });
-      const session = sessionData[0];
-      const expUnixTime = dateFns.getUnixTime(session.expWithMinutes);
+      const sessionDataforToken = {
+        sessionId: sessionData[0].sessionId,
+        createdAt: sessionData[0].createdAt,
+      };
+      const sessionDataforRes = sessionData[0];
+      const expUnixTime = dateFns.getUnixTime(expWithMinutes);
       const tokenSession = jwt.sign({
-        data: session,
+        data: sessionDataforToken,
         exp: expUnixTime,
       },
       env.dev.jwtSecret);
       callback({
-        session,
+        session: sessionDataforRes,
         tokenSession,
       });
     });
@@ -164,6 +170,28 @@ const verifySessionService = async (guestId, callback) => {
     console.log(e);
     throw new Error(e.messages);
   }
+};
+
+const authorizeSession = async (token, callback) => {
+  jwt.verify(token, env.dev.jwtSecret, (err, decoded) => {
+    if (err) {
+      console.log(err);
+      callback(false);
+      // TODO add cookie deletion + redux store reseting in frontend
+    } else {
+      selectTokenDB(token, (tokenVerified) => {
+        if (tokenVerified) {
+          console.log(decoded, 'decoded');
+          getSessionDB(decoded.data.sessionId, (session) => {
+            // session[0].sessionEnd = decoded.data.sessionEnd;
+            callback(session);
+          });
+        } else {
+          callback(false);
+        }
+      });
+    }
+  });
 };
 
 module.exports = {
@@ -175,4 +203,5 @@ module.exports = {
   patchSession,
   deleteSession,
   verifySessionService,
+  authorizeSession,
 };

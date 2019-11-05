@@ -23,6 +23,7 @@ const sessionCol = [
   { wakeupTimeMinute: 'sessions.wakeup_time_minute' },
   'sessions.bbox',
   { bboxNumber: 'sessions.bbox_number' },
+  { createdAt: 'sessions.created_at' },
   'sessions.status',
   'sessions.pax',
 ];

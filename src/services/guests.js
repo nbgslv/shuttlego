@@ -93,44 +93,56 @@ const updateEmailPhone = async (data, field, guest) => {
   }
 };
 
-const verifyGuestService = async (pass, params, columns, callback) => {
-  let appropGuests;
-  let userIndex;
+const verifyGuestService = async (pass, roomNumber, callback) => {
   try {
+    const params = {
+      room_number: roomNumber,
+    };
+    const columns = [
+      'guest_id',
+    ];
     await selectSessionsDB(params, columns, (guests) => {
-      appropGuests = guests;
-      appropGuests.map((row, i) => {
-        if (verifyCode(pass, row.verf_code)) {
-          userIndex = i;
-        }
-        if (userIndex) {
-          // updateEmailPhone(phoneNumber, 'phone_number', appropGuests[userIndex]);
-          // updateEmailPhone(email, 'email', appropGuests[userIndex]);
-          getGuestDB(appropGuests[userIndex].guest_id, (guest) => {
-            const guestData = guest[0];
-            const user = {
-              guestId: guestData.guestId,
-              firstName: guestData.firstName,
-              lastName: guestData.lastName,
-              // roomNumber: sessionData.roomNumber,
-              // checkinDate: sessionData.checkinDate,
-              // checkoutDate: sessionData.checkoutDate,
-              phoneNumber: guestData.phoneNumber,
-              email: guestData.email,
-            };
-            const tokenUser = jwt.sign({
-              data: user,
-            },
-            env.dev.jwtSecret,
-            {
-              expiresIn: '24h',
+      guests.forEach((guest) => {
+        const guestParams = {
+          guest_id: guest.guest_id,
+        };
+        const guestColumns = [
+          'verf_code',
+          'guest_id',
+        ];
+        selectGuestsDB(guestParams, guestColumns, (guest) => {
+          if (verifyCode(pass, guest[0].verf_code)) {
+            const userIndex = guest[0].guest_id;
+            // updateEmailPhone(phoneNumber, 'phone_number', appropGuests[userIndex]);
+            // updateEmailPhone(email, 'email', appropGuests[userIndex]);
+            getGuestDB(userIndex, (guest) => {
+              const guestData = guest[0];
+              const user = {
+                guestId: guestData.guestId,
+                firstName: guestData.firstName,
+                lastName: guestData.lastName,
+                // roomNumber: sessionData.roomNumber,
+                // checkinDate: sessionData.checkinDate,
+                // checkoutDate: sessionData.checkoutDate,
+                phoneNumber: guestData.phoneNumber,
+                email: guestData.email,
+              };
+              const tokenUser = jwt.sign({
+                data: user,
+              },
+              env.dev.jwtSecret,
+              {
+                expiresIn: '24h',
+              });
+              console.log(user);
+              console.log(tokenUser);
+              callback({
+                user,
+                tokenUser,
+              });
             });
-            callback({
-              user,
-              tokenUser,
-            });
-          });
-        }
+          }
+        });
       });
     });
   } catch (e) {

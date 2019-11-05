@@ -7,6 +7,7 @@ const {
   patchSession,
   deleteSession,
   verifySessionService,
+  authorizeSession,
 } = require('../services/Sessions');
 // const postInsert = require('./postInsertGuest');
 
@@ -142,17 +143,51 @@ const verifySession = async (req, res, next) => {
   const { guestId } = req.body;
   try {
     await verifySessionService(guestId, (loggedSession) => {
+      console.log(loggedSession, 'loggedSession');
       const { session: sessionData, tokenSession } = loggedSession;
       res
         .cookie('tokenSession', tokenSession)
         .status(200)
         .json(sessionData);
+      console.log(res, 'res');
     });
   } catch (e) {
     console.log(e);
     res
       .status(400)
       .json({ error: e });
+  }
+};
+
+const checkAuthSession = async (req, res, next) => {
+  const tokenSession = req.body.token
+    || req.query.tokenSession
+    || req.headers['x-access-tokenSession']
+    || req.cookies.tokenSession;
+  if (!tokenSession) {
+    console.log('no token');
+    res
+      .status(401)
+      .json({ authorized: false });
+  } else {
+    try {
+      await authorizeSession(tokenSession, (sessionData) => {
+        if (sessionData) {
+          res
+            .status(200)
+            .json(sessionData)
+            .send();
+        } else {
+          res
+            .sendStatus(401);
+        }
+      });
+    } catch (e) {
+      console.log(e);
+      res
+        .status(400)
+        .json({ error: e });
+    }
   }
 };
 
@@ -165,4 +200,5 @@ module.exports = {
   updateSession,
   removeSession,
   verifySession,
+  checkAuthSession,
 };

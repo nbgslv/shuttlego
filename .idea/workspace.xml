@@ -4,13 +4,20 @@
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/actions/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ProtectedRouteSession.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ProtectedRouteSession.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/reducers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/util/sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/util/sessions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/guests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/sessions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/tokensDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/tokensDB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/config/seeds/data/guests.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/seeds/data/guests.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/config/seeds/data/sessions.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/seeds/data/sessions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/guestsDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/guestsDB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/sessionsDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/sessionsDB.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/guests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/sessions.js" afterDir="false" />
@@ -35,7 +42,7 @@
         <entry key="$PROJECT_DIR$/frontend" value="detached-HEAD-fix" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend" />
     <option name="RESET_MODE" value="SOFT" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -162,7 +169,8 @@
       <workItem from="1572377858959" duration="1523000" />
       <workItem from="1572381761750" duration="8165000" />
       <workItem from="1572452901675" duration="29334000" />
-      <workItem from="1572644606738" duration="12694000" />
+      <workItem from="1572644606738" duration="32401000" />
+      <workItem from="1572982815775" duration="4582000" />
     </task>
     <servers />
   </component>

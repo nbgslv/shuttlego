@@ -154,21 +154,14 @@ const verifyGuest = async (req, res, next) => {
     roomNumber,
     confCode,
   } = req.body;
-  const params = {
-    room_number: roomNumber,
-  };
-  const columns = [
-    'room_number',
-    'verf_code',
-    'guest_id',
-  ];
   try {
-    await verifyGuestService(confCode, params, columns, (loggedInGuest) => {
+    await verifyGuestService(confCode, roomNumber, (loggedInGuest) => {
       const { user: guestData, tokenUser } = loggedInGuest;
       res
         .cookie('tokenUser', tokenUser)
         .status(200)
         .json(guestData);
+      console.log(res);
     });
   } catch (e) {
     console.log(e);
@@ -178,7 +171,7 @@ const verifyGuest = async (req, res, next) => {
   }
 };
 
-const checkAuth = async (req, res, next) => {
+const checkAuthUser = async (req, res, next) => {
   const tokenUser = req.body.token
     || req.query.tokenUser
     || req.headers['x-access-tokenUser']
@@ -257,6 +250,6 @@ module.exports = {
   updateGuest,
   removeGuest,
   verifyGuest,
-  checkAuth,
+  checkAuthUser,
   logOut,
 };

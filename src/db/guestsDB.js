@@ -2,7 +2,6 @@ const db = require('./db');
 
 const guestsCol = [
   { guestId: 'guests.guest_id' },
-  { roomNumber: 'sessions.room_number' },
   { firstName: 'guests.first_name' },
   { lastName: 'guests.last_name' },
   'guests.email',
@@ -12,6 +11,8 @@ const guestsCol = [
 ];
 const sessionsCol = [
   { sessionId: 'sessions.session_id' },
+  { guestId: 'sessions.guest_id' },
+  { roomNumber: 'sessions.room_number' },
   { checkinDate: 'sessions.check_in_date' },
   { checkoutDate: 'sessions.check_out_date' },
   { sessionHour: 'sessions.session_time_hour' },
@@ -87,7 +88,6 @@ const getGuestJoinSessionDB = (guestId, callback) => {
 const postGuestDB = (guestData, sessionData, callback) => {
   const {
     verfCode,
-    roomNumber,
     firstName,
     lastName,
     email,
@@ -101,6 +101,7 @@ const postGuestDB = (guestData, sessionData, callback) => {
     phone_number: phoneNumber,
   };
   const {
+    roomNumber,
     checkinDate,
     checkoutDate,
     pax,
@@ -137,9 +138,7 @@ const postGuestDB = (guestData, sessionData, callback) => {
           console.log(err);
         })),
     )
-    .then(session => getGuestJoinSessionDB(session[0].guestId, (guestPost) => {
-      callback(guestPost);
-    }))
+    .then(session => getGuestJoinSessionDB(session[0].guestId, (guestPost) => callback(guestPost)))
     .catch((err) => {
       console.log(err);
     });
