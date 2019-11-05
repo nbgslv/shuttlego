@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/SessionCountdown/SessionCountdown.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/SessionWelcome/SessionWelcome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ProtectedRouteSession.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ProtectedRouteSession.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Register/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Admin/Sessions/Sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/Sessions/Sessions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/sessions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/sessions.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -159,7 +155,7 @@
       <workItem from="1572381761750" duration="8165000" />
       <workItem from="1572452901675" duration="29334000" />
       <workItem from="1572644606738" duration="32401000" />
-      <workItem from="1572982815775" duration="9115000" />
+      <workItem from="1572982815775" duration="10816000" />
     </task>
     <servers />
   </component>
