@@ -2,10 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/Forms/AddGuest/AddGuest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/store/admin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/util/dates.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/util/guest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Admin/Sessions/Sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/Sessions/Sessions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/sessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/sessions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ProtectedRouteSession.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ProtectedRouteSession.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ProtectedRouteUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ProtectedRouteUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Admin/AdminContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/AdminContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Admin/AdminRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/AdminRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Admin/DBTables/DBTablesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/DBTables/DBTablesList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/Guests/Guests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/App/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Forms/Signin/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Forms/Signin/Signin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/util/sessions.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +41,7 @@
         <entry key="$PROJECT_DIR$/frontend" value="detached-HEAD-fix" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="SOFT" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -72,17 +86,17 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\src\db\config" />
-      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\src" />
-      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend\src\components" />
-      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\db" />
-      <recent name="C:\Users\Owner\WebstormProjects\shuttlego\frontend\src\components\Table" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend" />
       <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego" />
       <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend\src\components\Forms\Register" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend\src\containers\Admin" />
+      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\src\db\config" />
+      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\src" />
+      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend\src\components" />
+      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\db" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -155,7 +169,9 @@
       <workItem from="1572381761750" duration="8165000" />
       <workItem from="1572452901675" duration="29334000" />
       <workItem from="1572644606738" duration="32401000" />
-      <workItem from="1572982815775" duration="10816000" />
+      <workItem from="1572982815775" duration="13321000" />
+      <workItem from="1573078382340" duration="10417000" />
+      <workItem from="1573238218102" duration="2635000" />
     </task>
     <servers />
   </component>
