@@ -9,6 +9,7 @@ const {
   verifyGuest,
   checkAuthUser,
   logOut,
+  resetGuest,
 } = require('../controllers/guests');
 const {
   allSessions,
@@ -50,6 +51,8 @@ router.post('/guests/login', verifyGuest);
 router.post('/guests/checkAuthUser', checkAuthUser);
 
 router.post('/guests/logout', logOut);
+
+router.post('/guests/reset', resetGuest);
 
 router.put('/guests', updateGuest);
 

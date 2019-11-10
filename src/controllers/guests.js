@@ -7,6 +7,7 @@ const {
   verifyGuestService,
   authorizeGuest,
   logoutGuest,
+  resetVerif,
 } = require('../services/guests');
 // const postInsert = require('./postInsertGuest');
 
@@ -243,6 +244,27 @@ const logOut = async (req, res, next) => {
   }
 };
 
+const resetGuest = (req, res, next) => {
+  const { roomNumber, email } = req.body;
+  try {
+    resetVerif(roomNumber, email, (guest) => {
+      if (guest) {
+        res
+          .status(200)
+          .json(guest);
+      } else {
+        res
+          .status(400);
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    res
+      .status(400)
+      .json({ error: e });
+  }
+};
+
 module.exports = {
   allGuests,
   guest,
@@ -252,4 +274,5 @@ module.exports = {
   verifyGuest,
   checkAuthUser,
   logOut,
+  resetGuest,
 };

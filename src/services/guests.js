@@ -10,6 +10,7 @@ const {
   selectGuestsDB,
   getGuestsJoinSessionDB,
   getGuestJoinSessionDB,
+  resetVerifDB,
 } = require('../db/guestsDB');
 const {
   selectSessionsDB,
@@ -185,6 +186,15 @@ const logoutGuest = async (token, callback) => {
   });
 };
 
+const resetVerif = (roomNumber, email, callback) => {
+  const verifCode = getVerifCode();
+  console.log(verifCode, 'loginCode'); // DELETE BEFORE PRODUCTION
+  const newVerfCode = hashVerifCode(verifCode);
+  resetVerifDB(roomNumber, email, newVerfCode, (guest) => {
+    callback(guest || false);
+  });
+};
+
 module.exports = {
   getAllGuests,
   getGuest,
@@ -194,4 +204,5 @@ module.exports = {
   verifyGuestService,
   authorizeGuest,
   logoutGuest,
+  resetVerif,
 };

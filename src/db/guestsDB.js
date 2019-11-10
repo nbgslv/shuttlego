@@ -254,6 +254,34 @@ const selectGuestsVerifyDB = (params, columns, callback) => {
     });
 };
 
+const getGuestJoinSessionForResetDB = (roomNumber, email, callback) => {
+  db
+    .select([...guestsCol, ...sessionsCol])
+    .from('guests')
+    .join('sessions', (queryBuilder) => {
+      queryBuilder.on('guests.guest_id', '=', 'sessions.guest_id')
+        .onIn('sessions.room_number', [roomNumber])
+        .onIn('guests.email', [email]);
+    })
+    .then((guest) => {
+      console.log(guest, 'getGuestJoinSessionDB');
+      callback(guest);
+    })
+    .catch((err) => {
+      console.log(err.messages);
+      throw new Error(err);
+    });
+};
+
+const resetVerifDB = (roomNumber, email, newVerif, callback) => {
+  getGuestJoinSessionForResetDB(roomNumber, email, (guests) => {
+    db('guests')
+      .where({ guest_id: guests[0].guestId })
+      .update({ verf_code: newVerif })
+      .then(guest => callback(guest));
+  });
+};
+
 module.exports = {
   getAllGuestsDB,
   getGuestsJoinSessionDB,
@@ -263,4 +291,5 @@ module.exports = {
   patchGuestDB,
   deleteGuestDB,
   selectGuestsDB,
+  resetVerifDB,
 };
