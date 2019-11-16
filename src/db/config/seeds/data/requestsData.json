@@ -1,0 +1,27 @@
+[
+  {
+    "request_name": "edit_session",
+    "request_approval_terms": "{\"approval_by\": [condition, user, guest], \"form\": \"edit_session\"}",
+    "request_approval_params": "{\"approval_by\": \"condition\", \"params\": {}}"
+  },
+  {
+    "request_name": "add_session_manual_flight",
+    "request_approval_terms": "{\"approval_by\": [user, guest], \"form\": \"add_guest\"}",
+    "request_approval_params": "{\"approval_by\": \"guest\", \"params\": {}}"
+  },
+  {
+    "request_name": "delete_session",
+    "request_approval_terms": "{\"approval_by\": [condition, user, guest], \"form\": \"delete_session\"}",
+    "request_approval_params": "{\"approval_by\": \"condition\", \"params\": {}}"
+  },
+  {
+    "request_name": "change_pax",
+    "request_approval_terms": "{\"approval_by\": [condition, user, guest]}, \"form\": [add_session, edit_session]}",
+    "request_approval_params": "{\"approval_by\": \"condition\", \"params\": {}}"
+  },
+  {
+    "request_name": "change_luggage",
+    "request_approval_terms": "{\"approval_by\": [condition, user, guest]}, \"form\": [add_session, edit_session]}",
+    "request_approval_params": "{\"approval_by\": \"condition\", \"params\": {}}"
+  }
+]

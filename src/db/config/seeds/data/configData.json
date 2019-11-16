@@ -1,0 +1,16 @@
+[
+  {
+    "session_time_default_type": "fixed",
+    "session_time_default_params": "{\"hour\": 2, \"minute\": 0}",
+    "guest_reset": "by_guest",
+    "guest_reset_params": "{\"via\": [email]}",
+    "session_edit_by_guest": true,
+    "required_guest_fields": "[roomNumber, email, lastName, checkinDate]",
+    "shuttle_times_type": "fixed_per",
+    "shuttle_times_params": "{\"hour\": 1, \"minute\": 0}",
+    "delete_guests_time": "{\"unit\": \"month\", \"value\": 6}",
+    "delete_guests_with_sessions": true,
+    "delete_sessions_time": "{\"unit: \"month\", \"value\": 2}"
+  }
+]
+

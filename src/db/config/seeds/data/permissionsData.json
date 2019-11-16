@@ -1,0 +1,50 @@
+[
+    {
+        "permission_name": "change_shuttle_status",
+        "permission_params": "{\"pending\": {\"options\": [true, false]}, \"registered\": {\"options\": [true, false]}, \"denied\": {\"options\": [true, false]}}"
+    },
+    {
+        "permission_name": "delete",
+        "permission_params": "{\"guests\": {\"options\": [true, false]}, \"sessions\": {\"options\": [true, false]}, \"users\": {\"options\": [true, false]}}"
+    },
+    {
+        "permission_name": "update",
+        "permission_params": "{\"guests\": {\"options\": [true, false]}, \"sessions\": {\"options\": [true, false]}, \"users\": {\"options\": [true, false]}}"
+    },
+    {
+        "permission_name": "insert",
+        "permission_params": "{\"guests\": {\"options\": [true, false]}, \"sessions\": {\"options\": [true, false]}, \"users\": {\"options\": [true, false]}}"
+    },
+    {
+        "permission_name": "edit_permissions",
+        "permission_params": "{\"value\": {\"options\": [true, false]}}"
+    },
+    {
+        "permission_name": "add_manual_session",
+        "permission_params": "{\"value\": {\"options\": [true, false]}}"
+    },
+    {
+        "permission_name": "add_session_without_guest",
+        "permission_params": "{\"value\": {\"options\": [true, false]}}"
+    },
+    {
+        "permission_name": "edit_pax",
+        "permission_params": "{\"value\": {\"options\": [true, false]}}"
+    },
+    {
+        "permission_name": "blacklist_guest",
+        "permission_params": "{\"value\": {\"options\": [true, false]}}"
+    },
+    {
+        "permission_name": "edit_db_maintenance",
+        "permission_params": "{\"value\": {\"options\": [true, false]}}"
+    },
+    {
+        "permission_name": "get_reports",
+        "permission_params": "{\"value\": {\"options\": [true, false]}}"
+    },
+    {
+        "permission_name": "add_via_table",
+        "permission_params": "{\"guests\": {\"options\": [true, false]}, \"sessions\": {\"options\": [true, false]}, \"users\": {\"options\": [true, false]}}"
+    }
+]

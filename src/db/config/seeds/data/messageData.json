@@ -1,0 +1,38 @@
+[
+  {
+    "message_name": "shuttle_welcome",
+    "message": ""
+  },
+  {
+    "message_name": "shuttle_success",
+    "message": ""
+  },
+  {
+    "message_name": "shuttle_auth",
+    "message": ""
+  },
+  {
+    "message_name": "shuttle_before",
+    "message": ""
+  },
+  {
+    "message_name": "shuttle_edited",
+    "message": ""
+  },
+  {
+    "message_name": "shuttle_canceled",
+    "message": ""
+  },
+  {
+    "message_name": "shuttle_confirmed",
+    "message": ""
+  },
+  {
+    "message_name": "shuttle_edit_confirmed",
+    "message": ""
+  },
+  {
+    "message_name": "guest_reseted",
+    "message": ""
+  }
+]
