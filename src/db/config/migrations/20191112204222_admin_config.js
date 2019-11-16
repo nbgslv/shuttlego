@@ -80,13 +80,15 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  knex.schema.dropTable('admin_config');
-  knex.schema.dropTable('messages');
-  knex.schema.dropTable('notifications');
-  knex.schema.dropTable('permissions');
-  knex.schema.dropTable('requests');
-  knex.schema.dropTable('reports');
-  knex.schema.dropTable('reports_delivery_list');
-  knex.schema.dropTable('blacklist');
-  knex.schema.dropTable('users');
+  return Promise.all([
+    knex.schema.dropTable('admin_config'),
+    knex.schema.dropTable('messages'),
+    knex.schema.dropTable('notifications'),
+    knex.schema.dropTable('permissions'),
+    knex.schema.dropTable('requests'),
+    knex.schema.dropTable('reports'),
+    knex.schema.dropTable('reports_delivery_list'),
+    knex.schema.dropTable('blacklist'),
+    knex.schema.dropTable('users'),
+  ]);
 };

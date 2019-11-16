@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/db/config/migrations/20191112204222_admin_config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/db/config/migrations/20191116204924_foreigns_keys_admin_config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/db/config/seeds/data/configData.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/db/config/seeds/data/messageData.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/db/config/seeds/data/permissionsData.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/db/config/seeds/data/requestsData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/config/seeds/guests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/seeds/guests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/config/migrations/20190719031611_initial.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/migrations/20190719031611_initial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/config/migrations/20191112204222_admin_config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/migrations/20191112204222_admin_config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/config/migrations/20191116204924_foreigns_keys_admin_config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/migrations/20191116204924_foreigns_keys_admin_config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +162,7 @@
       <workItem from="1573238218102" duration="23042000" />
       <workItem from="1573340819838" duration="19499000" />
       <workItem from="1573752912974" duration="597000" />
-      <workItem from="1573926697034" duration="6599000" />
+      <workItem from="1573926697034" duration="7975000" />
     </task>
     <servers />
   </component>

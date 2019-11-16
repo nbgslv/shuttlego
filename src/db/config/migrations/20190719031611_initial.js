@@ -44,5 +44,5 @@ exports.up = (knex) => {
 
 exports.down = knex => Promise.all([
   knex.schema.dropTable('sessions'),
-  knex.schema.dropTable('guests'),
+  knex.schema.raw('DROP TABLE guests CASCADE'),
 ]);

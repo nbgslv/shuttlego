@@ -32,17 +32,19 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  knex.schema.table('notifications', (table) => {
-    table.dropForeign(['user_id'], 'notifications_user_id_foreign');
-  });
-  knex.schema.table('reports_delivery_list', (table) => {
-    table.dropForeign(['user_id'], 'reports_delivery_list_user_id_foreign');
-    table.dropForeign(['report_id'], 'reports_delivery_list_report_id_foreign');
-  });
-  knex.schema.table('blacklist', (table) => {
-    table.dropForeign(['guest_id'], 'blacklist_guest_id_foreign');
-  });
-  knex.schema.table('users', (table) => {
-    table.dropForeign(['permission_id'], 'users_permission_id_foreign');
-  });
+  return Promise.all([
+    knex.schema.table('notifications', (table) => {
+      table.dropForeign(['user_id'], 'notifications_user_id_foreign');
+    }),
+    knex.schema.table('reports_delivery_list', (table) => {
+      table.dropForeign(['user_id'], 'reports_delivery_list_user_id_foreign');
+      table.dropForeign(['report_id'], 'reports_delivery_list_report_id_foreign');
+    }),
+    knex.schema.table('blacklist', (table) => {
+      table.dropForeign(['guest_id'], 'blacklist_guest_id_foreign');
+    }),
+    knex.schema.table('users', (table) => {
+      table.dropForeign(['permissions'], 'users_permissions_foreign');
+    }),
+  ]);
 };
