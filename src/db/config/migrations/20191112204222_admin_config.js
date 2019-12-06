@@ -15,6 +15,7 @@ exports.up = function(knex) {
         table.json('delete_guests_time').notNullable();
         table.boolean('delete_guests_with_sessions').notNullable();
         table.json('delete_sessions_time').notNullable();
+        table.json('auto_approve_request').notNullable();
       }),
     knex.schema
       .createTable('users', (table) => {
@@ -54,6 +55,7 @@ exports.up = function(knex) {
       .createTable('messages', (table) => {
         table.increments('message_id').primary();
         table.string('message_name').notNullable();
+        table.increments('title').notNullable();
         table.text('message');
         table.boolean('active').defaultTo(true);
         table.timestamps();

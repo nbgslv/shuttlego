@@ -1,38 +1,47 @@
 [
   {
     "message_name": "shuttle_welcome",
+    "title": "Welcome",
     "message": ""
   },
   {
     "message_name": "shuttle_success",
+    "title": "Success",
     "message": ""
   },
   {
     "message_name": "shuttle_auth",
+    "title": "Shuttle Authorised",
     "message": ""
   },
   {
     "message_name": "shuttle_before",
+    "title": "Your shuttle is about to be ready",
     "message": ""
   },
   {
     "message_name": "shuttle_edited",
+    "title": "Your shuttle was ammended",
     "message": ""
   },
   {
     "message_name": "shuttle_canceled",
+    "title": "Your shuttle was canceled",
     "message": ""
   },
   {
     "message_name": "shuttle_confirmed",
+    "title": "Your shuttle is confirmed",
     "message": ""
   },
   {
     "message_name": "shuttle_edit_confirmed",
+    "title": "Edited shuttle successfully",
     "message": ""
   },
   {
     "message_name": "guest_reseted",
+    "title": "Your login data was reseted",
     "message": ""
   }
 ]

@@ -2,14 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/actions/admin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Configurations/DefaultSessionTime/DefaultSessionTime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/Configuration/Configuration.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/Configuration/General/General.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/reducers/admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/config/migrations/20190719031611_initial.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/migrations/20190719031611_initial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Admin/AdminRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/AdminRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Admin/DBTables/DBTablesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/DBTables/DBTablesList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/config/migrations/20191112204222_admin_config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/migrations/20191112204222_admin_config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/config/migrations/20191116204924_foreigns_keys_admin_config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/migrations/20191116204924_foreigns_keys_admin_config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/config/seeds/data/messageData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/config/seeds/data/messageData.json" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +37,7 @@
         <entry key="$PROJECT_DIR$/frontend" value="detached-HEAD-fix" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend" />
     <option name="RESET_MODE" value="SOFT" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -49,8 +57,14 @@
     <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true&#10;C:/Users/nbgsl/WebstormProjects/shuttlego/frontend/admin/.env" />
@@ -87,18 +101,6 @@
       <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\db" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="FlightsTable.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/frontend/src/components/Table/FlightsTable.js" working-dir="$PROJECT_DIR$/frontend/src/components/Table">
       <method v="2" />
@@ -108,6 +110,18 @@
         <item itemvalue="Node.js.FlightsTable.js" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -162,7 +176,12 @@
       <workItem from="1573238218102" duration="23042000" />
       <workItem from="1573340819838" duration="19499000" />
       <workItem from="1573752912974" duration="597000" />
-      <workItem from="1573926697034" duration="7975000" />
+      <workItem from="1573926697034" duration="8839000" />
+      <workItem from="1574707459261" duration="166000" />
+      <workItem from="1574707702419" duration="26000" />
+      <workItem from="1574707749933" duration="1116000" />
+      <workItem from="1574803249621" duration="11479000" />
+      <workItem from="1575655319561" duration="7977000" />
     </task>
     <servers />
   </component>
@@ -201,6 +220,24 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/frontend/src/components/Forms/components/PhoneNumberInput/phone-number-input" />
     </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="361" y="70" key="#Notifications" timestamp="1574707767558">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="70" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1574707767558" />
+    <state x="449" y="140" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1574707714828">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="449" y="140" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1574707714828" />
+    <state x="453" y="133" width="629" height="558" key="find.popup" timestamp="1575061738464">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="453" y="133" width="629" height="558" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1575061738464" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1575061375072">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1575061375072" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
