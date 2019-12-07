@@ -10,7 +10,8 @@
     "shuttle_times_params": "{\"hour\": 1, \"minute\": 0}",
     "delete_guests_time": "{\"unit\": \"month\", \"value\": 6}",
     "delete_guests_with_sessions": true,
-    "delete_sessions_time": "{\"unit: \"month\", \"value\": 2}"
+    "delete_sessions_time": "{\"unit: \"month\", \"value\": 2}",
+    "auto_approve_request": "{}"
   }
 ]
 

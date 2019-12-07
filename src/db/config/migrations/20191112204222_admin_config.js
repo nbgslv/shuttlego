@@ -55,7 +55,7 @@ exports.up = function(knex) {
       .createTable('messages', (table) => {
         table.increments('message_id').primary();
         table.string('message_name').notNullable();
-        table.increments('title').notNullable();
+        table.string('title').notNullable();
         table.text('message');
         table.boolean('active').defaultTo(true);
         table.timestamps();
