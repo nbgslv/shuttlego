@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Configurations/ShuttleTimes/ShuttleTimes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/containers/Admin/Configuration/General/General.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/containers/Admin/Configuration/General/General.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
