@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Configurations/AlertMessages/AlertMessages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/templateLanguages.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Configurations/Permissions/Permissions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/util/admin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/db/adminDB.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/Admin/Configuration/General/General.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Admin/Configuration/General/General.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,11 +85,11 @@
       <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend\src\components\Forms\Register" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Owner\Desktop\Nachman\Coding\shuttle-go\client\src\components\Configurations\Permissions" />
       <recent name="C:\Users\Owner\Desktop\Nachman\Coding\shuttle-go" />
       <recent name="C:\Users\Owner\WebstormProjects\shuttlego\frontend\src\components\Configurations" />
       <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend\src\containers\Admin" />
       <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\src\db\config" />
-      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\src" />
     </key>
   </component>
   <component name="RunManager">
@@ -167,7 +161,7 @@
       <workItem from="1574707749933" duration="1116000" />
       <workItem from="1574803249621" duration="11479000" />
       <workItem from="1575655319561" duration="7977000" />
-      <workItem from="1593060281764" duration="7296000" />
+      <workItem from="1593060281764" duration="8421000" />
     </task>
     <servers />
   </component>
