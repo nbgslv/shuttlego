@@ -7,6 +7,7 @@ import { GuestReset } from '../../../../components/Configurations/GuestReset/Gue
 import { GuestEditSession } from '../../../../components/Configurations/GuestEditSession/GuestEditSession';
 import { RequiredGuestFields } from '../../../../components/Configurations/RequiredGuestFields/RequiredGuestFields';
 import { ShuttleTimes } from '../../../../components/Configurations/ShuttleTimes/ShuttleTimes';
+import {AlertMessages} from "../../../../components/Configurations/AlertMessages/AlertMessages";
 
 const mapStateToProps = state => ({
   sessionTimeDefaultType: state.forms.generalConfig.sessionTimeDefaultType,
@@ -56,6 +57,7 @@ const general = (props) => {
           <option value="manual">Set manually</option>
         </Control.select>
         <ShuttleTimes type={shuttleTimes} />
+        <AlertMessages />
       </Form>
     </Container>
   );

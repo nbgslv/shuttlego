@@ -33,7 +33,7 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
+server/node_modules/
 jspm_packages/
 
 # Optional npm cache directory
@@ -92,3 +92,4 @@ coverage
 
 # Benchmarking
 benchmarks/graphs
+.gitignore

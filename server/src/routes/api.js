@@ -1,5 +1,5 @@
 const express = require('express');
-const { sanitize, body, validationResult } = require('express-validator');
+const { check, body, validationResult } = require('express-validator');
 const guestsController = require('../controllers/guests');
 const {
   allGuests,
@@ -32,7 +32,7 @@ router.post('/guests', [
   body(['firstName', 'lastName'], 'First Name or Last Name are not defined')
     .isAlpha()
     .optional(),
-  sanitize(['firstName', 'lastName']).trim(),
+  check(['firstName', 'lastName']).trim(),
   body('checkinDate', 'Check-in date is a required field')
     .exists(),
 ],
@@ -71,7 +71,7 @@ router.post('/sessions',
 //   body(['first_name', 'last_name'], 'First Name or Last Name are not defined')
 //     .isAlpha()
 //     .optional(),
-//   sanitize(['first_name', 'last_name']).trim(),
+//   check(['first_name', 'last_name']).trim(),
 //   body('check_in_date', 'Check-in date is a required field')
 //     .exists(),
 // ],
@@ -92,7 +92,7 @@ router.put('/sessions/guest',
 //   body(['first_name', 'last_name'], 'First Name or Last Name are not defined')
 //     .isAlpha()
 //     .optional(),
-//   sanitize(['first_name', 'last_name']).trim(),
+//   check(['first_name', 'last_name']).trim(),
 //   body('check_in_date', 'Check-in date is a required field')
 //     .exists(),
 // ],
