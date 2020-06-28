@@ -1,4 +1,5 @@
 const express = require('express');
+const { allUsers } = require('../controllers/admin');
 
 const router = express.Router();
 
@@ -7,7 +8,9 @@ router.get('/', (req, res, next) => {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/admin/register', (req, res) => {
+router.get('/users', allUsers);
+
+router.post('/register', (req, res) => {
   const {
     room, first_name, last_name, check_in_date, check_out_date,
   } = req.body;

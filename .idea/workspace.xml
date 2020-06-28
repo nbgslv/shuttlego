@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcbf4b53-f9c4-43a6-bc40-b42158207a99" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/Configurations/Permissions/Permissions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/util/admin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/db/adminDB.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/controllers/admin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/db/config/migrations/20200628104008_user_permissions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/services/admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Configurations/Permissions/Permissions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Configurations/Permissions/Permissions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/Admin/Configuration/General/General.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Admin/Configuration/General/General.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/knexfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/knexfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/db/adminDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/db/adminDB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/admin.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +67,7 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JavaScript&#10;CSS" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/.eslintrc" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -75,21 +81,22 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend" />
-      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego" />
-      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend\src\components\Forms\Register" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Owner\Desktop\Nachman\Coding\shuttle-go\server" />
+      <recent name="C:\Users\Owner\Desktop\Nachman\Coding\shuttle-go\server\src\db\config" />
       <recent name="C:\Users\Owner\Desktop\Nachman\Coding\shuttle-go\client\src\components\Configurations\Permissions" />
       <recent name="C:\Users\Owner\Desktop\Nachman\Coding\shuttle-go" />
       <recent name="C:\Users\Owner\WebstormProjects\shuttlego\frontend\src\components\Configurations" />
-      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend\src\containers\Admin" />
-      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\src\db\config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Owner\Desktop\Nachman\Coding\shuttle-go\server" />
+      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend" />
+      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego" />
+      <recent name="C:\Users\nbgsl\WebstormProjects\shuttlego\frontend\src\components\Forms\Register" />
     </key>
   </component>
   <component name="RunManager">
@@ -161,7 +168,8 @@
       <workItem from="1574707749933" duration="1116000" />
       <workItem from="1574803249621" duration="11479000" />
       <workItem from="1575655319561" duration="7977000" />
-      <workItem from="1593060281764" duration="8421000" />
+      <workItem from="1593060281764" duration="9491000" />
+      <workItem from="1593320362990" duration="10589000" />
     </task>
     <servers />
   </component>
@@ -202,30 +210,30 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1242" height="169" key="GridCell.Tab.0.bottom" timestamp="1593063634631">
+    <state width="1242" height="169" key="GridCell.Tab.0.bottom" timestamp="1593075196846">
       <screen x="0" y="0" width="1280" height="728" />
     </state>
-    <state width="1242" height="169" key="GridCell.Tab.0.bottom/0.0.1280.728@0.0.1280.728" timestamp="1593063634631" />
-    <state width="1242" height="169" key="GridCell.Tab.0.center" timestamp="1593063634631">
+    <state width="1242" height="169" key="GridCell.Tab.0.bottom/0.0.1280.728@0.0.1280.728" timestamp="1593075196846" />
+    <state width="1242" height="169" key="GridCell.Tab.0.center" timestamp="1593075196846">
       <screen x="0" y="0" width="1280" height="728" />
     </state>
-    <state width="1242" height="169" key="GridCell.Tab.0.center/0.0.1280.728@0.0.1280.728" timestamp="1593063634631" />
-    <state width="1242" height="169" key="GridCell.Tab.0.left" timestamp="1593063634631">
+    <state width="1242" height="169" key="GridCell.Tab.0.center/0.0.1280.728@0.0.1280.728" timestamp="1593075196846" />
+    <state width="1242" height="169" key="GridCell.Tab.0.left" timestamp="1593075196846">
       <screen x="0" y="0" width="1280" height="728" />
     </state>
-    <state width="1242" height="169" key="GridCell.Tab.0.left/0.0.1280.728@0.0.1280.728" timestamp="1593063634631" />
-    <state width="1242" height="169" key="GridCell.Tab.0.right" timestamp="1593063634631">
+    <state width="1242" height="169" key="GridCell.Tab.0.left/0.0.1280.728@0.0.1280.728" timestamp="1593075196846" />
+    <state width="1242" height="169" key="GridCell.Tab.0.right" timestamp="1593075196846">
       <screen x="0" y="0" width="1280" height="728" />
     </state>
-    <state width="1242" height="169" key="GridCell.Tab.0.right/0.0.1280.728@0.0.1280.728" timestamp="1593063634631" />
-    <state x="141" y="9" key="SettingsEditor" timestamp="1593060306120">
+    <state width="1242" height="169" key="GridCell.Tab.0.right/0.0.1280.728@0.0.1280.728" timestamp="1593075196846" />
+    <state x="141" y="9" key="SettingsEditor" timestamp="1593321875543">
       <screen x="0" y="0" width="1280" height="728" />
     </state>
-    <state x="141" y="9" key="SettingsEditor/0.0.1280.728@0.0.1280.728" timestamp="1593060306120" />
-    <state x="347" y="97" width="585" height="534" key="find.popup" timestamp="1593063824505">
+    <state x="141" y="9" key="SettingsEditor/0.0.1280.728@0.0.1280.728" timestamp="1593321875543" />
+    <state x="347" y="97" width="585" height="566" key="find.popup" timestamp="1593326206992">
       <screen x="0" y="0" width="1280" height="728" />
     </state>
-    <state x="347" y="97" width="585" height="534" key="find.popup/0.0.1280.728@0.0.1280.728" timestamp="1593063824505" />
+    <state x="347" y="97" width="585" height="566" key="find.popup/0.0.1280.728@0.0.1280.728" timestamp="1593326206992" />
     <state x="402" y="150" key="git4idea.ui.GitUnstashDialog" timestamp="1592986667334">
       <screen x="0" y="0" width="1280" height="728" />
     </state>

@@ -8,6 +8,7 @@ import { GuestEditSession } from '../../../../components/Configurations/GuestEdi
 import { RequiredGuestFields } from '../../../../components/Configurations/RequiredGuestFields/RequiredGuestFields';
 import { ShuttleTimes } from '../../../../components/Configurations/ShuttleTimes/ShuttleTimes';
 import {AlertMessages} from "../../../../components/Configurations/AlertMessages/AlertMessages";
+import Permissions from "../../../../components/Configurations/Permissions/Permissions";
 
 const mapStateToProps = state => ({
   sessionTimeDefaultType: state.forms.generalConfig.sessionTimeDefaultType,
@@ -58,6 +59,7 @@ const general = (props) => {
         </Control.select>
         <ShuttleTimes type={shuttleTimes} />
         <AlertMessages />
+        <Permissions />
       </Form>
     </Container>
   );

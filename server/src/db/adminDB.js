@@ -9,9 +9,11 @@ const userCol = [
   { permissions: 'users.permissions' },
 ];
 
-export const getAllUsers = callback => {
+const getAllUsersDB = callback => {
   db
     .select(userCol)
     .from('users')
     .then(users => callback(users));
 };
+
+module.exports = { getAllUsersDB };
