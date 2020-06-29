@@ -1,5 +1,5 @@
 
-exports.up = function(knex) {
+exports.up = function (knex) {
   return Promise.all([
     knex.schema
       .createTable('user_permissions', (table) => {
@@ -20,11 +20,13 @@ exports.up = function(knex) {
   ]);
 };
 
-exports.down = function(knex) {
-  knex.schema.dropTable('user_permissions');
-  knex.schema.table('users', (table) => {
-    table.integer('permissions')
-      .references('permission_id')
-      .inTable('permissions');
-  });
+exports.down = function (knex) {
+  return Promise.all([
+    knex.schema.dropTable('user_permissions'),
+    knex.schema.table('users', (table) => {
+      table.integer('permissions')
+        .references('permission_id')
+        .inTable('permissions');
+    }),
+  ]);
 };

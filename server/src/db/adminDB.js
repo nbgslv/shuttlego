@@ -6,14 +6,38 @@ const userCol = [
   { email: 'users.email' },
   { phoneNumber: 'users.phone_number' },
   { active: 'users.active' },
-  { permissions: 'users.permissions' },
 ];
 
-const getAllUsersDB = callback => {
+const getAllUsersDB = (callback) => {
   db
     .select(userCol)
     .from('users')
     .then(users => callback(users));
 };
 
-module.exports = { getAllUsersDB };
+const getUserPermissionsDB = (userId, callback) => {
+  db
+    .select({
+      permissionsId: 'user_permissions.user_permissions_id',
+      userId: 'user_permissions.user_id',
+      permissionId: 'user_permissions.permission_id',
+      permissionName: 'permissions.permission_name',
+      active: 'permissions.active',
+    })
+    .from('user_permissions')
+    .join('permissions', 'user_permissions.permission_id', '=', 'permissions.permission_id')
+    .then(permissions => callback(permissions));
+};
+
+const getPermissionsDB = (callback) => {
+  db
+    .select({
+      permissionId: 'permissions.permission_id',
+      permissionName: 'permissions.permission_name',
+      active: 'permissions.active',
+    })
+    .from('permissions')
+    .then(permissions => callback(permissions));
+};
+
+module.exports = { getAllUsersDB, getUserPermissionsDB, getPermissionsDB };
