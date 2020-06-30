@@ -22,11 +22,13 @@ const getUserPermissions = async (userId, callback) => {
 
 const getPermissions = async (callback) => {
   try {
-    return await getPermissionsDB((callback) => {
-
-    })
+    return await getPermissionsDB((permissions) => {
+      callback(permissions);
+    });
+  } catch (e) {
+    throw new Error(e);
   }
-}
+};
 
 
-module.exports = { getAllUsers, getUserPermissions };
+module.exports = { getAllUsers, getUserPermissions, getPermissions };

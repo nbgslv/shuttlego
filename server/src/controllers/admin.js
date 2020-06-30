@@ -1,4 +1,4 @@
-const { getAllUsers, getUserPermissions } = require('../services/admin');
+const { getAllUsers, getUserPermissions, getPermissions } = require('../services/admin');
 
 const allUsers = async (req, res, next) => {
   try {
@@ -29,4 +29,18 @@ const userPermissions = async (req, res, next) => {
   }
 };
 
-module.exports = { allUsers, userPermissions };
+const permissions = async (req, res, next) => {
+  try {
+    await getPermissions((permissions) => {
+      res
+        .json(permissions);
+    });
+  } catch (e) {
+    console.log(e);
+    res
+      .status(400)
+      .json({ error: e });
+  }
+};
+
+module.exports = { allUsers, userPermissions, permissions };

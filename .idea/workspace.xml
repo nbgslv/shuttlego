@@ -5,8 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Configurations/Permissions/Permissions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Configurations/Permissions/Permissions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/controllers/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/db/adminDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/db/adminDB.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/db/config/migrations/20200628104008_user_permissions.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/db/config/migrations/20200628104008_user_permissions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/services/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/admin.js" afterDir="false" />
     </list>
@@ -32,6 +30,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="SOFT" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
   </component>
   <component name="JsBowerSettings">
     <node-interpreter value="project" />
@@ -167,7 +168,9 @@
       <workItem from="1575655319561" duration="7977000" />
       <workItem from="1593060281764" duration="9491000" />
       <workItem from="1593320362990" duration="10639000" />
-      <workItem from="1593405899939" duration="11706000" />
+      <workItem from="1593405899939" duration="11950000" />
+      <workItem from="1593491561073" duration="1210000" />
+      <workItem from="1593498731817" duration="4246000" />
     </task>
     <servers />
   </component>
@@ -208,6 +211,10 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
+    <state x="232" y="5" key="#Plugins" timestamp="1593500555939">
+      <screen x="0" y="0" width="1280" height="728" />
+    </state>
+    <state x="232" y="5" key="#Plugins/0.0.1280.728@0.0.1280.728" timestamp="1593500555939" />
     <state width="1242" height="169" key="GridCell.Tab.0.bottom" timestamp="1593075196846">
       <screen x="0" y="0" width="1280" height="728" />
     </state>

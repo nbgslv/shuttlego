@@ -1,5 +1,5 @@
 const express = require('express');
-const { allUsers, userPermissions } = require('../controllers/admin');
+const { allUsers, userPermissions, permissions } = require('../controllers/admin');
 
 const router = express.Router();
 
@@ -11,5 +11,7 @@ router.get('/', (req, res, next) => {
 router.get('/users', allUsers);
 
 router.post('/users/permissions', userPermissions);
+
+router.get('/users/permissions', permissions);
 
 module.exports = router;
