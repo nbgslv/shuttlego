@@ -60,7 +60,7 @@ const Permissions = () => {
                 <MenuItem key={permission.permissionsId} value={permission.permissionsId}>
                   <Checkbox
                     checked={
-                      userPermissions.map(
+                      userPermissions.find(
                       userPermission => {
                         return permission.permissionId === userPermission.permissionId;
                       }
